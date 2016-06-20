@@ -33,7 +33,7 @@ menu:
   #about: /about
   archives: /archives
   tags: /tags
-  commonweal: /404.html
+  #commonweal: /404.html
 
 
 # Enable/Disable menu icons.
@@ -123,8 +123,6 @@ font:
 social:
   GitHub: https://github.com/yujintang
   微博: http://weibo.com/13foryou
-  豆瓣: http://douban.com/people/your-user-name
-  知乎: http://www.zhihu.com/people/your-user-name
 
 
 # Social Links Icons
