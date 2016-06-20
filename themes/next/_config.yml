@@ -179,9 +179,9 @@ sidebar:
 # Blogrolls
 #links_title: Links
 #links_layout: block
-#links_layout: inline
-#links:
-  #Title: http://example.com/
+links_layout: inline
+links:
+  百度: http://baidu.com/
 
 
 # ---------------------------------------------------------------
