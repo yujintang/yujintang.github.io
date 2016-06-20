@@ -1,7 +1,7 @@
 ---
 title: lodash基本使用
 date: 2016-06-20 11:37:37
-tags:
+tags: lodash
 ---
 >[参考地址](http://lodashjs.com/docs/)
 
