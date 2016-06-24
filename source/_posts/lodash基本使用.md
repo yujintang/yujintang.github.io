@@ -8,19 +8,34 @@ tags: lodash
 ***
 ###    _.merge    合并对象 
 ```code
-_.mapValues({ 'a': 1, 'b': 2 }, function(n) {
-  return n * 3;
-});
-// => { 'a': 3, 'b': 6 }
-
 var users = {
-  'fred':    { 'user': 'fred',    'age': 40 },
-  'pebbles': { 'user': 'pebbles', 'age': 1 }
+  'data': [{ 'user': 'barney' }, { 'user': 'fred' }]
 };
 
-// using the `_.property` callback shorthand
-_.mapValues(users, 'age');
-// => { 'fred': 40, 'pebbles': 1 } (iteration order is not guaranteed)
+var ages = {
+  'data': [{ 'age': 36 }, { 'age': 40 }]
+};
+
+_.merge(users, ages);
+// => { 'data': [{ 'user': 'barney', 'age': 36 }, { 'user': 'fred', 'age': 40 }] }
+
+// using a customizer callback
+var object = {
+  'fruits': ['apple'],
+  'vegetables': ['beet']
+};
+
+var other = {
+  'fruits': ['banana'],
+  'vegetables': ['carrot']
+};
+
+_.merge(object, other, function(a, b) {
+  if (_.isArray(a)) {
+    return a.concat(b);
+  }
+});
+// => { 'fruits': ['apple', 'banana'], 'vegetables': ['beet', 'carrot'] }
 ```
 ###    _.omit  从对象中删除某个属性 
 ```code
