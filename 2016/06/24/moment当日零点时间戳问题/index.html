@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="疑难杂症," />
 
 
 
@@ -84,15 +84,19 @@
 
 
 
-<meta name="description" content="靡不有初,鲜克有终">
-<meta property="og:type" content="website">
-<meta property="og:title" content="技术分享">
-<meta property="og:url" content="https://yujintang.github.io/tags/Node-js/index.html">
+<meta name="description" content="moment.js 获取零点时间戳
+moment 官方网站1234let now = moment().format(&amp;apos;YYYY-MM-DD&amp;apos;);let zero = moment(now).format(&amp;apos;YYYY-MM-DD HH:mm:ss&amp;apos;);let today = moment(zero).toDate().getTime();let yester">
+<meta property="og:type" content="article">
+<meta property="og:title" content="moment当日零点时间戳问题">
+<meta property="og:url" content="https://yujintang.github.io/2016/06/24/moment当日零点时间戳问题/index.html">
 <meta property="og:site_name" content="技术分享">
-<meta property="og:description" content="靡不有初,鲜克有终">
+<meta property="og:description" content="moment.js 获取零点时间戳
+moment 官方网站1234let now = moment().format(&amp;apos;YYYY-MM-DD&amp;apos;);let zero = moment(now).format(&amp;apos;YYYY-MM-DD HH:mm:ss&amp;apos;);let today = moment(zero).toDate().getTime();let yester">
+<meta property="og:updated_time" content="2016-06-24T05:56:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="技术分享">
-<meta name="twitter:description" content="靡不有初,鲜克有终">
+<meta name="twitter:title" content="moment当日零点时间戳问题">
+<meta name="twitter:description" content="moment.js 获取零点时间戳
+moment 官方网站1234let now = moment().format(&amp;apos;YYYY-MM-DD&amp;apos;);let zero = moment(now).format(&amp;apos;YYYY-MM-DD HH:mm:ss&amp;apos;);let today = moment(zero).toDate().getTime();let yester">
 
 
 
@@ -113,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="https://yujintang.github.io/tags/Node-js/"/>
+  <link rel="canonical" href="https://yujintang.github.io/2016/06/24/moment当日零点时间戳问题/"/>
 
-  <title> 标签: Node.js | 技术分享 </title>
+  <title> moment当日零点时间戳问题 | 技术分享 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -146,7 +150,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -247,46 +251,160 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Node.js
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                moment当日零点时间戳问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-24T13:48:47+08:00" content="2016-06-24">
+              2016-06-24
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/24/moment当日零点时间戳问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/24/moment当日零点时间戳问题/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/24/moment当日零点时间戳问题/" class="leancloud_visitors" data-flag-title="moment当日零点时间戳问题">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h2 id="moment-js-获取零点时间戳"><a href="#moment-js-获取零点时间戳" class="headerlink" title="moment.js 获取零点时间戳"></a>moment.js 获取零点时间戳</h2><blockquote>
+<p><a href="http://momentjs.cn/docs/" target="_blank" rel="external">moment 官方网站</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let now = moment().format(&apos;YYYY-MM-DD&apos;);</span><br><span class="line">let zero = moment(now).format(&apos;YYYY-MM-DD HH:mm:ss&apos;);</span><br><span class="line">let today = moment(zero).toDate().getTime();</span><br><span class="line">let yesterday = moment(today).subtract(1, &apos;days&apos;).format(&apos;x&apos;);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/06/20/sequelize的基本使用/" itemprop="url">
-              
-                <span itemprop="name">sequelize的基本使用</span>
-              
-            </a>
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat.jpg" alt="flynn WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/apipay.jpg" alt="flynn Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-20T17:22:13+08:00"
-              content="2016-06-20" >
-          06-20
-        </time>
-      </div>
 
-    </header>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/疑难杂症/" rel="tag">#疑难杂症</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/20/sequelize的基本使用/" rel="next" title="sequelize的基本使用">
+                <i class="fa fa-chevron-left"></i> sequelize的基本使用
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -294,6 +412,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/24/moment当日零点时间戳问题/"
+           data-title="moment当日零点时间戳问题" data-url="https://yujintang.github.io/2016/06/24/moment当日零点时间戳问题/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -313,8 +439,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -391,6 +526,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#moment-js-获取零点时间戳"><span class="nav-number">1.</span> <span class="nav-text">moment.js 获取零点时间戳</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -494,6 +640,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

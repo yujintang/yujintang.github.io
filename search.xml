@@ -4,6 +4,15 @@
   
     
     <entry>
+      <title><![CDATA[moment当日零点时间戳问题]]></title>
+      <url>https://yujintang.github.io/2016/06/24/moment%E5%BD%93%E6%97%A5%E9%9B%B6%E7%82%B9%E6%97%B6%E9%97%B4%E6%88%B3%E9%97%AE%E9%A2%98/</url>
+      <content type="html"><![CDATA[<h2 id="moment-js-获取零点时间戳"><a href="#moment-js-获取零点时间戳" class="headerlink" title="moment.js 获取零点时间戳"></a>moment.js 获取零点时间戳</h2><blockquote>
+<p><a href="http://momentjs.cn/docs/" target="_blank" rel="external">moment 官方网站</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let now = moment().format(&apos;YYYY-MM-DD&apos;);</span><br><span class="line">let zero = moment(now).format(&apos;YYYY-MM-DD HH:mm:ss&apos;);</span><br><span class="line">let today = moment(zero).toDate().getTime();</span><br><span class="line">let yesterday = moment(today).subtract(1, &apos;days&apos;).format(&apos;x&apos;);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[sequelize的基本使用]]></title>
       <url>https://yujintang.github.io/2016/06/20/sequelize%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
       <content type="html"><![CDATA[<blockquote>
