@@ -3,7 +3,7 @@ title: makedown使用
 date: 2016-06-24 15:46:53
 tags: makedown
 ---
-###makedown 语法
+### makedown 语法
 ```
 1. 分段： 两个回车
 2. 换行 两个空格 + 回车
@@ -18,3 +18,5 @@ tags: makedown
 ```
 ### 工具：
 > 推荐typora  ***[下载地址] (http://www.typora.io/)***
+>
+> 
