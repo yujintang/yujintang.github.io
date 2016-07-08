@@ -3,13 +3,12 @@
 echo 'start git push origin hexo ......'
 
 comment=
-if [ ! -n "$1" ];then
+if [ ! -n "$1" ]
+then
 comment="add_article"
 else
 comment=$1 
 fi
-echo "_______@@@"
-echo $comment
 
 hexo clean
 git checkout hexo
