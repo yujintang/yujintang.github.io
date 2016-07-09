@@ -92,13 +92,13 @@ Error: Module version mismatch. Expected 问题升级Node后，有些项目会�
 <meta property="og:site_name" content="技术分享">
 <meta property="og:description" content="v8debug is not definedNode 升级到6.2.2后，使用webstorm会报这个错误，下面是解决方案在Node parameters 下填写：1--expose_debug_as=v8debug
 Error: Module version mismatch. Expected 问题升级Node后，有些项目会报这个错误，直接更新一下模块就好12$ rm -rf node_mod">
-<meta property="og:image" content="https://yujintang.github.io/img/v8Debug1.png">
-<meta property="og:updated_time" content="2016-07-09T07:40:34.000Z">
+<meta property="og:image" content="https://yujintang.github.io/./img/v8Debug1.png">
+<meta property="og:updated_time" content="2016-07-09T07:42:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="v8debug is not defined问题">
 <meta name="twitter:description" content="v8debug is not definedNode 升级到6.2.2后，使用webstorm会报这个错误，下面是解决方案在Node parameters 下填写：1--expose_debug_as=v8debug
 Error: Module version mismatch. Expected 问题升级Node后，有些项目会报这个错误，直接更新一下模块就好12$ rm -rf node_mod">
-<meta name="twitter:image" content="https://yujintang.github.io/img/v8Debug1.png">
+<meta name="twitter:image" content="https://yujintang.github.io/./img/v8Debug1.png">
 
 
 
@@ -330,7 +330,7 @@ Error: Module version mismatch. Expected 问题升级Node后，有些项目会�
       
 
       
-        <h3 id="v8debug-is-not-defined"><a href="#v8debug-is-not-defined" class="headerlink" title="v8debug is not defined"></a>v8debug is not defined</h3><p><em>Node 升级到6.2.2后，使用webstorm会报这个错误，下面是解决方案</em><br><img src="/img/v8Debug1.png" alt="修改内容"><br>在Node parameters 下填写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--expose_debug_as=v8debug</div></pre></td></tr></table></figure></p>
+        <h3 id="v8debug-is-not-defined"><a href="#v8debug-is-not-defined" class="headerlink" title="v8debug is not defined"></a>v8debug is not defined</h3><p><em>Node 升级到6.2.2后，使用webstorm会报这个错误，下面是解决方案</em><br><img src="./img/v8Debug1.png" alt="修改内容"><br>在Node parameters 下填写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--expose_debug_as=v8debug</div></pre></td></tr></table></figure></p>
 <h3 id="Error-Module-version-mismatch-Expected-问题"><a href="#Error-Module-version-mismatch-Expected-问题" class="headerlink" title="Error: Module version mismatch. Expected 问题"></a>Error: Module version mismatch. Expected 问题</h3><p><em>升级Node后，有些项目会报这个错误，直接更新一下模块就好</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ rm -rf node_modules/</div><div class="line">$ npm update</div></pre></td></tr></table></figure></p>
 <h3 id="n模块版本管理"><a href="#n模块版本管理" class="headerlink" title="n模块版本管理"></a>n模块版本管理</h3><p><em>还有就是一些框架不支持Node最新版本，使用n模块进行Nodejs版本管理是个不错的方法</em><br>1.安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo npm install -g n</div></pre></td></tr></table></figure></p>
 <p>2.查看现有版本  (可以上下键选择版本号)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ n</div></pre></td></tr></table></figure></p>
