@@ -4,22 +4,25 @@ date: 2016-07-09 10:10:47
 tags: 疑难杂症
 ---
 
-#### v8debug is not defined
+
+### v8debug is not defined
 *Node 升级到6.2.2后，使用webstorm会报这个错误，下面是解决方案*
-![修改内容](./picture/v8Debug.png)
+![修改内容](./img/v8Debug1.png)
 在Node parameters 下填写：
 ```    code
 --expose_debug_as=v8debug
 ```
 
-#### Error: Module version mismatch. Expected 问题
+
+### Error: Module version mismatch. Expected 问题
 *升级Node后，有些项目会报这个错误，直接更新一下模块就好*
 ````    shell
 $ rm -rf node_modules/
 $ npm update
 ````
 
-#### n模块版本管理
+
+### n模块版本管理
 *还有就是一些框架不支持Node最新版本，使用n模块进行Nodejs版本管理是个不错的方法*
 1.安装
 ````    shell
