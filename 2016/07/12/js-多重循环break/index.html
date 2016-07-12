@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="js," />
 
 
 
@@ -84,15 +84,16 @@
 
 
 
-<meta name="description" content="靡不有初,鲜克有终">
-<meta property="og:type" content="website">
-<meta property="og:title" content="技术分享">
-<meta property="og:url" content="https://yujintang.github.io/archives/2016/index.html">
+<meta name="description" content="多重跳转break问题给for循环命名，break 后面跟名字，就会跳出该层循环。12345678910&amp;apos;use strict&amp;apos;;outer:    for(let i = 0; i&amp;lt;= 6; i++) &amp;#123;    for(let j = 0; j&amp;lt;= 10; j++) &amp;#123;        if(j == 2) &amp;#123;            b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js 多重循环break">
+<meta property="og:url" content="https://yujintang.github.io/2016/07/12/js-多重循环break/index.html">
 <meta property="og:site_name" content="技术分享">
-<meta property="og:description" content="靡不有初,鲜克有终">
+<meta property="og:description" content="多重跳转break问题给for循环命名，break 后面跟名字，就会跳出该层循环。12345678910&amp;apos;use strict&amp;apos;;outer:    for(let i = 0; i&amp;lt;= 6; i++) &amp;#123;    for(let j = 0; j&amp;lt;= 10; j++) &amp;#123;        if(j == 2) &amp;#123;            b">
+<meta property="og:updated_time" content="2016-07-12T08:35:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="技术分享">
-<meta name="twitter:description" content="靡不有初,鲜克有终">
+<meta name="twitter:title" content="js 多重循环break">
+<meta name="twitter:description" content="多重跳转break问题给for循环命名，break 后面跟名字，就会跳出该层循环。12345678910&amp;apos;use strict&amp;apos;;outer:    for(let i = 0; i&amp;lt;= 6; i++) &amp;#123;    for(let j = 0; j&amp;lt;= 10; j++) &amp;#123;        if(j == 2) &amp;#123;            b">
 
 
 
@@ -113,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="https://yujintang.github.io/archives/2016/"/>
+  <link rel="canonical" href="https://yujintang.github.io/2016/07/12/js-多重循环break/"/>
 
-  <title> 归档 | 技术分享 </title>
+  <title> js 多重循环break | 技术分享 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -146,7 +147,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -247,399 +248,159 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 10 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                js 多重循环break
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-12T16:28:10+08:00" content="2016-07-12">
+              2016-07-12
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/12/js-多重循环break/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/12/js-多重循环break/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/12/js-多重循环break/" class="leancloud_visitors" data-flag-title="js 多重循环break">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <h4 id="多重跳转break问题"><a href="#多重跳转break问题" class="headerlink" title="多重跳转break问题"></a>多重跳转break问题</h4><p>给for循环命名，break 后面跟名字，就会跳出该层循环。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&apos;use strict&apos;;</div><div class="line">outer:</div><div class="line">    for(let i = 0; i&lt;= 6; i++) &#123;</div><div class="line">    for(let j = 0; j&lt;= 10; j++) &#123;</div><div class="line">        if(j == 2) &#123;</div><div class="line">            break outer;</div><div class="line">        &#125;</div><div class="line">        console.log(&apos;i=&apos; + i + &apos;; j = &apos; + j);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>#####结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">i=0; j = 0</div><div class="line">i=0; j = 1</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat.jpg" alt="flynn WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
       
       
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/apipay.jpg" alt="flynn Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
+    </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag">#js</a>
+          
+        </div>
+      
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/12/js-多重循环break/" itemprop="url">
-              
-                <span itemprop="name">js 多重循环break</span>
-              
-            </a>
-        
-      </h1>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/09/v8debug-is-not-defined问题/" rel="next" title="v8debug is not defined问题">
+                <i class="fa fa-chevron-left"></i> v8debug is not defined问题
+              </a>
+            
+          </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-12T16:28:10+08:00"
-              content="2016-07-12" >
-          07-12
-        </time>
-      </div>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/09/v8debug-is-not-defined问题/" itemprop="url">
-              
-                <span itemprop="name">v8debug is not defined问题</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-09T10:10:47+08:00"
-              content="2016-07-09" >
-          07-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/04/mkdir-p-参数的作用/" itemprop="url">
-              
-                <span itemprop="name">mkdir -p 参数的作用</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-04T11:09:41+08:00"
-              content="2016-07-04" >
-          07-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/28/ssh超时处理/" itemprop="url">
-              
-                <span itemprop="name">ssh超时处理</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-28T15:43:04+08:00"
-              content="2016-06-28" >
-          06-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/28/服务器互相验证－authorized-keys/" itemprop="url">
-              
-                <span itemprop="name">服务器互相验证－authorized_keys</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-28T10:44:02+08:00"
-              content="2016-06-28" >
-          06-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/24/makedown使用/" itemprop="url">
-              
-                <span itemprop="name">makedown使用</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-24T15:46:53+08:00"
-              content="2016-06-24" >
-          06-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/24/moment当日零点时间戳问题/" itemprop="url">
-              
-                <span itemprop="name">moment当日零点时间戳问题</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-24T13:48:47+08:00"
-              content="2016-06-24" >
-          06-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/20/sequelize的基本使用/" itemprop="url">
-              
-                <span itemprop="name">sequelize的基本使用</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-20T17:22:13+08:00"
-              content="2016-06-20" >
-          06-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/20/post传递数组问题/" itemprop="url">
-              
-                <span itemprop="name">post传递数组问题</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-20T17:10:53+08:00"
-              content="2016-06-20" >
-          06-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/20/lodash基本使用/" itemprop="url">
-              
-                <span itemprop="name">lodash基本使用</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-20T11:37:37+08:00"
-              content="2016-06-20" >
-          06-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-
+    </div>
+  </div>
 
 
           </div>
@@ -647,6 +408,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/12/js-多重循环break/"
+           data-title="js 多重循环break" data-url="https://yujintang.github.io/2016/07/12/js-多重循环break/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -666,8 +435,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -744,6 +522,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#多重跳转break问题"><span class="nav-number">1.</span> <span class="nav-text">多重跳转break问题</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -847,11 +636,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
