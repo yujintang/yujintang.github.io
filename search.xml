@@ -4,6 +4,15 @@
   
     
     <entry>
+      <title><![CDATA[js的prototype与apply讲解]]></title>
+      <url>https://yujintang.github.io/2016/07/22/js%E7%9A%84prototype%E4%B8%8Eapply%E8%AE%B2%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">animal</span>(<span class="params">leg</span>) </span>&#123; <span class="comment">//animal类</span></div><div class="line">    <span class="keyword">this</span>.name = <span class="string">'animal'</span>;</div><div class="line">    <span class="keyword">this</span>.legNum = leg;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">chook</span>(<span class="params">leg</span>) </span>&#123;  <span class="comment">//chook类</span></div><div class="line">    <span class="comment">//this.name = 'chook';  //若提前,则会被animal.name 覆盖</span></div><div class="line">    animal.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>); <span class="comment">//继承animal</span></div><div class="line">    <span class="keyword">this</span>.name = <span class="string">'chook'</span>;</div><div class="line">&#125;;</div><div class="line">chook.prototype.friend = <span class="string">'dog'</span>;</div><div class="line"><span class="keyword">var</span> xx = <span class="keyword">new</span> chook(<span class="number">2</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(xx); <span class="comment">//chook &#123; name: 'chook', legNum: 2 &#125;</span></div><div class="line"><span class="built_in">console</span>.log(xx.__proto__);  <span class="comment">//chook &#123; friend: 'dog' &#125;</span></div><div class="line"><span class="built_in">console</span>.log(chook.prototype);  <span class="comment">//chook &#123; friend: 'dog'&#125;</span></div></pre></td></tr></table></figure>
+<hr>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[PostgreSQL 索引以及时间戳问题]]></title>
       <url>https://yujintang.github.io/2016/07/19/sql%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2%E6%B7%BB%E5%8A%A0idx%E5%BA%8F%E5%88%97%E8%A1%A8/</url>
       <content type="html"><![CDATA[<p><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/05/04/2294643.html" target="_blank" rel="external">链接</a></p>

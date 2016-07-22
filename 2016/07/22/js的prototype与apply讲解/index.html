@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="疑难杂症," />
+  <meta name="keywords" content="js," />
 
 
 
@@ -84,22 +84,16 @@
 
 
 
-<meta name="description" content="ssh处理超时连接ssh远程连接，经常会发生一些超时的情况，调整ssh的两个配置内容，就可以讲自动超时问题解决
-编辑ssh配置文件1$ vim /etc/ssh/sshd_config
-修改配置内容1234567#ClientAliveInterval 0#ClientAliveCountMax 3修改为：ClientAliveInterval 60 //服务器端向客户的发送监测是否活跃消息的时间">
+<meta name="description" content="12345678910111213141516function animal(leg) &amp;#123; //animal类    this.name = &apos;animal&apos;;    this.legNum = leg;&amp;#125;;function chook(leg) &amp;#123;  //chook类    //this.name = &apos;chook&apos;;  //若提前,则会被animal.name">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ssh超时处理">
-<meta property="og:url" content="https://yujintang.github.io/2016/06/28/ssh超时处理/index.html">
+<meta property="og:title" content="js的prototype与apply讲解">
+<meta property="og:url" content="https://yujintang.github.io/2016/07/22/js的prototype与apply讲解/index.html">
 <meta property="og:site_name" content="技术分享">
-<meta property="og:description" content="ssh处理超时连接ssh远程连接，经常会发生一些超时的情况，调整ssh的两个配置内容，就可以讲自动超时问题解决
-编辑ssh配置文件1$ vim /etc/ssh/sshd_config
-修改配置内容1234567#ClientAliveInterval 0#ClientAliveCountMax 3修改为：ClientAliveInterval 60 //服务器端向客户的发送监测是否活跃消息的时间">
-<meta property="og:updated_time" content="2016-06-28T08:11:15.000Z">
+<meta property="og:description" content="12345678910111213141516function animal(leg) &amp;#123; //animal类    this.name = &apos;animal&apos;;    this.legNum = leg;&amp;#125;;function chook(leg) &amp;#123;  //chook类    //this.name = &apos;chook&apos;;  //若提前,则会被animal.name">
+<meta property="og:updated_time" content="2016-07-22T06:44:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ssh超时处理">
-<meta name="twitter:description" content="ssh处理超时连接ssh远程连接，经常会发生一些超时的情况，调整ssh的两个配置内容，就可以讲自动超时问题解决
-编辑ssh配置文件1$ vim /etc/ssh/sshd_config
-修改配置内容1234567#ClientAliveInterval 0#ClientAliveCountMax 3修改为：ClientAliveInterval 60 //服务器端向客户的发送监测是否活跃消息的时间">
+<meta name="twitter:title" content="js的prototype与apply讲解">
+<meta name="twitter:description" content="12345678910111213141516function animal(leg) &amp;#123; //animal类    this.name = &apos;animal&apos;;    this.legNum = leg;&amp;#125;;function chook(leg) &amp;#123;  //chook类    //this.name = &apos;chook&apos;;  //若提前,则会被animal.name">
 
 
 
@@ -120,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="https://yujintang.github.io/2016/06/28/ssh超时处理/"/>
+  <link rel="canonical" href="https://yujintang.github.io/2016/07/22/js的prototype与apply讲解/"/>
 
-  <title> ssh超时处理 | 技术分享 </title>
+  <title> js的prototype与apply讲解 | 技术分享 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -275,7 +269,7 @@
             
             
               
-                ssh超时处理
+                js的prototype与apply讲解
               
             
           </h1>
@@ -287,8 +281,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-28T15:43:04+08:00" content="2016-06-28">
-              2016-06-28
+            <time itemprop="dateCreated" datetime="2016-07-22T11:29:01+08:00" content="2016-07-22">
+              2016-07-22
             </time>
           </span>
 
@@ -298,8 +292,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/28/ssh超时处理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/28/ssh超时处理/" itemprop="commentsCount"></span>
+                <a href="/2016/07/22/js的prototype与apply讲解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/22/js的prototype与apply讲解/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -309,7 +303,7 @@
 
           
           
-             <span id="/2016/06/28/ssh超时处理/" class="leancloud_visitors" data-flag-title="ssh超时处理">
+             <span id="/2016/07/22/js的prototype与apply讲解/" class="leancloud_visitors" data-flag-title="js的prototype与apply讲解">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -331,13 +325,9 @@
       
 
       
-        <h3 id="ssh处理超时连接"><a href="#ssh处理超时连接" class="headerlink" title="ssh处理超时连接"></a>ssh处理超时连接</h3><p><em>ssh远程连接，经常会发生一些超时的情况，调整ssh的两个配置内容，就可以讲自动超时问题解决</em></p>
-<h4 id="编辑ssh配置文件"><a href="#编辑ssh配置文件" class="headerlink" title="编辑ssh配置文件"></a>编辑ssh配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim /etc/ssh/sshd_config</div></pre></td></tr></table></figure>
-<h4 id="修改配置内容"><a href="#修改配置内容" class="headerlink" title="修改配置内容"></a>修改配置内容</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#ClientAliveInterval 0</div><div class="line">#ClientAliveCountMax 3</div><div class="line"></div><div class="line">修改为：</div><div class="line"></div><div class="line">ClientAliveInterval 60 //服务器端向客户的发送监测是否活跃消息的时间间隔</div><div class="line">ClientAliveCountMax 3  //服务器可接受的客户端未响应次数</div></pre></td></tr></table></figure>
-<h4 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h4><blockquote>
-<p>os x<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo launchctl unload /System/Library/LaunchDaemons/ssh.plist </div><div class="line">sudo launchctl load /System/Library/LaunchDaemons/ssh.plist</div></pre></td></tr></table></figure></p>
-<p>linux<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ service sshd restart</div></pre></td></tr></table></figure></p>
-</blockquote>
+        <hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">animal</span>(<span class="params">leg</span>) </span>&#123; <span class="comment">//animal类</span></div><div class="line">    <span class="keyword">this</span>.name = <span class="string">'animal'</span>;</div><div class="line">    <span class="keyword">this</span>.legNum = leg;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">chook</span>(<span class="params">leg</span>) </span>&#123;  <span class="comment">//chook类</span></div><div class="line">    <span class="comment">//this.name = 'chook';  //若提前,则会被animal.name 覆盖</span></div><div class="line">    animal.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>); <span class="comment">//继承animal</span></div><div class="line">    <span class="keyword">this</span>.name = <span class="string">'chook'</span>;</div><div class="line">&#125;;</div><div class="line">chook.prototype.friend = <span class="string">'dog'</span>;</div><div class="line"><span class="keyword">var</span> xx = <span class="keyword">new</span> chook(<span class="number">2</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(xx); <span class="comment">//chook &#123; name: 'chook', legNum: 2 &#125;</span></div><div class="line"><span class="built_in">console</span>.log(xx.__proto__);  <span class="comment">//chook &#123; friend: 'dog' &#125;</span></div><div class="line"><span class="built_in">console</span>.log(chook.prototype);  <span class="comment">//chook &#123; friend: 'dog'&#125;</span></div></pre></td></tr></table></figure>
+<hr>
 
       
     </div>
@@ -380,7 +370,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/疑难杂症/" rel="tag">#疑难杂症</a>
+            <a href="/tags/js/" rel="tag">#js</a>
           
         </div>
       
@@ -389,17 +379,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/28/服务器互相验证－authorized-keys/" rel="next" title="服务器互相验证－authorized_keys">
-                <i class="fa fa-chevron-left"></i> 服务器互相验证－authorized_keys
+              <a href="/2016/07/19/sql数据库查询添加idx序列表/" rel="next" title="PostgreSQL 索引以及时间戳问题">
+                <i class="fa fa-chevron-left"></i> PostgreSQL 索引以及时间戳问题
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/04/mkdir-p-参数的作用/" rel="prev" title="mkdir -p 参数的作用">
-                mkdir -p 参数的作用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -425,8 +411,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/06/28/ssh超时处理/"
-           data-title="ssh超时处理" data-url="https://yujintang.github.io/2016/06/28/ssh超时处理/">
+      <div class="ds-thread" data-thread-key="2016/07/22/js的prototype与apply讲解/"
+           data-title="js的prototype与apply讲解" data-url="https://yujintang.github.io/2016/07/22/js的prototype与apply讲解/">
       </div>
     
   </div>
@@ -544,7 +530,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh处理超时连接"><span class="nav-number">1.</span> <span class="nav-text">ssh处理超时连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#编辑ssh配置文件"><span class="nav-number">1.1.</span> <span class="nav-text">编辑ssh配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改配置内容"><span class="nav-number">1.2.</span> <span class="nav-text">修改配置内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重启服务"><span class="nav-number">1.3.</span> <span class="nav-text">重启服务</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
