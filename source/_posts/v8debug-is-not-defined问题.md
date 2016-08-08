@@ -7,7 +7,7 @@ tags: 疑难杂症
 
 ### v8debug is not defined
 *Node 升级到6.2.2后，使用webstorm会报这个错误，下面是解决方案*
-![修改内容](./img/v8Debug1.png)
+![修改内容](v8Debug1.png)
 在Node parameters 下填写：
 ```    code
 --expose_debug_as=v8debug
