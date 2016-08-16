@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title><![CDATA[Process.nextTick与setlmmediate区别]]></title>
+      <url>https://yujintang.github.io/2016/08/15/Process-nextTick%E4%B8%8Esetlmmediate%E5%8C%BA%E5%88%AB/</url>
+      <content type="html"><![CDATA[<h2 id="setTimeout-与setInterVal-函数"><a href="#setTimeout-与setInterVal-函数" class="headerlink" title="setTimeout()与setInterVal()函数"></a>setTimeout()与setInterVal()函数</h2><ul>
+<li>setTimeout()与setInterVal() 区别在于执行次数</li>
+<li>setTimeout()只是将事件插入了”任务队列”，必须等到当前代码（执行栈）执行完，主线程才会去执行它指定的回调函数。要是当前代码耗时很长，有可能要等很久，所以并没有办法保证，回调函数一定会在setTimeout()指定的时间执行。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"> setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'0秒 setTimeout'</span>)</div><div class="line">&#125;, <span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'1'</span>);</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'1秒 setTimeout A'</span>)</div><div class="line">&#125;,<span class="number">1000</span>);</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'1秒 setTimeout B '</span>)</div><div class="line">&#125;,<span class="number">1000</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="number">3</span>);</div><div class="line"></div><div class="line"><span class="comment">//answer</span></div><div class="line"><span class="number">1</span></div><div class="line"><span class="number">3</span></div><div class="line"><span class="number">0</span>秒 setTimeout</div><div class="line"><span class="number">1</span>秒 setTimeout A</div><div class="line"><span class="number">1</span>秒 setTimeout B</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Process-nextTick-与setImmediate区别"><a href="#Process-nextTick-与setImmediate区别" class="headerlink" title="Process.nextTick 与setImmediate区别"></a>Process.nextTick 与setImmediate区别</h2><p><img src="1.jpeg" alt=""></p>
+<p>## </p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[使用nginx反向代理]]></title>
       <url>https://yujintang.github.io/2016/08/06/%E4%BD%BF%E7%94%A8nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</url>
       <content type="html"><![CDATA[<hr>
