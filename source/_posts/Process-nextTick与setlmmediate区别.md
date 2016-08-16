@@ -34,5 +34,3 @@ console.log(3);
 
 ## Process.nextTick 与setImmediate区别
 ![](1.jpeg)
-
-## 
