@@ -271,6 +271,123 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/09/v8debug-is-not-defined问题/" itemprop="url">
+                  v8debug is not defined问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-09T10:10:47+08:00" content="2016-07-09">
+              2016-07-09
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/09/v8debug-is-not-defined问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/09/v8debug-is-not-defined问题/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/09/v8debug-is-not-defined问题/" class="leancloud_visitors" data-flag-title="v8debug is not defined问题">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="v8debug-is-not-defined"><a href="#v8debug-is-not-defined" class="headerlink" title="v8debug is not defined"></a>v8debug is not defined</h3><p><em>Node 升级到6.2.2后，使用webstorm会报这个错误，下面是解决方案</em><br><img src="v8Debug1.png" alt="修改内容"><br>在Node parameters 下填写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--expose_debug_as=v8debug</div></pre></td></tr></table></figure></p>
+<h3 id="Error-Module-version-mismatch-Expected-问题"><a href="#Error-Module-version-mismatch-Expected-问题" class="headerlink" title="Error: Module version mismatch. Expected 问题"></a>Error: Module version mismatch. Expected 问题</h3><p><em>升级Node后，有些项目会报这个错误，直接更新一下模块就好</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ rm -rf node_modules/</div><div class="line">$ npm update</div></pre></td></tr></table></figure></p>
+<h3 id="n模块版本管理"><a href="#n模块版本管理" class="headerlink" title="n模块版本管理"></a>n模块版本管理</h3><p><em>还有就是一些框架不支持Node最新版本，使用n模块进行Nodejs版本管理是个不错的方法</em><br>1.安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo npm install -g n</div></pre></td></tr></table></figure></p>
+<p>2.查看现有版本  (可以上下键选择版本号)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ n</div></pre></td></tr></table></figure></p>
+<p>3.安装其它版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo n 4.4.7</div></pre></td></tr></table></figure></p>
+<p>4.安装稳定版或最新版<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo n stable 	//稳定版</div><div class="line">$ sudo n latest  	//最新版</div></pre></td></tr></table></figure></p>
+<p>5.删除某个版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ n rm 4.4.7</div></pre></td></tr></table></figure></p>
+<p>6.指定某个版本执行脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">n use 4.4.7 app.js</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/04/mkdir-p-参数的作用/" itemprop="url">
                   mkdir -p 参数的作用
                 </a>
@@ -1227,7 +1344,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
