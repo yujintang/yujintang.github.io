@@ -4,6 +4,22 @@
   
     
     <entry>
+      <title><![CDATA[Nodemon在webstorm的使用]]></title>
+      <url>https://yujintang.github.io/2016/08/18/Nodemon%E5%9C%A8webstorm%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+      <content type="html"><![CDATA[<p>[TOC]</p>
+<h2 id="nodemon在命令行的使用"><a href="#nodemon在命令行的使用" class="headerlink" title="nodemon在命令行的使用"></a>nodemon在命令行的使用</h2><h3 id="nodemon安装"><a href="#nodemon安装" class="headerlink" title="nodemon安装"></a>nodemon安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g nodemon</div></pre></td></tr></table></figure>
+<h3 id="命令行运行，代替node"><a href="#命令行运行，代替node" class="headerlink" title="命令行运行，代替node"></a>命令行运行，代替node</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodemon app.js</div></pre></td></tr></table></figure>
+<h3 id="可指定端口号，如果应用中没有指定的话"><a href="#可指定端口号，如果应用中没有指定的话" class="headerlink" title="可指定端口号，如果应用中没有指定的话"></a>可指定端口号，如果应用中没有指定的话</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodemon app.js localhost 3001</div></pre></td></tr></table></figure>
+<h3 id="debug-模式"><a href="#debug-模式" class="headerlink" title="debug 模式"></a>debug 模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodemon --debug app.js</div></pre></td></tr></table></figure>
+<h3 id="查看使用文档"><a href="#查看使用文档" class="headerlink" title="查看使用文档"></a>查看使用文档</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodemon -h</div></pre></td></tr></table></figure>
+<h2 id="nodemon-在webstorm中的使用"><a href="#nodemon-在webstorm中的使用" class="headerlink" title="nodemon 在webstorm中的使用"></a>nodemon 在webstorm中的使用</h2><h3 id="非debug模式，Node-parameters：修改：（mac下）"><a href="#非debug模式，Node-parameters：修改：（mac下）" class="headerlink" title="非debug模式，Node parameters：修改：（mac下）"></a>非debug模式，Node parameters：修改：（mac下）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/lib/node_modules/nodemon/bin/nodemon.js</div></pre></td></tr></table></figure>
+<p>()[2.jpeg]</p>
+<h3 id="debug模式，Node-parameters：修改：（mac下）"><a href="#debug模式，Node-parameters：修改：（mac下）" class="headerlink" title="debug模式，Node parameters：修改：（mac下）"></a>debug模式，Node parameters：修改：（mac下）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/lib/node_modules/nodemon/bin/nodemon.js --debug</div></pre></td></tr></table></figure>
+<p>()[1.jpeg]</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[git的使用]]></title>
       <url>https://yujintang.github.io/2016/08/16/git%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
       <content type="html"><![CDATA[<p><a href="https://gist.github.com/ergatea/646d0e7915e59b580bd58eb4015ada9e" target="_blank" rel="external">原地址入口</a><br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰教程</a></p>
