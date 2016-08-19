@@ -13,9 +13,9 @@
 <h3 id="debug-模式"><a href="#debug-模式" class="headerlink" title="debug 模式"></a>debug 模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodemon --debug app.js</div></pre></td></tr></table></figure>
 <h3 id="查看使用文档"><a href="#查看使用文档" class="headerlink" title="查看使用文档"></a>查看使用文档</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodemon -h</div></pre></td></tr></table></figure>
 <h2 id="nodemon-在webstorm中的使用"><a href="#nodemon-在webstorm中的使用" class="headerlink" title="nodemon 在webstorm中的使用"></a>nodemon 在webstorm中的使用</h2><h3 id="非debug模式，Node-parameters：修改：（mac下）"><a href="#非debug模式，Node-parameters：修改：（mac下）" class="headerlink" title="非debug模式，Node parameters：修改：（mac下）"></a>非debug模式，Node parameters：修改：（mac下）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/lib/node_modules/nodemon/bin/nodemon.js</div></pre></td></tr></table></figure>
-<p>()[2.jpeg]</p>
+<p><img src="2.jpeg" alt=""></p>
 <h3 id="debug模式，Node-parameters：修改：（mac下）"><a href="#debug模式，Node-parameters：修改：（mac下）" class="headerlink" title="debug模式，Node parameters：修改：（mac下）"></a>debug模式，Node parameters：修改：（mac下）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/lib/node_modules/nodemon/bin/nodemon.js --debug</div></pre></td></tr></table></figure>
-<p>()[1.jpeg]</p>
+<p><img src="1.jpeg" alt=""></p>
 ]]></content>
     </entry>
     
