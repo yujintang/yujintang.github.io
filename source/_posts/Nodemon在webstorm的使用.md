@@ -32,13 +32,13 @@ nodemon -h
 ```
 /usr/local/lib/node_modules/nodemon/bin/nodemon.js 
 ```
-()[2.jpeg]
+![](2.jpeg)
 
 ### debug模式，Node parameters：修改：（mac下）
 ```
 /usr/local/lib/node_modules/nodemon/bin/nodemon.js --debug
 ```
-()[1.jpeg]
+![](1.jpeg)
 
 
 
