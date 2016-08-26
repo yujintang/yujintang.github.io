@@ -95,7 +95,7 @@ setTimeout()只是将事件插入了”任务队列”，必须等到当前代�
 setTimeout()与setInterVal() 区别在于执行次数
 setTimeout()只是将事件插入了”任务队列”，必须等到当前代码（执行栈）执行完，主线程才会去执行它指定的回调函数。要是当前代码耗时很长，有可能要等很久，所以并没有办法保证，回调函数一定会在setTimeout()指定的时间执行。12345678910111213">
 <meta property="og:image" content="https://yujintang.github.io/1.jpeg">
-<meta property="og:updated_time" content="2016-08-16T06:24:40.000Z">
+<meta property="og:updated_time" content="2016-08-19T06:21:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Process.nextTick与setlmmediate区别">
 <meta name="twitter:description" content="setTimeout()与setInterVal()函数
@@ -339,6 +339,10 @@ setTimeout()只是将事件插入了”任务队列”，必须等到当前代�
 </li>
 </ul>
 <h2 id="Process-nextTick-与setImmediate区别"><a href="#Process-nextTick-与setImmediate区别" class="headerlink" title="Process.nextTick 与setImmediate区别"></a>Process.nextTick 与setImmediate区别</h2><p><img src="1.jpeg" alt=""></p>
+<h2 id="resolve的promise"><a href="#resolve的promise" class="headerlink" title="resolve的promise"></a>resolve的promise</h2><ul>
+<li>立即resolve的Promise对象，是在本轮“事件循环”（event loop）的结束时，而不是在下一轮“事件循环”的开始时。</li>
+<li>setTimeout(fn, 0)在下一轮“事件循环”开始时执行，Promise.resolve()在本轮“事件循环”结束时执行，console.log(’one‘)则是立即执行，因此最先输出。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'three'</span>);</div><div class="line">&#125;, <span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'two'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'one'</span>);</div><div class="line"></div><div class="line"><span class="comment">// one</span></div><div class="line"><span class="comment">// two</span></div><div class="line"><span class="comment">// three</span></div></pre></td></tr></table></figure></li>
+</ul>
 
       
     </div>
@@ -472,7 +476,7 @@ setTimeout()只是将事件插入了”任务队列”，必须等到当前代�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -482,7 +486,7 @@ setTimeout()只是将事件插入了”任务队列”，必须等到当前代�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -545,7 +549,7 @@ setTimeout()只是将事件插入了”任务队列”，必须等到当前代�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#setTimeout-与setInterVal-函数"><span class="nav-number">1.</span> <span class="nav-text">setTimeout()与setInterVal()函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Process-nextTick-与setImmediate区别"><span class="nav-number">2.</span> <span class="nav-text">Process.nextTick 与setImmediate区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#setTimeout-与setInterVal-函数"><span class="nav-number">1.</span> <span class="nav-text">setTimeout()与setInterVal()函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Process-nextTick-与setImmediate区别"><span class="nav-number">2.</span> <span class="nav-text">Process.nextTick 与setImmediate区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#resolve的promise"><span class="nav-number">3.</span> <span class="nav-text">resolve的promise</span></a></li></ol></div>
             
           </div>
         </section>

@@ -4,6 +4,38 @@
   
     
     <entry>
+      <title><![CDATA[linux下报 XXX 不在 sudoers 文件中。此事将被报告。]]></title>
+      <url>https://yujintang.github.io/2016/08/26/linux%E4%B8%8B%E6%8A%A5-XXX-%E4%B8%8D%E5%9C%A8-sudoers-%E6%96%87%E4%BB%B6%E4%B8%AD%E3%80%82%E6%AD%A4%E4%BA%8B%E5%B0%86%E8%A2%AB%E6%8A%A5%E5%91%8A%E3%80%82/</url>
+      <content type="html"><![CDATA[<h2 id="linux下新建账号，进行sudo-，报错"><a href="#linux下新建账号，进行sudo-，报错" class="headerlink" title="linux下新建账号，进行sudo ，报错"></a>linux下新建账号，进行sudo ，报错</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xxx 不在 sudoers 文件中。此事将被报告。</div></pre></td></tr></table></figure>
+<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><h4 id="切换到root"><a href="#切换到root" class="headerlink" title="切换到root"></a>切换到root</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">su -</div></pre></td></tr></table></figure>
+<h4 id="修改-etc-sudoers"><a href="#修改-etc-sudoers" class="headerlink" title="修改/etc/sudoers"></a>修改/etc/sudoers</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">vi /etc/sudoers</div><div class="line"></div><div class="line">## Allow root to run any commands anywhere</div><div class="line">root    ALL=(ALL)       ALL</div><div class="line">XXX ALL=(ALL)     ALL (新建行，将XXX修改为自己的user)</div></pre></td></tr></table></figure>
+<h4 id="修改sudoers的权限"><a href="#修改sudoers的权限" class="headerlink" title="修改sudoers的权限"></a>修改sudoers的权限</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod 740 /etc/sudoers</div></pre></td></tr></table></figure>
+<h2 id="成功"><a href="#成功" class="headerlink" title="成功"></a>成功</h2>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[mac下postgresql安装]]></title>
+      <url>https://yujintang.github.io/2016/08/23/mac%E4%B8%8Bpostgresql%E5%AE%89%E8%A3%85/</url>
+      <content type="html"><![CDATA[<h1 id="mac下，使用brew安装PostgreSQL"><a href="#mac下，使用brew安装PostgreSQL" class="headerlink" title="mac下，使用brew安装PostgreSQL"></a>mac下，使用brew安装PostgreSQL</h1><h2 id="1-安装PostgreSQL"><a href="#1-安装PostgreSQL" class="headerlink" title="1.安装PostgreSQL"></a>1.安装PostgreSQL</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install postgresql -v</div></pre></td></tr></table></figure>
+<h2 id="2-初始配置PostgreSQL"><a href="#2-初始配置PostgreSQL" class="headerlink" title="2.初始配置PostgreSQL"></a>2.初始配置PostgreSQL</h2><ul>
+<li>指定”/usr/local/var/postgres” 为 PostgreSQL 的配置数据存放目录</li>
+<li>设置数据库数据编码是 utf8<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">initdb /usr/local/var/postgres -E utf8</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="报错以及结局方案"><a href="#报错以及结局方案" class="headerlink" title="报错以及结局方案"></a>报错以及结局方案</h3><h4 id="报错内容"><a href="#报错内容" class="headerlink" title="报错内容"></a>报错内容</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fixing permissions on existing directory /usr/local/var/postgres ... initdb: could not change permissions of directory &quot;/usr/local/var/postgres&quot;: Operation not permitted</div></pre></td></tr></table></figure>
+<h4 id="结局方法"><a href="#结局方法" class="headerlink" title="结局方法"></a>结局方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chown -R `whoami` /usr/local</div></pre></td></tr></table></figure>
+<h2 id="3-设置开机启动"><a href="#3-设置开机启动" class="headerlink" title="3.设置开机启动"></a>3.设置开机启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents</div><div class="line">launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist</div></pre></td></tr></table></figure>
+<h2 id="4-启动PostgreSQL"><a href="#4-启动PostgreSQL" class="headerlink" title="4.启动PostgreSQL"></a>4.启动PostgreSQL</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start</div></pre></td></tr></table></figure>
+<h2 id="5-关闭PostgreSQL"><a href="#5-关闭PostgreSQL" class="headerlink" title="5.关闭PostgreSQL"></a>5.关闭PostgreSQL</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[mac下使用docker]]></title>
+      <url>https://yujintang.github.io/2016/08/23/mac%E4%B8%8B%E4%BD%BF%E7%94%A8docker/</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Nodemon在webstorm的使用]]></title>
       <url>https://yujintang.github.io/2016/08/18/Nodemon%E5%9C%A8webstorm%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
       <content type="html"><![CDATA[<p>[TOC]</p>
@@ -35,6 +67,10 @@
 </li>
 </ul>
 <h2 id="Process-nextTick-与setImmediate区别"><a href="#Process-nextTick-与setImmediate区别" class="headerlink" title="Process.nextTick 与setImmediate区别"></a>Process.nextTick 与setImmediate区别</h2><p><img src="1.jpeg" alt=""></p>
+<h2 id="resolve的promise"><a href="#resolve的promise" class="headerlink" title="resolve的promise"></a>resolve的promise</h2><ul>
+<li>立即resolve的Promise对象，是在本轮“事件循环”（event loop）的结束时，而不是在下一轮“事件循环”的开始时。</li>
+<li>setTimeout(fn, 0)在下一轮“事件循环”开始时执行，Promise.resolve()在本轮“事件循环”结束时执行，console.log(’one‘)则是立即执行，因此最先输出。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'three'</span>);</div><div class="line">&#125;, <span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'two'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'one'</span>);</div><div class="line"></div><div class="line"><span class="comment">// one</span></div><div class="line"><span class="comment">// two</span></div><div class="line"><span class="comment">// three</span></div></pre></td></tr></table></figure></li>
+</ul>
 ]]></content>
     </entry>
     

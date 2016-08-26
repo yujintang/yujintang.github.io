@@ -271,6 +271,347 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/26/linux下报-XXX-不在-sudoers-文件中。此事将被报告。/" itemprop="url">
+                  linux下报 XXX 不在 sudoers 文件中。此事将被报告。
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-26T13:45:25+08:00" content="2016-08-26">
+              2016-08-26
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/26/linux下报-XXX-不在-sudoers-文件中。此事将被报告。/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/26/linux下报-XXX-不在-sudoers-文件中。此事将被报告。/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/26/linux下报-XXX-不在-sudoers-文件中。此事将被报告。/" class="leancloud_visitors" data-flag-title="linux下报 XXX 不在 sudoers 文件中。此事将被报告。">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="linux下新建账号，进行sudo-，报错"><a href="#linux下新建账号，进行sudo-，报错" class="headerlink" title="linux下新建账号，进行sudo ，报错"></a>linux下新建账号，进行sudo ，报错</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xxx 不在 sudoers 文件中。此事将被报告。</div></pre></td></tr></table></figure>
+<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><h4 id="切换到root"><a href="#切换到root" class="headerlink" title="切换到root"></a>切换到root</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">su -</div></pre></td></tr></table></figure>
+<h4 id="修改-etc-sudoers"><a href="#修改-etc-sudoers" class="headerlink" title="修改/etc/sudoers"></a>修改/etc/sudoers</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">vi /etc/sudoers</div><div class="line"></div><div class="line">## Allow root to run any commands anywhere</div><div class="line">root    ALL=(ALL)       ALL</div><div class="line">XXX ALL=(ALL)     ALL (新建行，将XXX修改为自己的user)</div></pre></td></tr></table></figure>
+<h4 id="修改sudoers的权限"><a href="#修改sudoers的权限" class="headerlink" title="修改sudoers的权限"></a>修改sudoers的权限</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod 740 /etc/sudoers</div></pre></td></tr></table></figure>
+<h2 id="成功"><a href="#成功" class="headerlink" title="成功"></a>成功</h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/23/mac下postgresql安装/" itemprop="url">
+                  mac下postgresql安装
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-23T16:22:21+08:00" content="2016-08-23">
+              2016-08-23
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/23/mac下postgresql安装/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/23/mac下postgresql安装/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/23/mac下postgresql安装/" class="leancloud_visitors" data-flag-title="mac下postgresql安装">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="mac下，使用brew安装PostgreSQL"><a href="#mac下，使用brew安装PostgreSQL" class="headerlink" title="mac下，使用brew安装PostgreSQL"></a>mac下，使用brew安装PostgreSQL</h1><h2 id="1-安装PostgreSQL"><a href="#1-安装PostgreSQL" class="headerlink" title="1.安装PostgreSQL"></a>1.安装PostgreSQL</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install postgresql -v</div></pre></td></tr></table></figure>
+<h2 id="2-初始配置PostgreSQL"><a href="#2-初始配置PostgreSQL" class="headerlink" title="2.初始配置PostgreSQL"></a>2.初始配置PostgreSQL</h2><ul>
+<li>指定”/usr/local/var/postgres” 为 PostgreSQL 的配置数据存放目录</li>
+<li>设置数据库数据编码是 utf8<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">initdb /usr/local/var/postgres -E utf8</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="报错以及结局方案"><a href="#报错以及结局方案" class="headerlink" title="报错以及结局方案"></a>报错以及结局方案</h3><h4 id="报错内容"><a href="#报错内容" class="headerlink" title="报错内容"></a>报错内容</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fixing permissions on existing directory /usr/local/var/postgres ... initdb: could not change permissions of directory &quot;/usr/local/var/postgres&quot;: Operation not permitted</div></pre></td></tr></table></figure>
+<h4 id="结局方法"><a href="#结局方法" class="headerlink" title="结局方法"></a>结局方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chown -R `whoami` /usr/local</div></pre></td></tr></table></figure>
+<h2 id="3-设置开机启动"><a href="#3-设置开机启动" class="headerlink" title="3.设置开机启动"></a>3.设置开机启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents</div><div class="line">launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist</div></pre></td></tr></table></figure>
+<h2 id="4-启动PostgreSQL"><a href="#4-启动PostgreSQL" class="headerlink" title="4.启动PostgreSQL"></a>4.启动PostgreSQL</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start</div></pre></td></tr></table></figure>
+<h2 id="5-关闭PostgreSQL"><a href="#5-关闭PostgreSQL" class="headerlink" title="5.关闭PostgreSQL"></a>5.关闭PostgreSQL</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/23/mac下使用docker/" itemprop="url">
+                  mac下使用docker
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-23T11:00:53+08:00" content="2016-08-23">
+              2016-08-23
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/23/mac下使用docker/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/23/mac下使用docker/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/23/mac下使用docker/" class="leancloud_visitors" data-flag-title="mac下使用docker">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/18/Nodemon在webstorm的使用/" itemprop="url">
                   Nodemon在webstorm的使用
                 </a>
@@ -566,6 +907,10 @@
 </li>
 </ul>
 <h2 id="Process-nextTick-与setImmediate区别"><a href="#Process-nextTick-与setImmediate区别" class="headerlink" title="Process.nextTick 与setImmediate区别"></a>Process.nextTick 与setImmediate区别</h2><p><img src="1.jpeg" alt=""></p>
+<h2 id="resolve的promise"><a href="#resolve的promise" class="headerlink" title="resolve的promise"></a>resolve的promise</h2><ul>
+<li>立即resolve的Promise对象，是在本轮“事件循环”（event loop）的结束时，而不是在下一轮“事件循环”的开始时。</li>
+<li>setTimeout(fn, 0)在下一轮“事件循环”开始时执行，Promise.resolve()在本轮“事件循环”结束时执行，console.log(’one‘)则是立即执行，因此最先输出。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'three'</span>);</div><div class="line">&#125;, <span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'two'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'one'</span>);</div><div class="line"></div><div class="line"><span class="comment">// one</span></div><div class="line"><span class="comment">// two</span></div><div class="line"><span class="comment">// three</span></div></pre></td></tr></table></figure></li>
+</ul>
 
           
         
@@ -1072,358 +1417,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/19/sql数据库查询添加idx序列表/" itemprop="url">
-                  PostgreSQL 索引以及时间戳问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-19T10:07:58+08:00" content="2016-07-19">
-              2016-07-19
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/19/sql数据库查询添加idx序列表/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/19/sql数据库查询添加idx序列表/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/19/sql数据库查询添加idx序列表/" class="leancloud_visitors" data-flag-title="PostgreSQL 索引以及时间戳问题">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/05/04/2294643.html" target="_blank" rel="external">链接</a></p>
-<h4 id="查询时候加一个列表索引"><a href="#查询时候加一个列表索引" class="headerlink" title="查询时候加一个列表索引"></a>查询时候加一个列表索引</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> row_number() <span class="keyword">over</span>() idx, t.*</div><div class="line"><span class="keyword">from</span> (</div><div class="line"><span class="keyword">select</span> corp_id, <span class="keyword">count</span>(*) cnt </div><div class="line"><span class="keyword">from</span> tb_mf_order <span class="keyword">group</span> <span class="keyword">by</span> corp_id</div><div class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="number">2</span> <span class="keyword">desc</span>) t;</div></pre></td></tr></table></figure>
-<p>结果如下：<br>| idx  | corp_id  | cnt  |<br>| —- | ——– | —- |<br>| 1    | IT001001 | 150  |<br>| 2    | MN001001 | 51   |<br>| 3    | JZ001001 | 50   |<br>| 4    | GH001001 | 36   |</p>
-<h4 id="unix时间戳变为unix日期时间戳"><a href="#unix时间戳变为unix日期时间戳" class="headerlink" title="unix时间戳变为unix日期时间戳"></a>unix时间戳变为unix日期时间戳</h4><p>我们可以直接／ 然后＋，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var timeStamp = 1468857334;</div><div class="line">timeStamp = timeStamp - (timeStamp + 8*60*60)%(24*60*60);</div></pre></td></tr></table></figure></p>
-<p>结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">1468800000</div></pre></td></tr></table></figure></p>
-<p>也可以使用postgresql的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var timeStamp = 1468857334;</div><div class="line">extract(epoch from (date_trunc(&apos;day&apos;, to_TIMESTAMP(timeStamp))));</div></pre></td></tr></table></figure></p>
-<p>结果：<br>| date_part  |<br>| :——–: |<br>| 1468771200 |</p>
-<h5 id="postgre-函数详解"><a href="#postgre-函数详解" class="headerlink" title="postgre 函数详解"></a>postgre 函数详解</h5><h6 id="to-timeStamp-把UNIX纪元转换成时间戳"><a href="#to-timeStamp-把UNIX纪元转换成时间戳" class="headerlink" title="to_timeStamp //把UNIX纪元转换成时间戳"></a>to_timeStamp //把UNIX纪元转换成时间戳</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select to_timestamp(1468857334)</div></pre></td></tr></table></figure>
-<p>结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2016-07-18 23:55:34+08</div></pre></td></tr></table></figure></p>
-<h6 id="date-trunc-截断成指定精度"><a href="#date-trunc-截断成指定精度" class="headerlink" title="date_trunc //截断成指定精度"></a>date_trunc //截断成指定精度</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select date_trunc(&apos;day&apos;, timestamp &apos;2016-07-18 23:55:34+08&apos;);</div></pre></td></tr></table></figure>
-<p>结果：<br>|     date_trunc      |<br>| :—————–: |<br>| 2016-07-18 00:00:00 |</p>
-<h6 id="extract-获取子域"><a href="#extract-获取子域" class="headerlink" title="extract  //获取子域"></a>extract  //获取子域</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select extract(epoch from timestamp&apos;2016-07-18 00:00:00&apos;);</div></pre></td></tr></table></figure>
-<p>结果：<br>| date_part  |<br>| :——–: |<br>| 1468800000 |</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/17/js里repeat的使用/" itemprop="url">
-                  js里repeat的使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-17T23:13:06+08:00" content="2016-07-17">
-              2016-07-17
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/17/js里repeat的使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/17/js里repeat的使用/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/17/js里repeat的使用/" class="leancloud_visitors" data-flag-title="js里repeat的使用">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="js-里面如何实现一个str的重复"><a href="#js-里面如何实现一个str的重复" class="headerlink" title="js 里面如何实现一个str的重复"></a>js 里面如何实现一个str的重复</h4><h5 id="先介绍第一个方法："><a href="#先介绍第一个方法：" class="headerlink" title="先介绍第一个方法："></a>先介绍第一个方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(&apos;abc&apos;).repeat(3) //3为重复次数</div><div class="line">&apos;abcabcabc&apos;</div></pre></td></tr></table></figure>
-<p>repeat实现方法如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">String</span>.prototype.repeat = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Array</span>(n+<span class="number">1</span>).join(<span class="keyword">this</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h5 id="第二种方法，直接使用源码内容"><a href="#第二种方法，直接使用源码内容" class="headerlink" title="第二种方法，直接使用源码内容"></a>第二种方法，直接使用源码内容</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">new Array(3+1).join(&apos;abc&apos;) //3为重复次数</div><div class="line">&apos;abcabcabc&apos;</div></pre></td></tr></table></figure>
-<p>new Array():<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var myArray = new Array(n) //创建一个长度为n的数组，可扩展长度</div></pre></td></tr></table></figure></p>
-<p>join()方法：将数组放入一个字符串，join里面参数为分隔符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; arr = [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;]</div><div class="line">[ &apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos; ]</div><div class="line">&gt; arr.join(&apos;&apos;)</div><div class="line">&apos;abcd&apos;</div><div class="line">&gt; arr.join(&apos;,&apos;)</div><div class="line">&apos;a,b,c,d&apos;</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/12/js-多重循环break/" itemprop="url">
-                  js 多重循环break
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-12T16:28:10+08:00" content="2016-07-12">
-              2016-07-12
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/12/js-多重循环break/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/12/js-多重循环break/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/12/js-多重循环break/" class="leancloud_visitors" data-flag-title="js 多重循环break">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="多重跳转break问题"><a href="#多重跳转break问题" class="headerlink" title="多重跳转break问题"></a>多重跳转break问题</h4><p>给for循环命名，break 后面跟名字，就会跳出该层循环。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&apos;use strict&apos;;</div><div class="line">outer:</div><div class="line">    for(let i = 0; i&lt;= 6; i++) &#123;</div><div class="line">    for(let j = 0; j&lt;= 10; j++) &#123;</div><div class="line">        if(j == 2) &#123;</div><div class="line">            break outer;</div><div class="line">        &#125;</div><div class="line">        console.log(&apos;i=&apos; + i + &apos;; j = &apos; + j);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>#####结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">i=0; j = 0</div><div class="line">i=0; j = 1</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1464,7 +1462,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1474,7 +1472,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

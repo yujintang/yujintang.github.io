@@ -271,6 +271,353 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/19/sql数据库查询添加idx序列表/" itemprop="url">
+                  PostgreSQL 索引以及时间戳问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-19T10:07:58+08:00" content="2016-07-19">
+              2016-07-19
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/19/sql数据库查询添加idx序列表/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/19/sql数据库查询添加idx序列表/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/19/sql数据库查询添加idx序列表/" class="leancloud_visitors" data-flag-title="PostgreSQL 索引以及时间戳问题">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/05/04/2294643.html" target="_blank" rel="external">链接</a></p>
+<h4 id="查询时候加一个列表索引"><a href="#查询时候加一个列表索引" class="headerlink" title="查询时候加一个列表索引"></a>查询时候加一个列表索引</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> row_number() <span class="keyword">over</span>() idx, t.*</div><div class="line"><span class="keyword">from</span> (</div><div class="line"><span class="keyword">select</span> corp_id, <span class="keyword">count</span>(*) cnt </div><div class="line"><span class="keyword">from</span> tb_mf_order <span class="keyword">group</span> <span class="keyword">by</span> corp_id</div><div class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="number">2</span> <span class="keyword">desc</span>) t;</div></pre></td></tr></table></figure>
+<p>结果如下：<br>| idx  | corp_id  | cnt  |<br>| —- | ——– | —- |<br>| 1    | IT001001 | 150  |<br>| 2    | MN001001 | 51   |<br>| 3    | JZ001001 | 50   |<br>| 4    | GH001001 | 36   |</p>
+<h4 id="unix时间戳变为unix日期时间戳"><a href="#unix时间戳变为unix日期时间戳" class="headerlink" title="unix时间戳变为unix日期时间戳"></a>unix时间戳变为unix日期时间戳</h4><p>我们可以直接／ 然后＋，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var timeStamp = 1468857334;</div><div class="line">timeStamp = timeStamp - (timeStamp + 8*60*60)%(24*60*60);</div></pre></td></tr></table></figure></p>
+<p>结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">1468800000</div></pre></td></tr></table></figure></p>
+<p>也可以使用postgresql的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var timeStamp = 1468857334;</div><div class="line">extract(epoch from (date_trunc(&apos;day&apos;, to_TIMESTAMP(timeStamp))));</div></pre></td></tr></table></figure></p>
+<p>结果：<br>| date_part  |<br>| :——–: |<br>| 1468771200 |</p>
+<h5 id="postgre-函数详解"><a href="#postgre-函数详解" class="headerlink" title="postgre 函数详解"></a>postgre 函数详解</h5><h6 id="to-timeStamp-把UNIX纪元转换成时间戳"><a href="#to-timeStamp-把UNIX纪元转换成时间戳" class="headerlink" title="to_timeStamp //把UNIX纪元转换成时间戳"></a>to_timeStamp //把UNIX纪元转换成时间戳</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select to_timestamp(1468857334)</div></pre></td></tr></table></figure>
+<p>结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2016-07-18 23:55:34+08</div></pre></td></tr></table></figure></p>
+<h6 id="date-trunc-截断成指定精度"><a href="#date-trunc-截断成指定精度" class="headerlink" title="date_trunc //截断成指定精度"></a>date_trunc //截断成指定精度</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select date_trunc(&apos;day&apos;, timestamp &apos;2016-07-18 23:55:34+08&apos;);</div></pre></td></tr></table></figure>
+<p>结果：<br>|     date_trunc      |<br>| :—————–: |<br>| 2016-07-18 00:00:00 |</p>
+<h6 id="extract-获取子域"><a href="#extract-获取子域" class="headerlink" title="extract  //获取子域"></a>extract  //获取子域</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select extract(epoch from timestamp&apos;2016-07-18 00:00:00&apos;);</div></pre></td></tr></table></figure>
+<p>结果：<br>| date_part  |<br>| :——–: |<br>| 1468800000 |</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/17/js里repeat的使用/" itemprop="url">
+                  js里repeat的使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-17T23:13:06+08:00" content="2016-07-17">
+              2016-07-17
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/17/js里repeat的使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/17/js里repeat的使用/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/17/js里repeat的使用/" class="leancloud_visitors" data-flag-title="js里repeat的使用">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="js-里面如何实现一个str的重复"><a href="#js-里面如何实现一个str的重复" class="headerlink" title="js 里面如何实现一个str的重复"></a>js 里面如何实现一个str的重复</h4><h5 id="先介绍第一个方法："><a href="#先介绍第一个方法：" class="headerlink" title="先介绍第一个方法："></a>先介绍第一个方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(&apos;abc&apos;).repeat(3) //3为重复次数</div><div class="line">&apos;abcabcabc&apos;</div></pre></td></tr></table></figure>
+<p>repeat实现方法如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">String</span>.prototype.repeat = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Array</span>(n+<span class="number">1</span>).join(<span class="keyword">this</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="第二种方法，直接使用源码内容"><a href="#第二种方法，直接使用源码内容" class="headerlink" title="第二种方法，直接使用源码内容"></a>第二种方法，直接使用源码内容</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">new Array(3+1).join(&apos;abc&apos;) //3为重复次数</div><div class="line">&apos;abcabcabc&apos;</div></pre></td></tr></table></figure>
+<p>new Array():<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var myArray = new Array(n) //创建一个长度为n的数组，可扩展长度</div></pre></td></tr></table></figure></p>
+<p>join()方法：将数组放入一个字符串，join里面参数为分隔符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; arr = [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;]</div><div class="line">[ &apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos; ]</div><div class="line">&gt; arr.join(&apos;&apos;)</div><div class="line">&apos;abcd&apos;</div><div class="line">&gt; arr.join(&apos;,&apos;)</div><div class="line">&apos;a,b,c,d&apos;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/12/js-多重循环break/" itemprop="url">
+                  js 多重循环break
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-12T16:28:10+08:00" content="2016-07-12">
+              2016-07-12
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/12/js-多重循环break/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/12/js-多重循环break/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/12/js-多重循环break/" class="leancloud_visitors" data-flag-title="js 多重循环break">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="多重跳转break问题"><a href="#多重跳转break问题" class="headerlink" title="多重跳转break问题"></a>多重跳转break问题</h4><p>给for循环命名，break 后面跟名字，就会跳出该层循环。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&apos;use strict&apos;;</div><div class="line">outer:</div><div class="line">    for(let i = 0; i&lt;= 6; i++) &#123;</div><div class="line">    for(let j = 0; j&lt;= 10; j++) &#123;</div><div class="line">        if(j == 2) &#123;</div><div class="line">            break outer;</div><div class="line">        &#125;</div><div class="line">        console.log(&apos;i=&apos; + i + &apos;; j = &apos; + j);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>#####结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">i=0; j = 0</div><div class="line">i=0; j = 1</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/09/v8debug-is-not-defined问题/" itemprop="url">
                   v8debug is not defined问题
                 </a>
@@ -1067,243 +1414,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/20/post传递数组问题/" itemprop="url">
-                  post传递数组问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-20T17:10:53+08:00" content="2016-06-20">
-              2016-06-20
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/20/post传递数组问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/20/post传递数组问题/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/06/20/post传递数组问题/" class="leancloud_visitors" data-flag-title="post传递数组问题">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>###前端post方法传递数组<br>前端post方法传递数组arr时候，会出现后端接受到后数组名变为arr[]，解决方法如下：</p>
-<hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">  url: &apos;c/info_nickname.do&apos;,</div><div class="line">  data: JSON.stringify(&#123;nickname: &apos;ABC&apos;, a: [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]&#125;),</div><div class="line">  success: function(result)&#123;console.log(result)&#125;,</div><div class="line">  dataType: &apos;json&apos;,</div><div class="line">  type: &apos;POST&apos;,</div><div class="line">  contentType: &apos;application/json&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/20/lodash基本使用/" itemprop="url">
-                  lodash基本使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-20T11:37:37+08:00" content="2016-06-20">
-              2016-06-20
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/20/lodash基本使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/20/lodash基本使用/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/06/20/lodash基本使用/" class="leancloud_visitors" data-flag-title="lodash基本使用">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p><a href="http://lodashjs.com/docs/" target="_blank" rel="external">参考地址</a></p>
-</blockquote>
-<hr>
-<h3 id="merge-合并对象"><a href="#merge-合并对象" class="headerlink" title="_.merge    合并对象"></a>_.merge    合并对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">var users = &#123;</div><div class="line">  &apos;data&apos;: [&#123; &apos;user&apos;: &apos;barney&apos; &#125;, &#123; &apos;user&apos;: &apos;fred&apos; &#125;]</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var ages = &#123;</div><div class="line">  &apos;data&apos;: [&#123; &apos;age&apos;: 36 &#125;, &#123; &apos;age&apos;: 40 &#125;]</div><div class="line">&#125;;</div><div class="line"></div><div class="line">_.merge(users, ages);</div><div class="line">// =&gt; &#123; &apos;data&apos;: [&#123; &apos;user&apos;: &apos;barney&apos;, &apos;age&apos;: 36 &#125;, &#123; &apos;user&apos;: &apos;fred&apos;, &apos;age&apos;: 40 &#125;] &#125;</div><div class="line"></div><div class="line">// using a customizer callback</div><div class="line">var object = &#123;</div><div class="line">  &apos;fruits&apos;: [&apos;apple&apos;],</div><div class="line">  &apos;vegetables&apos;: [&apos;beet&apos;]</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var other = &#123;</div><div class="line">  &apos;fruits&apos;: [&apos;banana&apos;],</div><div class="line">  &apos;vegetables&apos;: [&apos;carrot&apos;]</div><div class="line">&#125;;</div><div class="line"></div><div class="line">_.merge(object, other, function(a, b) &#123;</div><div class="line">  if (_.isArray(a)) &#123;</div><div class="line">    return a.concat(b);</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line">// =&gt; &#123; &apos;fruits&apos;: [&apos;apple&apos;, &apos;banana&apos;], &apos;vegetables&apos;: [&apos;beet&apos;, &apos;carrot&apos;] &#125;</div></pre></td></tr></table></figure>
-<h3 id="omit-从对象中删除某个属性"><a href="#omit-从对象中删除某个属性" class="headerlink" title="_.omit  从对象中删除某个属性"></a>_.omit  从对象中删除某个属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var object = &#123; &apos;user&apos;: &apos;fred&apos;, &apos;age&apos;: 40 &#125;;</div><div class="line"></div><div class="line">_.omit(object, &apos;age&apos;);</div><div class="line">// =&gt; &#123; &apos;user&apos;: &apos;fred&apos; &#125;</div><div class="line"></div><div class="line">_.omit(object, _.isNumber);</div><div class="line">// =&gt; &#123; &apos;user&apos;: &apos;fred&apos; &#125;</div></pre></td></tr></table></figure>
-<h3 id="pick-从对象中增加某个属性"><a href="#pick-从对象中增加某个属性" class="headerlink" title="_.pick 从对象中增加某个属性"></a>_.pick 从对象中增加某个属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var object = &#123; &apos;user&apos;: &apos;fred&apos;, &apos;age&apos;: 40 &#125;;</div><div class="line"></div><div class="line">_.pick(object, &apos;user&apos;);</div><div class="line">// =&gt; &#123; &apos;user&apos;: &apos;fred&apos; &#125;</div><div class="line"></div><div class="line">_.pick(object, _.isString);</div><div class="line">// =&gt; &#123; &apos;user&apos;: &apos;fred&apos; &#125;</div></pre></td></tr></table></figure>
-<h3 id="set-设置对象的某个属性值"><a href="#set-设置对象的某个属性值" class="headerlink" title="_.set  设置对象的某个属性值"></a>_.set  设置对象的某个属性值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var object = &#123; &apos;a&apos;: [&#123; &apos;b&apos;: &#123; &apos;c&apos;: 3 &#125; &#125;] &#125;;</div><div class="line"></div><div class="line">_.set(object, &apos;a[0].b.c&apos;, 4);</div><div class="line">console.log(object.a[0].b.c);</div><div class="line">// =&gt; 4</div><div class="line"></div><div class="line">_.set(object, &apos;x[0].y.z&apos;, 5);</div><div class="line">console.log(object.x[0].y.z);</div><div class="line">// =&gt; 5</div></pre></td></tr></table></figure>
-<h3 id="cloneDeep-深度克隆"><a href="#cloneDeep-深度克隆" class="headerlink" title="_.cloneDeep    深度克隆"></a>_.cloneDeep    深度克隆</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var objA = &#123;</div><div class="line">	&quot;name&quot;: &quot;colin&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// Normal method? Too long. See Stackoverflow for solution: http://stackoverflow.com/questions/4459928/how-to-deep-clone-in-javascript</div><div class="line"></div><div class="line">// Lodash</div><div class="line">var objB = _.cloneDeep(objA);</div><div class="line">objB === objA // false</div></pre></td></tr></table></figure>
-<h3 id="findKey-选择查找属性"><a href="#findKey-选择查找属性" class="headerlink" title="_.findKey    选择查找属性"></a>_.findKey    选择查找属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">var users = &#123;</div><div class="line">  &apos;barney&apos;:  &#123; &apos;age&apos;: 36, &apos;active&apos;: true &#125;,</div><div class="line">  &apos;fred&apos;:    &#123; &apos;age&apos;: 40, &apos;active&apos;: false &#125;,</div><div class="line">  &apos;pebbles&apos;: &#123; &apos;age&apos;: 1,  &apos;active&apos;: true &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">_.findKey(users, function(chr) &#123;</div><div class="line">  return chr.age &lt; 40;</div><div class="line">&#125;);</div><div class="line">// =&gt; &apos;barney&apos; (iteration order is not guaranteed)</div><div class="line"></div><div class="line">// using the `_.matches` callback shorthand</div><div class="line">_.findKey(users, &#123; &apos;age&apos;: 1, &apos;active&apos;: true &#125;);</div><div class="line">// =&gt; &apos;pebbles&apos;</div><div class="line"></div><div class="line">// using the `_.matchesProperty` callback shorthand</div><div class="line">_.findKey(users, &apos;active&apos;, false);</div><div class="line">// =&gt; &apos;fred&apos;</div><div class="line"></div><div class="line">// using the `_.property` callback shorthand</div><div class="line">_.findKey(users, &apos;active&apos;);</div><div class="line">// =&gt; &apos;barney&apos;</div></pre></td></tr></table></figure>
-<h3 id="transform-返回一个修改后的对象"><a href="#transform-返回一个修改后的对象" class="headerlink" title="_.transform 返回一个修改后的对象"></a>_.transform 返回一个修改后的对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">_.transform([2, 3, 4], function(result, n) &#123;</div><div class="line">  result.push(n *= n);</div><div class="line">  return n % 2 == 0;</div><div class="line">&#125;);</div><div class="line">// =&gt; [4, 9]</div><div class="line"></div><div class="line">_.transform(&#123; &apos;a&apos;: 1, &apos;b&apos;: 2 &#125;, function(result, n, key) &#123;</div><div class="line">  result[key] = n * 3;</div><div class="line">&#125;);</div><div class="line">// =&gt; &#123; &apos;a&apos;: 3, &apos;b&apos;: 6 &#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1344,7 +1459,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1354,7 +1469,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
