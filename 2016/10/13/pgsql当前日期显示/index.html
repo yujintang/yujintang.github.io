@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="PostgreSQL," />
 
 
 
@@ -84,15 +84,25 @@
 
 
 
-<meta name="description" content="靡不有初,鲜克有终">
-<meta property="og:type" content="website">
-<meta property="og:title" content="技术分享">
-<meta property="og:url" content="https://yujintang.github.io/archives/page/2/index.html">
+<meta name="description" content="pgsql 显示当前日期1select CURRENT_TIMESTAMP, now(), current_time, current_date;
+结果：12016-10-13 15:17:44.840232+08	2016-10-13 15:17:44.840232+08	15:17:44.840232+08	2016-10-13
+1select now()::TIMESTAMP(0)
+结果：1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pgsql当前日期显示">
+<meta property="og:url" content="https://yujintang.github.io/2016/10/13/pgsql当前日期显示/index.html">
 <meta property="og:site_name" content="技术分享">
-<meta property="og:description" content="靡不有初,鲜克有终">
+<meta property="og:description" content="pgsql 显示当前日期1select CURRENT_TIMESTAMP, now(), current_time, current_date;
+结果：12016-10-13 15:17:44.840232+08	2016-10-13 15:17:44.840232+08	15:17:44.840232+08	2016-10-13
+1select now()::TIMESTAMP(0)
+结果：1">
+<meta property="og:updated_time" content="2016-10-13T07:32:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="技术分享">
-<meta name="twitter:description" content="靡不有初,鲜克有终">
+<meta name="twitter:title" content="pgsql当前日期显示">
+<meta name="twitter:description" content="pgsql 显示当前日期1select CURRENT_TIMESTAMP, now(), current_time, current_date;
+结果：12016-10-13 15:17:44.840232+08	2016-10-13 15:17:44.840232+08	15:17:44.840232+08	2016-10-13
+1select now()::TIMESTAMP(0)
+结果：1">
 
 
 
@@ -113,9 +123,9 @@
 
 
 
-  <link rel="canonical" href="https://yujintang.github.io/archives/page/2/"/>
+  <link rel="canonical" href="https://yujintang.github.io/2016/10/13/pgsql当前日期显示/"/>
 
-  <title> 归档 | 技术分享 </title>
+  <title> pgsql当前日期显示 | 技术分享 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -146,7 +156,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -247,403 +257,166 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 27 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                pgsql当前日期显示
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-13T15:23:16+08:00" content="2016-10-13">
+              2016-10-13
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/13/pgsql当前日期显示/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/13/pgsql当前日期显示/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/13/pgsql当前日期显示/" class="leancloud_visitors" data-flag-title="pgsql当前日期显示">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <h3 id="pgsql-显示当前日期"><a href="#pgsql-显示当前日期" class="headerlink" title="pgsql 显示当前日期"></a>pgsql 显示当前日期</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">CURRENT_TIMESTAMP</span>, <span class="keyword">now</span>(), <span class="keyword">current_time</span>, <span class="keyword">current_date</span>;</div></pre></td></tr></table></figure>
+<p>结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2016-10-13 15:17:44.840232+08	2016-10-13 15:17:44.840232+08	15:17:44.840232+08	2016-10-13</div></pre></td></tr></table></figure></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">now</span>()::<span class="keyword">TIMESTAMP</span>(<span class="number">0</span>)</div></pre></td></tr></table></figure>
+<p>结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2016-10-13 15:30:36</div></pre></td></tr></table></figure></p>
+<ol>
+<li>通过 now() 或 CURRENT_TIMESTAMP 获取的时间是最完整的时间，包括时区，秒也保留到了6位小数。</li>
+<li>current_time 只显示当前的时间，不包括日期</li>
+<li>current_date 只显示当前的日期，不包括小时等信息</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat.jpg" alt="flynn WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
       
       
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/apipay.jpg" alt="flynn Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
+    </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PostgreSQL/" rel="tag">#PostgreSQL</a>
+          
+        </div>
+      
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/15/Process-nextTick与setlmmediate区别/" itemprop="url">
-              
-                <span itemprop="name">Process.nextTick与setlmmediate区别</span>
-              
-            </a>
-        
-      </h1>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/10/闭包的概念以及理解/" rel="next" title="闭包的概念以及理解">
+                <i class="fa fa-chevron-left"></i> 闭包的概念以及理解
+              </a>
+            
+          </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-15T17:14:54+08:00"
-              content="2016-08-15" >
-          08-15
-        </time>
-      </div>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/06/使用nginx反向代理/" itemprop="url">
-              
-                <span itemprop="name">使用nginx反向代理</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-06T13:46:30+08:00"
-              content="2016-08-06" >
-          08-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/02/linux下git安装/" itemprop="url">
-              
-                <span itemprop="name">linux下git安装</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-02T11:07:11+08:00"
-              content="2016-08-02" >
-          08-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/01/阿里企业邮箱如何使用foxmail等第三方登陆/" itemprop="url">
-              
-                <span itemprop="name">阿里（万网）企业邮箱如何使用foxmail等第三方登陆</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-01T16:27:16+08:00"
-              content="2016-08-01" >
-          08-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/22/js的prototype与apply讲解/" itemprop="url">
-              
-                <span itemprop="name">js的prototype与apply讲解</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-22T11:29:01+08:00"
-              content="2016-07-22" >
-          07-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/19/sql数据库查询添加idx序列表/" itemprop="url">
-              
-                <span itemprop="name">PostgreSQL 索引以及时间戳问题</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-19T10:07:58+08:00"
-              content="2016-07-19" >
-          07-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/17/js里repeat的使用/" itemprop="url">
-              
-                <span itemprop="name">js里repeat的使用</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-17T23:13:06+08:00"
-              content="2016-07-17" >
-          07-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/12/js-多重循环break/" itemprop="url">
-              
-                <span itemprop="name">js 多重循环break</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-12T16:28:10+08:00"
-              content="2016-07-12" >
-          07-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/09/v8debug-is-not-defined问题/" itemprop="url">
-              
-                <span itemprop="name">v8debug is not defined问题</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-09T10:10:47+08:00"
-              content="2016-07-09" >
-          07-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/04/mkdir-p-参数的作用/" itemprop="url">
-              
-                <span itemprop="name">mkdir -p 参数的作用</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-04T11:09:41+08:00"
-              content="2016-07-04" >
-          07-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
+    </div>
+  </div>
 
 
           </div>
@@ -651,6 +424,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/13/pgsql当前日期显示/"
+           data-title="pgsql当前日期显示" data-url="https://yujintang.github.io/2016/10/13/pgsql当前日期显示/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -670,8 +451,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -748,6 +538,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#pgsql-显示当前日期"><span class="nav-number">1.</span> <span class="nav-text">pgsql 显示当前日期</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -851,11 +652,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
