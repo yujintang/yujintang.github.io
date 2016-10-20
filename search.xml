@@ -4,6 +4,14 @@
   
     
     <entry>
+      <title><![CDATA[命令将文本复制到剪贴板]]></title>
+      <url>https://yujintang.github.io/2016/10/20/%E5%91%BD%E4%BB%A4%E5%B0%86%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6%E5%88%B0%E5%89%AA%E8%B4%B4%E6%9D%BF/</url>
+      <content type="html"><![CDATA[<h1 id="在windows下：clip"><a href="#在windows下：clip" class="headerlink" title="在windows下：clip"></a>在windows下：clip</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">echo Hello | clip  </div><div class="line"># 将字符串Hello放入Windows剪贴板  </div><div class="line">   </div><div class="line">dir | clip  </div><div class="line"># 将dir命令输出（当前目录列表）放入Windows剪贴板  </div><div class="line">   </div><div class="line">clip &lt; README.TXT    </div><div class="line"># 将readme.txt的文本放入Windows剪贴板  </div><div class="line">   </div><div class="line">echo | clip  </div><div class="line"># 将一个空行放入Windows剪贴板，即清空Windows剪贴板</div></pre></td></tr></table></figure>
+<h1 id="在mac下：pbcopy"><a href="#在mac下：pbcopy" class="headerlink" title="在mac下：pbcopy"></a>在mac下：pbcopy</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cat myFile.txt | pbcopy </div><div class="line"># 将字符串myFile.txt内容放入剪贴板</div><div class="line">pbpaste &gt; file.txt </div><div class="line"># 将剪贴板的内容黏贴到file.txt</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[docker基本使用]]></title>
       <url>https://yujintang.github.io/2016/10/17/docker%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
       <content type="html"><![CDATA[<h2 id="前期安装以及注册"><a href="#前期安装以及注册" class="headerlink" title="前期安装以及注册"></a>前期安装以及注册</h2><h3 id="centos-7-安装"><a href="#centos-7-安装" class="headerlink" title="centos-7 安装"></a>centos-7 安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install docker</div></pre></td></tr></table></figure>
