@@ -271,6 +271,130 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/21/docker下运行一个简单的Node-js程序/" itemprop="url">
+                  docker下运行一个简单的Node.js程序
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-21T16:31:31+08:00" content="2016-10-21">
+              2016-10-21
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/21/docker下运行一个简单的Node-js程序/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/21/docker下运行一个简单的Node-js程序/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/21/docker下运行一个简单的Node-js程序/" class="leancloud_visitors" data-flag-title="docker下运行一个简单的Node.js程序">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="创建Dockerfile文件"><a href="#创建Dockerfile文件" class="headerlink" title="创建Dockerfile文件"></a>创建Dockerfile文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># This is a comment</div><div class="line">FROM centos</div><div class="line">MAINTAINER yjt &lt;shanquan54@gmail.com&gt;</div><div class="line"></div><div class="line">RUN yum -y update</div><div class="line">RUN yum -y install epel-release</div><div class="line">RUN yum -y install npm</div><div class="line"></div><div class="line">RUN mkdir /var/www</div><div class="line">WORKDIR /var/www</div><div class="line">ADD ./app.js /var/www/app.js</div><div class="line"></div><div class="line">CMD [&quot;/usr/bin/node&quot;, &quot;/var/www/app.js&quot;]</div></pre></td></tr></table></figure>
+<h2 id="编写app-js"><a href="#编写app-js" class="headerlink" title="编写app.js"></a>编写app.js</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> server = http.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">    res.end(<span class="string">'helo world!'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">server.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
+<h2 id="docker创建镜像"><a href="#docker创建镜像" class="headerlink" title="docker创建镜像"></a>docker创建镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker build -t yjt/nodejs:v1 ./</div></pre></td></tr></table></figure>
+<ol>
+<li>-t 参数：为镜像打一个tag</li>
+<li>yjt/nodejs： 镜像存放处</li>
+<li>v1： tag</li>
+<li>./ ：Dockerfile存放目录<h2 id="查看一下创建好的镜像"><a href="#查看一下创建好的镜像" class="headerlink" title="查看一下创建好的镜像"></a>查看一下创建好的镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ docker images                </div><div class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">yjt/nodejs          v1                  1d2a583903fd        3 minutes ago       651.5 MB</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h2><h3 id="后台运行"><a href="#后台运行" class="headerlink" title="后台运行"></a>后台运行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker run  -d -p 22222:3000 --name myapp yjt/nodejs:v1</div></pre></td></tr></table></figure>
+<h3 id="运行并打开容器控制台"><a href="#运行并打开容器控制台" class="headerlink" title="运行并打开容器控制台"></a>运行并打开容器控制台</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker run -it -p 22222:3000 --name myapp yjt/nodejs:v1 /bin/bash</div></pre></td></tr></table></figure>
+<h2 id="查看容器列表"><a href="#查看容器列表" class="headerlink" title="查看容器列表"></a>查看容器列表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker ps -a</div></pre></td></tr></table></figure>
+<h2 id="打开容器控制台"><a href="#打开容器控制台" class="headerlink" title="打开容器控制台"></a>打开容器控制台</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker exec -it myapp /bin/bash</div><div class="line">[root@273e8d2ac92b www]#</div></pre></td></tr></table></figure>
+<h2 id="访问服务："><a href="#访问服务：" class="headerlink" title="访问服务："></a>访问服务：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ curl 127.0.0.1:22222</div><div class="line">hello world!</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/20/命令将文本复制到剪贴板/" itemprop="url">
                   命令将文本复制到剪贴板
                 </a>
@@ -1942,130 +2066,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/23/mac下postgresql安装/" itemprop="url">
-                  mac下postgresql安装
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-23T16:22:21+08:00" content="2016-08-23">
-              2016-08-23
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/23/mac下postgresql安装/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/23/mac下postgresql安装/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/23/mac下postgresql安装/" class="leancloud_visitors" data-flag-title="mac下postgresql安装">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="mac下，使用brew安装PostgreSQL"><a href="#mac下，使用brew安装PostgreSQL" class="headerlink" title="mac下，使用brew安装PostgreSQL"></a>mac下，使用brew安装PostgreSQL</h1><h2 id="1-安装PostgreSQL"><a href="#1-安装PostgreSQL" class="headerlink" title="1.安装PostgreSQL"></a>1.安装PostgreSQL</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install postgresql -v</div></pre></td></tr></table></figure>
-<h2 id="2-初始配置PostgreSQL"><a href="#2-初始配置PostgreSQL" class="headerlink" title="2.初始配置PostgreSQL"></a>2.初始配置PostgreSQL</h2><ul>
-<li>指定”/usr/local/var/postgres” 为 PostgreSQL 的配置数据存放目录</li>
-<li>设置数据库数据编码是 utf8<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">initdb /usr/local/var/postgres -E utf8</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="报错以及结局方案"><a href="#报错以及结局方案" class="headerlink" title="报错以及结局方案"></a>报错以及结局方案</h3><h4 id="报错内容"><a href="#报错内容" class="headerlink" title="报错内容"></a>报错内容</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fixing permissions on existing directory /usr/local/var/postgres ... initdb: could not change permissions of directory &quot;/usr/local/var/postgres&quot;: Operation not permitted</div></pre></td></tr></table></figure>
-<h4 id="结局方法"><a href="#结局方法" class="headerlink" title="结局方法"></a>结局方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chown -R `whoami` /usr/local</div></pre></td></tr></table></figure>
-<h2 id="3-设置开机启动"><a href="#3-设置开机启动" class="headerlink" title="3.设置开机启动"></a>3.设置开机启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents</div><div class="line">launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist</div></pre></td></tr></table></figure>
-<h2 id="4-启动PostgreSQL"><a href="#4-启动PostgreSQL" class="headerlink" title="4.启动PostgreSQL"></a>4.启动PostgreSQL</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start</div></pre></td></tr></table></figure>
-<h2 id="5-关闭PostgreSQL"><a href="#5-关闭PostgreSQL" class="headerlink" title="5.关闭PostgreSQL"></a>5.关闭PostgreSQL</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2106,7 +2111,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

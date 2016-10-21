@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="docker," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="靡不有初,鲜克有终">
+<meta name="description" content="创建Dockerfile文件12345678910111213# This is a commentFROM centosMAINTAINER yjt &amp;lt;shanquan54@gmail.com&amp;gt;RUN yum -y updateRUN yum -y install epel-releaseRUN yum -y install npmRUN mkdir /var/wwwWORKDIR">
 <meta property="og:type" content="article">
-<meta property="og:title" content="apt-get的使用参数">
-<meta property="og:url" content="https://yujintang.github.io/2016/10/14/apt-get的使用参数/index.html">
+<meta property="og:title" content="docker下运行一个简单的Node.js程序">
+<meta property="og:url" content="https://yujintang.github.io/2016/10/21/docker下运行一个简单的Node-js程序/index.html">
 <meta property="og:site_name" content="技术分享">
-<meta property="og:description" content="靡不有初,鲜克有终">
-<meta property="og:updated_time" content="2016-10-14T07:51:12.000Z">
+<meta property="og:description" content="创建Dockerfile文件12345678910111213# This is a commentFROM centosMAINTAINER yjt &amp;lt;shanquan54@gmail.com&amp;gt;RUN yum -y updateRUN yum -y install epel-releaseRUN yum -y install npmRUN mkdir /var/wwwWORKDIR">
+<meta property="og:updated_time" content="2016-10-21T09:51:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="apt-get的使用参数">
-<meta name="twitter:description" content="靡不有初,鲜克有终">
+<meta name="twitter:title" content="docker下运行一个简单的Node.js程序">
+<meta name="twitter:description" content="创建Dockerfile文件12345678910111213# This is a commentFROM centosMAINTAINER yjt &amp;lt;shanquan54@gmail.com&amp;gt;RUN yum -y updateRUN yum -y install epel-releaseRUN yum -y install npmRUN mkdir /var/wwwWORKDIR">
 
 
 
@@ -114,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="https://yujintang.github.io/2016/10/14/apt-get的使用参数/"/>
+  <link rel="canonical" href="https://yujintang.github.io/2016/10/21/docker下运行一个简单的Node-js程序/"/>
 
-  <title> apt-get的使用参数 | 技术分享 </title>
+  <title> docker下运行一个简单的Node.js程序 | 技术分享 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -269,7 +269,7 @@
             
             
               
-                apt-get的使用参数
+                docker下运行一个简单的Node.js程序
               
             
           </h1>
@@ -281,8 +281,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-14T15:51:12+08:00" content="2016-10-14">
-              2016-10-14
+            <time itemprop="dateCreated" datetime="2016-10-21T16:31:31+08:00" content="2016-10-21">
+              2016-10-21
             </time>
           </span>
 
@@ -292,8 +292,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/14/apt-get的使用参数/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/14/apt-get的使用参数/" itemprop="commentsCount"></span>
+                <a href="/2016/10/21/docker下运行一个简单的Node-js程序/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/21/docker下运行一个简单的Node-js程序/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -303,7 +303,7 @@
 
           
           
-             <span id="/2016/10/14/apt-get的使用参数/" class="leancloud_visitors" data-flag-title="apt-get的使用参数">
+             <span id="/2016/10/21/docker下运行一个简单的Node-js程序/" class="leancloud_visitors" data-flag-title="docker下运行一个简单的Node.js程序">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -325,7 +325,22 @@
       
 
       
-        
+        <h2 id="创建Dockerfile文件"><a href="#创建Dockerfile文件" class="headerlink" title="创建Dockerfile文件"></a>创建Dockerfile文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># This is a comment</div><div class="line">FROM centos</div><div class="line">MAINTAINER yjt &lt;shanquan54@gmail.com&gt;</div><div class="line"></div><div class="line">RUN yum -y update</div><div class="line">RUN yum -y install epel-release</div><div class="line">RUN yum -y install npm</div><div class="line"></div><div class="line">RUN mkdir /var/www</div><div class="line">WORKDIR /var/www</div><div class="line">ADD ./app.js /var/www/app.js</div><div class="line"></div><div class="line">CMD [&quot;/usr/bin/node&quot;, &quot;/var/www/app.js&quot;]</div></pre></td></tr></table></figure>
+<h2 id="编写app-js"><a href="#编写app-js" class="headerlink" title="编写app.js"></a>编写app.js</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> server = http.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">    res.end(<span class="string">'helo world!'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">server.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
+<h2 id="docker创建镜像"><a href="#docker创建镜像" class="headerlink" title="docker创建镜像"></a>docker创建镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker build -t yjt/nodejs:v1 ./</div></pre></td></tr></table></figure>
+<ol>
+<li>-t 参数：为镜像打一个tag</li>
+<li>yjt/nodejs： 镜像存放处</li>
+<li>v1： tag</li>
+<li>./ ：Dockerfile存放目录<h2 id="查看一下创建好的镜像"><a href="#查看一下创建好的镜像" class="headerlink" title="查看一下创建好的镜像"></a>查看一下创建好的镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ docker images                </div><div class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">yjt/nodejs          v1                  1d2a583903fd        3 minutes ago       651.5 MB</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h2><h3 id="后台运行"><a href="#后台运行" class="headerlink" title="后台运行"></a>后台运行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker run  -d -p 22222:3000 --name myapp yjt/nodejs:v1</div></pre></td></tr></table></figure>
+<h3 id="运行并打开容器控制台"><a href="#运行并打开容器控制台" class="headerlink" title="运行并打开容器控制台"></a>运行并打开容器控制台</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker run -it -p 22222:3000 --name myapp yjt/nodejs:v1 /bin/bash</div></pre></td></tr></table></figure>
+<h2 id="查看容器列表"><a href="#查看容器列表" class="headerlink" title="查看容器列表"></a>查看容器列表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker ps -a</div></pre></td></tr></table></figure>
+<h2 id="打开容器控制台"><a href="#打开容器控制台" class="headerlink" title="打开容器控制台"></a>打开容器控制台</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker exec -it myapp /bin/bash</div><div class="line">[root@273e8d2ac92b www]#</div></pre></td></tr></table></figure>
+<h2 id="访问服务："><a href="#访问服务：" class="headerlink" title="访问服务："></a>访问服务：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ curl 127.0.0.1:22222</div><div class="line">hello world!</div></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -365,22 +380,24 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/docker/" rel="tag">#docker</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/13/pgsql当前日期显示/" rel="next" title="pgsql当前日期显示">
-                <i class="fa fa-chevron-left"></i> pgsql当前日期显示
+              <a href="/2016/10/20/命令将文本复制到剪贴板/" rel="next" title="命令将文本复制到剪贴板">
+                <i class="fa fa-chevron-left"></i> 命令将文本复制到剪贴板
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/17/docker基本使用/" rel="prev" title="docker基本使用">
-                docker基本使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -406,8 +423,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/14/apt-get的使用参数/"
-           data-title="apt-get的使用参数" data-url="https://yujintang.github.io/2016/10/14/apt-get的使用参数/">
+      <div class="ds-thread" data-thread-key="2016/10/21/docker下运行一个简单的Node-js程序/"
+           data-title="docker下运行一个简单的Node.js程序" data-url="https://yujintang.github.io/2016/10/21/docker下运行一个简单的Node-js程序/">
       </div>
     
   </div>
@@ -525,7 +542,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Dockerfile文件"><span class="nav-number">1.</span> <span class="nav-text">创建Dockerfile文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写app-js"><span class="nav-number">2.</span> <span class="nav-text">编写app.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker创建镜像"><span class="nav-number">3.</span> <span class="nav-text">docker创建镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看一下创建好的镜像"><span class="nav-number">4.</span> <span class="nav-text">查看一下创建好的镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行容器"><span class="nav-number">5.</span> <span class="nav-text">运行容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#后台运行"><span class="nav-number">5.1.</span> <span class="nav-text">后台运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行并打开容器控制台"><span class="nav-number">5.2.</span> <span class="nav-text">运行并打开容器控制台</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看容器列表"><span class="nav-number">6.</span> <span class="nav-text">查看容器列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打开容器控制台"><span class="nav-number">7.</span> <span class="nav-text">打开容器控制台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问服务："><span class="nav-number">8.</span> <span class="nav-text">访问服务：</span></a></li></ol></div>
             
           </div>
         </section>
