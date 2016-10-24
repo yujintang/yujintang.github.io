@@ -271,6 +271,117 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/24/net模块创建一个简单的tcp服务/" itemprop="url">
+                  net模块创建一个简单的tcp服务
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-24T14:33:22+08:00" content="2016-10-24">
+              2016-10-24
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/24/net模块创建一个简单的tcp服务/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/24/net模块创建一个简单的tcp服务/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/24/net模块创建一个简单的tcp服务/" class="leancloud_visitors" data-flag-title="net模块创建一个简单的tcp服务">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="server-js"><a href="#server-js" class="headerlink" title="server.js"></a>server.js</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> net = <span class="built_in">require</span>(<span class="string">'net'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> server = net.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">socket</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'server connected'</span>);</div><div class="line">    socket.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'server disconnected'</span>);</div><div class="line">    &#125;);</div><div class="line">    socket.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">        socket.end(<span class="string">'This message from server!'</span>);</div><div class="line">        <span class="built_in">console</span>.log(data.toString());</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">server.listen(<span class="number">22222</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'server bound port 22222'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="client-js"><a href="#client-js" class="headerlink" title="client.js"></a>client.js</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> net = <span class="built_in">require</span>(<span class="string">'net'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> client = net.connect(&#123;port: <span class="number">22222</span>&#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'client connected'</span>);</div><div class="line">    client.write(<span class="string">'This message from client'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">client.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(data.toString());</div><div class="line">    client.end();</div><div class="line">&#125;);</div><div class="line"></div><div class="line">client.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'client disconnected'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/21/docker下运行一个简单的Node-js程序/" itemprop="url">
                   docker下运行一个简单的Node.js程序
                 </a>
@@ -1953,119 +2064,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/26/linux下报-XXX-不在-sudoers-文件中。此事将被报告。/" itemprop="url">
-                  linux下报 XXX 不在 sudoers 文件中。此事将被报告。
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-26T13:45:25+08:00" content="2016-08-26">
-              2016-08-26
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/26/linux下报-XXX-不在-sudoers-文件中。此事将被报告。/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/26/linux下报-XXX-不在-sudoers-文件中。此事将被报告。/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/26/linux下报-XXX-不在-sudoers-文件中。此事将被报告。/" class="leancloud_visitors" data-flag-title="linux下报 XXX 不在 sudoers 文件中。此事将被报告。">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="linux下新建账号，进行sudo-，报错"><a href="#linux下新建账号，进行sudo-，报错" class="headerlink" title="linux下新建账号，进行sudo ，报错"></a>linux下新建账号，进行sudo ，报错</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xxx 不在 sudoers 文件中。此事将被报告。</div></pre></td></tr></table></figure>
-<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><h4 id="切换到root"><a href="#切换到root" class="headerlink" title="切换到root"></a>切换到root</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">su -</div></pre></td></tr></table></figure>
-<h4 id="修改-etc-sudoers"><a href="#修改-etc-sudoers" class="headerlink" title="修改/etc/sudoers"></a>修改/etc/sudoers</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">vi /etc/sudoers</div><div class="line"></div><div class="line">## Allow root to run any commands anywhere</div><div class="line">root    ALL=(ALL)       ALL</div><div class="line">XXX ALL=(ALL)     ALL (新建行，将XXX修改为自己的user)</div></pre></td></tr></table></figure>
-<h4 id="修改sudoers的权限"><a href="#修改sudoers的权限" class="headerlink" title="修改sudoers的权限"></a>修改sudoers的权限</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod 740 /etc/sudoers</div></pre></td></tr></table></figure>
-<h2 id="成功"><a href="#成功" class="headerlink" title="成功"></a>成功</h2>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2111,7 +2109,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

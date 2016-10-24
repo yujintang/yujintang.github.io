@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Node.js," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="靡不有初,鲜克有终">
+<meta name="description" content="server.js12345678910111213141516const net = require(&apos;net&apos;);var server = net.createServer(function (socket) &amp;#123;    console.log(&apos;server connected&apos;);    socket.on(&apos;end&apos;, function () &amp;#123;        cons">
 <meta property="og:type" content="article">
-<meta property="og:title" content="apt-get的使用参数">
-<meta property="og:url" content="https://yujintang.github.io/2016/10/14/apt-get的使用参数/index.html">
+<meta property="og:title" content="net模块创建一个简单的tcp服务">
+<meta property="og:url" content="https://yujintang.github.io/2016/10/24/net模块创建一个简单的tcp服务/index.html">
 <meta property="og:site_name" content="技术分享">
-<meta property="og:description" content="靡不有初,鲜克有终">
-<meta property="og:updated_time" content="2016-10-14T07:51:12.000Z">
+<meta property="og:description" content="server.js12345678910111213141516const net = require(&apos;net&apos;);var server = net.createServer(function (socket) &amp;#123;    console.log(&apos;server connected&apos;);    socket.on(&apos;end&apos;, function () &amp;#123;        cons">
+<meta property="og:updated_time" content="2016-10-24T06:44:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="apt-get的使用参数">
-<meta name="twitter:description" content="靡不有初,鲜克有终">
+<meta name="twitter:title" content="net模块创建一个简单的tcp服务">
+<meta name="twitter:description" content="server.js12345678910111213141516const net = require(&apos;net&apos;);var server = net.createServer(function (socket) &amp;#123;    console.log(&apos;server connected&apos;);    socket.on(&apos;end&apos;, function () &amp;#123;        cons">
 
 
 
@@ -114,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="https://yujintang.github.io/2016/10/14/apt-get的使用参数/"/>
+  <link rel="canonical" href="https://yujintang.github.io/2016/10/24/net模块创建一个简单的tcp服务/"/>
 
-  <title> apt-get的使用参数 | 技术分享 </title>
+  <title> net模块创建一个简单的tcp服务 | 技术分享 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -269,7 +269,7 @@
             
             
               
-                apt-get的使用参数
+                net模块创建一个简单的tcp服务
               
             
           </h1>
@@ -281,8 +281,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-14T15:51:12+08:00" content="2016-10-14">
-              2016-10-14
+            <time itemprop="dateCreated" datetime="2016-10-24T14:33:22+08:00" content="2016-10-24">
+              2016-10-24
             </time>
           </span>
 
@@ -292,8 +292,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/14/apt-get的使用参数/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/14/apt-get的使用参数/" itemprop="commentsCount"></span>
+                <a href="/2016/10/24/net模块创建一个简单的tcp服务/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/24/net模块创建一个简单的tcp服务/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -303,7 +303,7 @@
 
           
           
-             <span id="/2016/10/14/apt-get的使用参数/" class="leancloud_visitors" data-flag-title="apt-get的使用参数">
+             <span id="/2016/10/24/net模块创建一个简单的tcp服务/" class="leancloud_visitors" data-flag-title="net模块创建一个简单的tcp服务">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -325,7 +325,9 @@
       
 
       
-        
+        <h2 id="server-js"><a href="#server-js" class="headerlink" title="server.js"></a>server.js</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> net = <span class="built_in">require</span>(<span class="string">'net'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> server = net.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">socket</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'server connected'</span>);</div><div class="line">    socket.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'server disconnected'</span>);</div><div class="line">    &#125;);</div><div class="line">    socket.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">        socket.end(<span class="string">'This message from server!'</span>);</div><div class="line">        <span class="built_in">console</span>.log(data.toString());</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">server.listen(<span class="number">22222</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'server bound port 22222'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="client-js"><a href="#client-js" class="headerlink" title="client.js"></a>client.js</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> net = <span class="built_in">require</span>(<span class="string">'net'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> client = net.connect(&#123;port: <span class="number">22222</span>&#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'client connected'</span>);</div><div class="line">    client.write(<span class="string">'This message from client'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">client.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(data.toString());</div><div class="line">    client.end();</div><div class="line">&#125;);</div><div class="line"></div><div class="line">client.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'client disconnected'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -365,22 +367,24 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Node-js/" rel="tag">#Node.js</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/13/pgsql当前日期显示/" rel="next" title="pgsql当前日期显示">
-                <i class="fa fa-chevron-left"></i> pgsql当前日期显示
+              <a href="/2016/10/21/docker下运行一个简单的Node-js程序/" rel="next" title="docker下运行一个简单的Node.js程序">
+                <i class="fa fa-chevron-left"></i> docker下运行一个简单的Node.js程序
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/17/docker基本使用/" rel="prev" title="docker基本使用">
-                docker基本使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -406,8 +410,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/14/apt-get的使用参数/"
-           data-title="apt-get的使用参数" data-url="https://yujintang.github.io/2016/10/14/apt-get的使用参数/">
+      <div class="ds-thread" data-thread-key="2016/10/24/net模块创建一个简单的tcp服务/"
+           data-title="net模块创建一个简单的tcp服务" data-url="https://yujintang.github.io/2016/10/24/net模块创建一个简单的tcp服务/">
       </div>
     
   </div>
@@ -525,7 +529,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#server-js"><span class="nav-number">1.</span> <span class="nav-text">server.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#client-js"><span class="nav-number">2.</span> <span class="nav-text">client.js</span></a></li></ol></div>
             
           </div>
         </section>
