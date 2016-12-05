@@ -4,6 +4,18 @@
   
     
     <entry>
+      <title><![CDATA[docker创建一个redis]]></title>
+      <url>https://yujintang.github.io/2016/12/05/docker%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAredis/</url>
+      <content type="html"><![CDATA[<h2 id="docker-创建一个redis"><a href="#docker-创建一个redis" class="headerlink" title="docker 创建一个redis"></a>docker 创建一个redis</h2><h3 id="1-查找redis镜像"><a href="#1-查找redis镜像" class="headerlink" title="1.查找redis镜像"></a>1.查找redis镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker search redis</div></pre></td></tr></table></figure>
+<h3 id="2-选取官方的redis-镜像"><a href="#2-选取官方的redis-镜像" class="headerlink" title="2.选取官方的redis 镜像"></a>2.选取官方的redis 镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull redis:latest</div></pre></td></tr></table></figure>
+<h3 id="3-运行一个容器"><a href="#3-运行一个容器" class="headerlink" title="3. 运行一个容器"></a>3. 运行一个容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -d -p 6379:6379 --name myRedis redis:latest</div></pre></td></tr></table></figure>
+<h3 id="4-查看ip地址"><a href="#4-查看ip地址" class="headerlink" title="4.查看ip地址"></a>4.查看ip地址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker inspect --format=&apos;&#123;&#123;.NetworkSettings.IPAddress&#125;&#125;&apos; $CONTAINER_ID</div></pre></td></tr></table></figure>
+<h3 id="5-进入容器，进行配置"><a href="#5-进入容器，进行配置" class="headerlink" title="5.进入容器，进行配置"></a>5.进入容器，进行配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it myRedis /bin/bash</div></pre></td></tr></table></figure>
+<h2 id="⚠️"><a href="#⚠️" class="headerlink" title="⚠️"></a>⚠️</h2><p>1.docker pull 时候 没有添加版本，因为默认latest，但是会一直pull不下，添加latest后可以。<br>2.创建容器后因为ip不在一个网段，无法访问，所以索性使用 -p 去映射到本地端口。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title></title>
       <url>https://yujintang.github.io/2016/12/02/js%20%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E6%8B%A5%E6%9C%89%E6%9F%90%E5%B1%9E%E6%80%A7/</url>
       <content type="html"><![CDATA[<h2 id="js-判断对象是否拥有某属性"><a href="#js-判断对象是否拥有某属性" class="headerlink" title="js 判断对象是否拥有某属性"></a>js 判断对象是否拥有某属性</h2><h3 id="1-in-运算符"><a href="#1-in-运算符" class="headerlink" title="1. in 运算符"></a>1. in 运算符</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;name:<span class="string">'jack'</span>&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'name'</span> <span class="keyword">in</span> obj); 		<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'toString'</span> <span class="keyword">in</span> obj);		<span class="comment">//true</span></div></pre></td></tr></table></figure>

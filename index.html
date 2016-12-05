@@ -271,6 +271,121 @@
             
               
                 
+                <a class="post-title-link" href="/2016/12/05/docker创建一个redis/" itemprop="url">
+                  docker创建一个redis
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-05T16:20:15+08:00" content="2016-12-05">
+              2016-12-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/05/docker创建一个redis/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/05/docker创建一个redis/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/05/docker创建一个redis/" class="leancloud_visitors" data-flag-title="docker创建一个redis">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="docker-创建一个redis"><a href="#docker-创建一个redis" class="headerlink" title="docker 创建一个redis"></a>docker 创建一个redis</h2><h3 id="1-查找redis镜像"><a href="#1-查找redis镜像" class="headerlink" title="1.查找redis镜像"></a>1.查找redis镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker search redis</div></pre></td></tr></table></figure>
+<h3 id="2-选取官方的redis-镜像"><a href="#2-选取官方的redis-镜像" class="headerlink" title="2.选取官方的redis 镜像"></a>2.选取官方的redis 镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull redis:latest</div></pre></td></tr></table></figure>
+<h3 id="3-运行一个容器"><a href="#3-运行一个容器" class="headerlink" title="3. 运行一个容器"></a>3. 运行一个容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -d -p 6379:6379 --name myRedis redis:latest</div></pre></td></tr></table></figure>
+<h3 id="4-查看ip地址"><a href="#4-查看ip地址" class="headerlink" title="4.查看ip地址"></a>4.查看ip地址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker inspect --format=&apos;&#123;&#123;.NetworkSettings.IPAddress&#125;&#125;&apos; $CONTAINER_ID</div></pre></td></tr></table></figure>
+<h3 id="5-进入容器，进行配置"><a href="#5-进入容器，进行配置" class="headerlink" title="5.进入容器，进行配置"></a>5.进入容器，进行配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it myRedis /bin/bash</div></pre></td></tr></table></figure>
+<h2 id="⚠️"><a href="#⚠️" class="headerlink" title="⚠️"></a>⚠️</h2><p>1.docker pull 时候 没有添加版本，因为默认latest，但是会一直pull不下，添加latest后可以。<br>2.创建容器后因为ip不在一个网段，无法访问，所以索性使用 -p 去映射到本地端口。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/02/js 判断对象是否拥有某属性/" itemprop="url">
                   未命名
                 </a>
@@ -1955,115 +2070,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/09/js中URL编码与解码/" itemprop="url">
-                  js中URL编码与解码
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-09T11:30:33+08:00" content="2016-09-09">
-              2016-09-09
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/09/js中URL编码与解码/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/09/js中URL编码与解码/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/09/09/js中URL编码与解码/" class="leancloud_visitors" data-flag-title="js中URL编码与解码">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2109,7 +2115,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
