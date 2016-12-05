@@ -27,4 +27,4 @@ docker exec -it myRedis /bin/bash
 ```
 ##  ⚠️
 1.docker pull 时候 没有添加版本，因为默认latest，但是会一直pull不下，添加latest后可以。
-2.创建容器后因为ip不在一个网段，无法访问，所以索性使用 -p 去绑定到本地端口。
+2.创建容器后因为ip不在一个网段，无法访问，所以索性使用 -p 去映射到本地端口。
