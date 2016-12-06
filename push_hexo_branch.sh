@@ -1,6 +1,8 @@
 #!/bin/bash
 
-echo 'start git push origin hexo ......'
+hexo clean
+ hexo g
+ hexo d
 
 comment=
 if [ ! -n "$1" ]
