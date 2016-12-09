@@ -271,6 +271,253 @@
             
               
                 
+                <a class="post-title-link" href="/2016/12/09/“将程序部署到docker里面”/" itemprop="url">
+                  “将程序部署到docker里面”
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-09T12:03:20+08:00" content="2016-12-09">
+              2016-12-09
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/09/“将程序部署到docker里面”/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/09/“将程序部署到docker里面”/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/09/“将程序部署到docker里面”/" class="leancloud_visitors" data-flag-title="“将程序部署到docker里面”">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="redis-安装"><a href="#redis-安装" class="headerlink" title="redis 安装"></a>redis 安装</h1><h2 id="1-下载官方镜像"><a href="#1-下载官方镜像" class="headerlink" title="1. 下载官方镜像"></a>1. 下载官方镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull redis:latest</div></pre></td></tr></table></figure>
+<h2 id="2-运行redis"><a href="#2-运行redis" class="headerlink" title="2.运行redis"></a>2.运行redis</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name myRedis -d redis</div></pre></td></tr></table></figure>
+<h2 id="3-运行一个redis终端"><a href="#3-运行一个redis终端" class="headerlink" title="3.运行一个redis终端"></a>3.运行一个redis终端</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -it --link myRedis:redis --rm redis redis-cli -h redis -p 6379</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://hub.docker.com/_/redis/" target="_blank" rel="external">redis Image</a></li>
+</ul>
+<h1 id="postgresql-安装"><a href="#postgresql-安装" class="headerlink" title="postgresql 安装"></a>postgresql 安装</h1><h2 id="1-下载官方镜像-1"><a href="#1-下载官方镜像-1" class="headerlink" title="1.下载官方镜像"></a>1.下载官方镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull postgres:latest</div></pre></td></tr></table></figure>
+<h2 id="2-运行postgresql"><a href="#2-运行postgresql" class="headerlink" title="2.运行postgresql"></a>2.运行postgresql</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name myPG -e POSTGRES_PASSWORD=mysecretpassword -d postgres</div></pre></td></tr></table></figure>
+<h2 id="3-运行一个postgresql终端"><a href="#3-运行一个postgresql终端" class="headerlink" title="3.运行一个postgresql终端"></a>3.运行一个postgresql终端</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">docker run -it --rm --link myPG:postgres postgres psql -h postgres -U postgres</div><div class="line">psql (9.5.0)</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://hub.docker.com/_/postgres/" target="_blank" rel="external">Postres Image</a></li>
+</ul>
+<h1 id="程序运行环境"><a href="#程序运行环境" class="headerlink" title="程序运行环境"></a>程序运行环境</h1><h2 id="1-Dockerfile-文件"><a href="#1-Dockerfile-文件" class="headerlink" title="1.Dockerfile 文件"></a>1.Dockerfile 文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">FROM node</div><div class="line"></div><div class="line">RUN mkdir -p /opt/hema-img/appimg</div><div class="line">WORKDIR /code/hema-back</div><div class="line"></div><div class="line">EXPOSE 3150</div><div class="line"></div><div class="line">CMD node index.js</div></pre></td></tr></table></figure>
+<h2 id="2-创建Images"><a href="#2-创建Images" class="headerlink" title="2.创建Images"></a>2.创建Images</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker build -t hema:v1 ./</div></pre></td></tr></table></figure>
+<h2 id="3-配置文件"><a href="#3-配置文件" class="headerlink" title="3.配置文件"></a>3.配置文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  host = `pg`;</div><div class="line">      port = 5432;</div><div class="line">      database = `hema`;</div><div class="line">      username = `postgres`;</div><div class="line">      password = `mysecretpassword`;</div><div class="line">      redisHost = `rds`;</div><div class="line">      redisPort = 6379</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="4-开启一个容器"><a href="#4-开启一个容器" class="headerlink" title="4.开启一个容器"></a>4.开启一个容器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -d --restart=&quot;always&quot; --link myPG:pg --link myRedis:rds -p 3150:3150 --name hema_back -v /Users/yujintang/Documents/Kitematic/hema_back/code/:/code hema:v1</div></pre></td></tr></table></figure>
+<h2 id="5-etc-hosts-文件内容"><a href="#5-etc-hosts-文件内容" class="headerlink" title="5. /etc/hosts 文件内容"></a>5. /etc/hosts 文件内容</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">127.0.0.1	localhost</div><div class="line">::1	localhost ip6-localhost ip6-loopback</div><div class="line">fe00::0	ip6-localnet</div><div class="line">ff00::0	ip6-mcastprefix</div><div class="line">ff02::1	ip6-allnodes</div><div class="line">ff02::2	ip6-allrouters</div><div class="line">172.17.0.2	pg e4436a9e80ac myPG</div><div class="line">172.17.0.3	rds fc0b8d5b271a myRedis</div><div class="line">172.17.0.4	4e10a378dba6</div></pre></td></tr></table></figure>
+<h2 id="6-查看端口占用"><a href="#6-查看端口占用" class="headerlink" title="6.查看端口占用"></a>6.查看端口占用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ lsof -n -P -i TCP -s TCP:LISTEN | grep 3150 | awk &apos;&#123;print $1,$2,$9&#125;&apos;</div><div class="line">com.docke 90186 *:3150</div><div class="line">com.docke 90186 [::1]:3150</div></pre></td></tr></table></figure>
+<ul>
+<li>docker 映射只绑定127.0.0.1端口，所以这个时候我们在宿主机再开启一个3150端口应用，还是可以的，但是反过来就不可以。<br>node 开启一个3150 端口应用后查看端口占用：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ lsof -n -P -i TCP -s TCP:LISTEN | grep 3150 | awk &apos;&#123;print $1,$2,$9&#125;&apos;</div><div class="line">com.docke 90186 *:3150</div><div class="line">com.docke 90186 [::1]:3150</div></pre></td></tr></table></figure></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/06/js 判断对象是否拥有某属性/" itemprop="url">
+                  js 判断对象是否拥有某属性
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-06T11:36:14+08:00" content="2016-12-06">
+              2016-12-06
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/06/js 判断对象是否拥有某属性/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/06/js 判断对象是否拥有某属性/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/06/js 判断对象是否拥有某属性/" class="leancloud_visitors" data-flag-title="js 判断对象是否拥有某属性">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-in-运算符"><a href="#1-in-运算符" class="headerlink" title="1. in 运算符"></a>1. in 运算符</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;name:<span class="string">'jack'</span>&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'name'</span> <span class="keyword">in</span> obj); 		<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'toString'</span> <span class="keyword">in</span> obj);		<span class="comment">//true</span></div></pre></td></tr></table></figure>
+<ul>
+<li>使用 in , 不管是自身的，还是原型链上的属性，都能监测到</li>
+</ul>
+<h3 id="2-hasOwnProperty-方法"><a href="#2-hasOwnProperty-方法" class="headerlink" title="2.hasOwnProperty 方法"></a>2.hasOwnProperty 方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;name:<span class="string">'jack'</span>&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(obj.hasOwnProperty(<span class="string">'name'</span>));</div><div class="line"><span class="built_in">console</span>.log(obj.hasOwnProperty(<span class="string">'toString'</span>));</div></pre></td></tr></table></figure>
+<ul>
+<li>hasOwnProperty方法，只能监测到本身属性，无法监测到原型链的属性</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/06/es6-Set-去重/" itemprop="url">
                   es6 Set 去重
                 </a>
@@ -448,123 +695,6 @@
 <h3 id="4-查看ip地址"><a href="#4-查看ip地址" class="headerlink" title="4.查看ip地址"></a>4.查看ip地址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker inspect --format=&apos;&#123;&#123;.NetworkSettings.IPAddress&#125;&#125;&apos; $CONTAINER_ID</div></pre></td></tr></table></figure>
 <h3 id="5-进入容器，进行配置"><a href="#5-进入容器，进行配置" class="headerlink" title="5.进入容器，进行配置"></a>5.进入容器，进行配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it myRedis /bin/bash</div></pre></td></tr></table></figure>
 <h2 id="⚠️"><a href="#⚠️" class="headerlink" title="⚠️"></a>⚠️</h2><p>1.docker pull 时候 没有添加版本，因为默认latest，但是会一直pull不下，添加latest后可以。<br>2.创建容器后因为ip不在一个网段，无法访问，所以索性使用 -p 去映射到本地端口。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/02/js 判断对象是否拥有某属性/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-02T16:15:18+08:00" content="2016-12-02">
-              2016-12-02
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/02/js 判断对象是否拥有某属性/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/02/js 判断对象是否拥有某属性/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/12/02/js 判断对象是否拥有某属性/" class="leancloud_visitors" data-flag-title="">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="js-判断对象是否拥有某属性"><a href="#js-判断对象是否拥有某属性" class="headerlink" title="js 判断对象是否拥有某属性"></a>js 判断对象是否拥有某属性</h2><h3 id="1-in-运算符"><a href="#1-in-运算符" class="headerlink" title="1. in 运算符"></a>1. in 运算符</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;name:<span class="string">'jack'</span>&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'name'</span> <span class="keyword">in</span> obj); 		<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'toString'</span> <span class="keyword">in</span> obj);		<span class="comment">//true</span></div></pre></td></tr></table></figure>
-<ul>
-<li>使用 in , 不管是自身的，还是原型链上的属性，都能监测到</li>
-</ul>
-<h3 id="2-hasOwnProperty-方法"><a href="#2-hasOwnProperty-方法" class="headerlink" title="2.hasOwnProperty 方法"></a>2.hasOwnProperty 方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;name:<span class="string">'jack'</span>&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(obj.hasOwnProperty(<span class="string">'name'</span>));</div><div class="line"><span class="built_in">console</span>.log(obj.hasOwnProperty(<span class="string">'toString'</span>));</div></pre></td></tr></table></figure>
-<ul>
-<li>hasOwnProperty方法，只能监测到本身属性，无法监测到原型链的属性</li>
-</ul>
 
           
         
@@ -1348,132 +1478,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/10/闭包的概念以及理解/" itemprop="url">
-                  闭包的概念以及理解
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-10T15:49:06+08:00" content="2016-10-10">
-              2016-10-10
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/10/闭包的概念以及理解/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/10/闭包的概念以及理解/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/10/10/闭包的概念以及理解/" class="leancloud_visitors" data-flag-title="闭包的概念以及理解">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="闭包优点"><a href="#闭包优点" class="headerlink" title="闭包优点"></a>闭包优点</h3><ol>
-<li>可以读取函数内部的变量，</li>
-<li>让这些变量的值始终保持在内存中。<h3 id="闭包缺点"><a href="#闭包缺点" class="headerlink" title="闭包缺点"></a>闭包缺点</h3></li>
-<li>不必要的闭包造成内存泄漏。</li>
-</ol>
-<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> x = <span class="keyword">void</span> <span class="number">0</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> n = <span class="number">999</span>;</div><div class="line">     x = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; n += <span class="number">1</span> &#125;;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(n);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> f2;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> result = f1();</div><div class="line"></div><div class="line">result();<span class="comment">//999</span></div><div class="line"></div><div class="line">x();</div><div class="line"></div><div class="line">result();<span class="comment">// 1000</span></div></pre></td></tr></table></figure>
-<ol>
-<li>在这段代码中，result实际上就是闭包f2函数。它一共运行了两次，第一次的值是999，第二次的值是1000。这证明了，函数f1中的局部变量n一直保存在内存中，并没有在f1调用后被自动清除。</li>
-<li>为什么会这样呢？原因就在于f1是f2的父函数，而f2被赋给了一个全局变量，这导致f2始终在内存中，而f2的存在依赖于f1，因此f1也始终在内存中，不会在调用结束后，被垃圾回收机制（garbage collection）回收。</li>
-<li>这段代码中另一个值得注意的地方，就是”nAdd=function(){n+=1}”这一行，首先在nAdd前面没有使用var关键字，因此nAdd是一个全局变量，而不是局部变量。其次，nAdd的值是一个匿名函数（anonymous function），而这个匿名函数本身也是一个闭包，所以nAdd相当于是一个setter，可以在函数外部对函数内部的局部变量进行操作。<h3 id="代码2"><a href="#代码2" class="headerlink" title="代码2"></a>代码2</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(i);</div><div class="line">    &#125;, <span class="number">0</span>);</div><div class="line">&#125;;</div><div class="line"><span class="comment">// 结果：5 5 5 5 5</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</div><div class="line">    (<span class="function"><span class="keyword">function</span> (<span class="params">a</span>) </span>&#123;</div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(a);</div><div class="line">        &#125;, <span class="number">0</span>);</div><div class="line">    &#125;)(i);</div><div class="line">&#125;;</div><div class="line"><span class="comment">// 结果： 0 1 2 3 4</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(i);</div><div class="line">    &#125;, <span class="number">0</span>);</div><div class="line">&#125;;</div><div class="line"><span class="comment">// 结果： 0 1 2 3 4</span></div></pre></td></tr></table></figure>
-<ol>
-<li>在第一个中，i为一个引用，但是第二个，function中为值传递，创建闭包将其作为块级作用域，其中let就是块级作用域，所以也可以达到这个效果。</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1519,7 +1523,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-count">36</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

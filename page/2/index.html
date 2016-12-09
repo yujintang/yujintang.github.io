@@ -271,6 +271,132 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/10/闭包的概念以及理解/" itemprop="url">
+                  闭包的概念以及理解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-10T15:49:06+08:00" content="2016-10-10">
+              2016-10-10
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/10/闭包的概念以及理解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/10/闭包的概念以及理解/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/10/闭包的概念以及理解/" class="leancloud_visitors" data-flag-title="闭包的概念以及理解">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="闭包优点"><a href="#闭包优点" class="headerlink" title="闭包优点"></a>闭包优点</h3><ol>
+<li>可以读取函数内部的变量，</li>
+<li>让这些变量的值始终保持在内存中。<h3 id="闭包缺点"><a href="#闭包缺点" class="headerlink" title="闭包缺点"></a>闭包缺点</h3></li>
+<li>不必要的闭包造成内存泄漏。</li>
+</ol>
+<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> x = <span class="keyword">void</span> <span class="number">0</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> n = <span class="number">999</span>;</div><div class="line">     x = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; n += <span class="number">1</span> &#125;;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(n);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> f2;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> result = f1();</div><div class="line"></div><div class="line">result();<span class="comment">//999</span></div><div class="line"></div><div class="line">x();</div><div class="line"></div><div class="line">result();<span class="comment">// 1000</span></div></pre></td></tr></table></figure>
+<ol>
+<li>在这段代码中，result实际上就是闭包f2函数。它一共运行了两次，第一次的值是999，第二次的值是1000。这证明了，函数f1中的局部变量n一直保存在内存中，并没有在f1调用后被自动清除。</li>
+<li>为什么会这样呢？原因就在于f1是f2的父函数，而f2被赋给了一个全局变量，这导致f2始终在内存中，而f2的存在依赖于f1，因此f1也始终在内存中，不会在调用结束后，被垃圾回收机制（garbage collection）回收。</li>
+<li>这段代码中另一个值得注意的地方，就是”nAdd=function(){n+=1}”这一行，首先在nAdd前面没有使用var关键字，因此nAdd是一个全局变量，而不是局部变量。其次，nAdd的值是一个匿名函数（anonymous function），而这个匿名函数本身也是一个闭包，所以nAdd相当于是一个setter，可以在函数外部对函数内部的局部变量进行操作。<h3 id="代码2"><a href="#代码2" class="headerlink" title="代码2"></a>代码2</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(i);</div><div class="line">    &#125;, <span class="number">0</span>);</div><div class="line">&#125;;</div><div class="line"><span class="comment">// 结果：5 5 5 5 5</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</div><div class="line">    (<span class="function"><span class="keyword">function</span> (<span class="params">a</span>) </span>&#123;</div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(a);</div><div class="line">        &#125;, <span class="number">0</span>);</div><div class="line">    &#125;)(i);</div><div class="line">&#125;;</div><div class="line"><span class="comment">// 结果： 0 1 2 3 4</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(i);</div><div class="line">    &#125;, <span class="number">0</span>);</div><div class="line">&#125;;</div><div class="line"><span class="comment">// 结果： 0 1 2 3 4</span></div></pre></td></tr></table></figure>
+<ol>
+<li>在第一个中，i为一个引用，但是第二个，function中为值传递，创建闭包将其作为块级作用域，其中let就是块级作用域，所以也可以达到这个效果。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/13/PostgreSQL字符串操作/" itemprop="url">
                   PostgreSQL字符串操作
                 </a>
@@ -1893,139 +2019,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/06/使用nginx反向代理/" itemprop="url">
-                  使用nginx反向代理
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-06T13:46:30+08:00" content="2016-08-06">
-              2016-08-06
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/06/使用nginx反向代理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/06/使用nginx反向代理/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/06/使用nginx反向代理/" class="leancloud_visitors" data-flag-title="使用nginx反向代理">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<p>遇到的问题： 静态页面放到阿里云，如何使浏览器能够请求，ajax跨域访问服务器内容 </p>
-<hr>
-<h4 id="nginx安装"><a href="#nginx安装" class="headerlink" title="nginx安装"></a>nginx安装</h4><blockquote>
-<p>阿里云服务器centos7环境</p>
-<h5 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum install nginx</div></pre></td></tr></table></figure>
-</blockquote>
-<h5 id="nginx-升级"><a href="#nginx-升级" class="headerlink" title="nginx 升级"></a>nginx 升级</h5><blockquote>
-<p>如果你的nginx要使用最新稳定版，可以进行升级</p>
-</blockquote>
-<h6 id="配置nginx-源"><a href="#配置nginx-源" class="headerlink" title="配置nginx 源"></a>配置nginx 源</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim /etc/yum.repos.d/nginx.repo</div></pre></td></tr></table></figure>
-<h6 id="将下面内容写入"><a href="#将下面内容写入" class="headerlink" title="将下面内容写入"></a>将下面内容写入</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#nginx.repo  </div><div class="line"></div><div class="line">[nginx]  </div><div class="line">name=nginx repo  </div><div class="line">baseurl=http://nginx.org/packages/centos/7/$basearch/  </div><div class="line">gpgcheck=0  </div><div class="line">enabled=1</div></pre></td></tr></table></figure>
-<h6 id="进行升级"><a href="#进行升级" class="headerlink" title="进行升级"></a>进行升级</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum update nginx</div></pre></td></tr></table></figure>
-<h4 id="如何访问静态页面"><a href="#如何访问静态页面" class="headerlink" title="如何访问静态页面"></a>如何访问静态页面</h4><h5 id="将静态页面放入阿里云某文件下：如：-opt-client-然后配置nginx"><a href="#将静态页面放入阿里云某文件下：如：-opt-client-然后配置nginx" class="headerlink" title="将静态页面放入阿里云某文件下：如：/opt/client/, 然后配置nginx"></a>将静态页面放入阿里云某文件下：如：/opt/client/, 然后配置nginx</h5><h6 id="打开配置文件"><a href="#打开配置文件" class="headerlink" title="打开配置文件"></a>打开配置文件</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim /etc/nginx/nginx.conf</div></pre></td></tr></table></figure>
-<h6 id="写入如下配置"><a href="#写入如下配置" class="headerlink" title="写入如下配置"></a>写入如下配置</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">   location / &#123;</div><div class="line">           root   /opt/client;</div><div class="line">           index  index.html index.htm;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h6 id="重启nginx"><a href="#重启nginx" class="headerlink" title="重启nginx"></a>重启nginx</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ systemctl restart nginx</div></pre></td></tr></table></figure>
-<h6 id="阿里云的坑"><a href="#阿里云的坑" class="headerlink" title="阿里云的坑"></a>阿里云的坑</h6><ul>
-<li>不能放在／root／下，会报403错，尝试了一下 user root; 无效<h4 id="如何让前端访问服务器"><a href="#如何让前端访问服务器" class="headerlink" title="如何让前端访问服务器"></a>如何让前端访问服务器</h4><h5 id="前端访问"><a href="#前端访问" class="headerlink" title="前端访问"></a>前端访问</h5></li>
-<li>页面位置：/opt/client/login.html</li>
-<li>ajax post 请求位置：/api/users/login</li>
-<li>服务器提供接口： ／127.0.0.1:3000/users/login<h6 id="前端ajax-请求代码"><a href="#前端ajax-请求代码" class="headerlink" title="前端ajax 请求代码"></a>前端ajax 请求代码</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$.post(&apos;api/users/login&apos;, &#123;account: account, password: password&#125;, function (result) &#123;</div><div class="line">         </div><div class="line">        &#125;)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h6 id="nginx-写入配置"><a href="#nginx-写入配置" class="headerlink" title="nginx  写入配置"></a>nginx  写入配置</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//打开配置文件</div><div class="line">$ vim /etc/nginx/nginx.conf</div><div class="line">//写入如下配置</div><div class="line">       	location ^~/api/ &#123;</div><div class="line">        	rewrite ^/api/(.*)$ /$1 break;</div><div class="line">        	proxy_pass http://127.0.0.1:3000;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
-<h6 id="重启nginx-1"><a href="#重启nginx-1" class="headerlink" title="重启nginx"></a>重启nginx</h6><h6 id="访问127-0-0-1-80-login-html"><a href="#访问127-0-0-1-80-login-html" class="headerlink" title="访问127.0.0.1:80/login.html"></a>访问127.0.0.1:80/login.html</h6>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2071,7 +2064,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-count">36</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
