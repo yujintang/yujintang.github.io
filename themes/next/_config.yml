@@ -399,3 +399,8 @@ reward_comment: 坚持原创技术分享，您的支持将鼓励我继续创作�
 wechatpay: /uploads/wechat.jpg
 alipay: /uploads/apipay.jpg
 
+# Wechat Subscriber
+wechat_subscriber:
+  enabled: true
+  qcode: /uploads/wechat.jpg
+  description: 欢迎您扫一扫上面的微信公众号，订阅我的博客！
