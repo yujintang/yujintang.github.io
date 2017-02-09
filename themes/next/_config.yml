@@ -402,5 +402,5 @@ alipay: /uploads/apipay.jpg
 # Wechat Subscriber
 wechat_subscriber:
   enabled: true
-  qcode: /uploads/wechat.jpg
+  qcode: /uploads/wx_qrcode.jpg
   description: 欢迎您扫一扫上面的微信公众号，订阅我的博客！
