@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="centos," />
 
 
 
@@ -84,15 +84,28 @@
 
 
 
-<meta name="description" content="靡不有初,鲜克有终">
-<meta property="og:type" content="website">
-<meta property="og:title" content="技术分享">
-<meta property="og:url" content="https://yujintang.github.io/archives/2016/page/2/index.html">
+<meta name="description" content="1.firewalld的基本使用启动：1systemctl start firewalld
+查看状态：1systemctl status firewalld
+停止：1systemctl disable firewalld
+禁用：1systemctl stop firewalld
+2.systemctl是CentOS7的服务管理工具中主要的工具，它融合之前service和chkconfig的功能于一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="centos7 systemctl 与firewalld 的使用">
+<meta property="og:url" content="https://yujintang.github.io/2017/02/09/centos7-firewalld-防火墙设置/index.html">
 <meta property="og:site_name" content="技术分享">
-<meta property="og:description" content="靡不有初,鲜克有终">
+<meta property="og:description" content="1.firewalld的基本使用启动：1systemctl start firewalld
+查看状态：1systemctl status firewalld
+停止：1systemctl disable firewalld
+禁用：1systemctl stop firewalld
+2.systemctl是CentOS7的服务管理工具中主要的工具，它融合之前service和chkconfig的功能于一">
+<meta property="og:updated_time" content="2017-02-09T08:45:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="技术分享">
-<meta name="twitter:description" content="靡不有初,鲜克有终">
+<meta name="twitter:title" content="centos7 systemctl 与firewalld 的使用">
+<meta name="twitter:description" content="1.firewalld的基本使用启动：1systemctl start firewalld
+查看状态：1systemctl status firewalld
+停止：1systemctl disable firewalld
+禁用：1systemctl stop firewalld
+2.systemctl是CentOS7的服务管理工具中主要的工具，它融合之前service和chkconfig的功能于一">
 
 
 
@@ -113,9 +126,9 @@
 
 
 
-  <link rel="canonical" href="https://yujintang.github.io/archives/2016/page/2/"/>
+  <link rel="canonical" href="https://yujintang.github.io/2017/02/09/centos7-firewalld-防火墙设置/"/>
 
-  <title> 归档 | 技术分享 </title>
+  <title> centos7 systemctl 与firewalld 的使用 | 技术分享 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -146,7 +159,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -247,402 +260,189 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-       
-      
-      OK! 目前共计 37 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                centos7 systemctl 与firewalld 的使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-09T16:20:27+08:00" content="2017-02-09">
+              2017-02-09
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/09/centos7-firewalld-防火墙设置/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/09/centos7-firewalld-防火墙设置/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/02/09/centos7-firewalld-防火墙设置/" class="leancloud_visitors" data-flag-title="centos7 systemctl 与firewalld 的使用">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <h3 id="1-firewalld的基本使用"><a href="#1-firewalld的基本使用" class="headerlink" title="1.firewalld的基本使用"></a>1.firewalld的基本使用</h3><p>启动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl start firewalld</div></pre></td></tr></table></figure></p>
+<p>查看状态：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl status firewalld</div></pre></td></tr></table></figure></p>
+<p>停止：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl disable firewalld</div></pre></td></tr></table></figure></p>
+<p>禁用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl stop firewalld</div></pre></td></tr></table></figure></p>
+<h3 id="2-systemctl是CentOS7的服务管理工具中主要的工具，它融合之前service和chkconfig的功能于一体。"><a href="#2-systemctl是CentOS7的服务管理工具中主要的工具，它融合之前service和chkconfig的功能于一体。" class="headerlink" title="2.systemctl是CentOS7的服务管理工具中主要的工具，它融合之前service和chkconfig的功能于一体。"></a>2.systemctl是CentOS7的服务管理工具中主要的工具，它融合之前service和chkconfig的功能于一体。</h3><p>启动一个服务：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl start firewalld.service</div></pre></td></tr></table></figure></p>
+<p>关闭一个服务：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl stop firewalld.service</div></pre></td></tr></table></figure></p>
+<p>重启一个服务：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl restart firewalld.service</div></pre></td></tr></table></figure></p>
+<p>显示一个服务的状态：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl status firewalld.service</div></pre></td></tr></table></figure></p>
+<p>在开机时启用一个服务：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl enable firewalld.service</div></pre></td></tr></table></figure></p>
+<p>在开机时禁用一个服务：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl disable firewalld.service</div></pre></td></tr></table></figure></p>
+<p>查看服务是否开机启动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl is-enabled firewalld.service</div></pre></td></tr></table></figure></p>
+<p>查看已启动的服务列表：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl list-unit-files|grep enabled</div></pre></td></tr></table></figure></p>
+<p>查看启动失败的服务列表：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl --failed</div></pre></td></tr></table></figure></p>
+<h3 id="3-配置firewalld-cmd"><a href="#3-配置firewalld-cmd" class="headerlink" title="3.配置firewalld-cmd"></a>3.配置firewalld-cmd</h3><p>查看版本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --version</div></pre></td></tr></table></figure></p>
+<p>查看帮助：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --help</div></pre></td></tr></table></figure></p>
+<p>显示状态：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --state</div></pre></td></tr></table></figure></p>
+<p>查看所有打开的端口：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --zone=public --list-ports</div></pre></td></tr></table></figure></p>
+<p>更新防火墙规则：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --reload</div></pre></td></tr></table></figure></p>
+<p>查看区域信息:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --get-active-zones</div></pre></td></tr></table></figure></p>
+<p>查看指定接口所属区域： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --get-zone-of-interface=eth0</div></pre></td></tr></table></figure></p>
+<p>拒绝所有包：<br>​<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --panic-on</div></pre></td></tr></table></figure></p>
+<p>取消拒绝状态：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --panic-off</div></pre></td></tr></table></figure></p>
+<p>查看是否拒绝：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --query-panic</div></pre></td></tr></table></figure></p>
+<h3 id="4-开启与关闭一个端口"><a href="#4-开启与关闭一个端口" class="headerlink" title="4.开启与关闭一个端口"></a>4.开启与关闭一个端口</h3><p>添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent    （--permanent永久生效，没有此参数重启后失效）</div></pre></td></tr></table></figure></p>
+<p>重新载入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --reload</div></pre></td></tr></table></figure></p>
+<p>查看<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --zone= public --query-port=80/tcp</div></pre></td></tr></table></figure></p>
+<p>删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --zone= public --remove-port=80/tcp --permanent</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
+<div id="wechat_subscriber" style="display: block； padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wx_qrcode.png" alt="flynn wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wxPay.png" alt="flynn WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
       
       
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/aliPay.png" alt="flynn Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
+    </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/centos/" rel="tag">#centos</a>
+          
+        </div>
+      
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/10/闭包的概念以及理解/" itemprop="url">
-              
-                <span itemprop="name">闭包的概念以及理解</span>
-              
-            </a>
-        
-      </h1>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/09/“将程序部署到docker里面”/" rel="next" title="“将程序部署到docker里面”">
+                <i class="fa fa-chevron-left"></i> “将程序部署到docker里面”
+              </a>
+            
+          </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-10T15:49:06+08:00"
-              content="2016-10-10" >
-          10-10
-        </time>
-      </div>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/13/PostgreSQL字符串操作/" itemprop="url">
-              
-                <span itemprop="name">PostgreSQL字符串操作</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-13T14:34:47+08:00"
-              content="2016-09-13" >
-          09-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/09/js中URL编码与解码/" itemprop="url">
-              
-                <span itemprop="name">js中URL编码与解码</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-09T11:30:33+08:00"
-              content="2016-09-09" >
-          09-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/26/centos7下安装postgresql/" itemprop="url">
-              
-                <span itemprop="name">centos7下安装postgresql</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-26T14:07:30+08:00"
-              content="2016-08-26" >
-          08-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/26/linux下报-XXX-不在-sudoers-文件中。此事将被报告。/" itemprop="url">
-              
-                <span itemprop="name">linux下报 XXX 不在 sudoers 文件中。此事将被报告。</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-26T13:45:25+08:00"
-              content="2016-08-26" >
-          08-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/23/mac下postgresql安装/" itemprop="url">
-              
-                <span itemprop="name">mac下postgresql安装</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-23T16:22:21+08:00"
-              content="2016-08-23" >
-          08-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/23/mac下使用docker/" itemprop="url">
-              
-                <span itemprop="name">mac下使用docker</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-23T11:00:53+08:00"
-              content="2016-08-23" >
-          08-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/18/Nodemon在webstorm的使用/" itemprop="url">
-              
-                <span itemprop="name">Nodemon在webstorm的使用</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-18T14:15:30+08:00"
-              content="2016-08-18" >
-          08-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/16/git的使用/" itemprop="url">
-              
-                <span itemprop="name">git的使用</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-16T16:51:05+08:00"
-              content="2016-08-16" >
-          08-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/15/Process-nextTick与setlmmediate区别/" itemprop="url">
-              
-                <span itemprop="name">Process.nextTick与setlmmediate区别</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-15T17:14:54+08:00"
-              content="2016-08-15" >
-          08-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2016/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2016/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2016/page/3/">3</a><a class="page-number" href="/archives/2016/page/4/">4</a><a class="extend next" rel="next" href="/archives/2016/page/3/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
+    </div>
+  </div>
 
 
           </div>
@@ -650,6 +450,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/09/centos7-firewalld-防火墙设置/"
+           data-title="centos7 systemctl 与firewalld 的使用" data-url="https://yujintang.github.io/2017/02/09/centos7-firewalld-防火墙设置/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -669,8 +477,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -747,6 +564,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-firewalld的基本使用"><span class="nav-number">1.</span> <span class="nav-text">1.firewalld的基本使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-systemctl是CentOS7的服务管理工具中主要的工具，它融合之前service和chkconfig的功能于一体。"><span class="nav-number">2.</span> <span class="nav-text">2.systemctl是CentOS7的服务管理工具中主要的工具，它融合之前service和chkconfig的功能于一体。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-配置firewalld-cmd"><span class="nav-number">3.</span> <span class="nav-text">3.配置firewalld-cmd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-开启与关闭一个端口"><span class="nav-number">4.</span> <span class="nav-text">4.开启与关闭一个端口</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -843,11 +671,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
