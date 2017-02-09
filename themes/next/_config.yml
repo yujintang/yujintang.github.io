@@ -396,8 +396,8 @@ version: 5.0.1
 
 #extend
 reward_comment: 坚持原创技术分享，您的支持将鼓励我继续创作！
-wechatpay: /uploads/wechat.jpg
-alipay: /uploads/apipay.jpg
+wechatpay: /uploads/wechat.png
+alipay: /uploads/apipay.png
 
 # Wechat Subscriber
 wechat_subscriber:
