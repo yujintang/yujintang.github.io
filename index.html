@@ -272,7 +272,7 @@
               
                 
                 <a class="post-title-link" href="/2017/02/27/http 状态码简单记录/" itemprop="url">
-                  未命名
+                  http 状态码简单记录
                 </a>
               
             
@@ -285,7 +285,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-27T10:36:19+08:00" content="2017-02-27">
+            <time itemprop="dateCreated" datetime="2017-02-27T15:49:06+08:00" content="2017-02-27">
               2017-02-27
             </time>
           </span>
@@ -307,7 +307,7 @@
 
           
           
-             <span id="/2017/02/27/http 状态码简单记录/" class="leancloud_visitors" data-flag-title="">
+             <span id="/2017/02/27/http 状态码简单记录/" class="leancloud_visitors" data-flag-title="http 状态码简单记录">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -331,7 +331,41 @@
       
         
           
-            <h2 id="http-状态码简单记录"><a href="#http-状态码简单记录" class="headerlink" title="http 状态码简单记录"></a>http 状态码简单记录</h2><table>
+            <h2 id="1-分类以及描述"><a href="#1-分类以及描述" class="headerlink" title="1.分类以及描述"></a>1.分类以及描述</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">分类</td>
+<td style="text-align:center">分类描述</td>
+</tr>
+<tr>
+<td style="text-align:center">1**</td>
+<td style="text-align:center">信息，服务器收到请求，需要请求者继续执行操作</td>
+</tr>
+<tr>
+<td style="text-align:center">2**</td>
+<td style="text-align:center">成功，操作被成功接收并处理</td>
+</tr>
+<tr>
+<td style="text-align:center">3**</td>
+<td style="text-align:center">重定向，需要进一步的操作以完成请求</td>
+</tr>
+<tr>
+<td style="text-align:center">4**</td>
+<td style="text-align:center">客户端错误，请求包含语法错误或无法完成请求</td>
+</tr>
+<tr>
+<td style="text-align:center">5**</td>
+<td style="text-align:center">服务器错误，服务器在处理请求的过程中发生了错误</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-http-状态码简单记录"><a href="#2-http-状态码简单记录" class="headerlink" title="2.http 状态码简单记录"></a>2.http 状态码简单记录</h2><table>
 <thead>
 <tr>
 <th style="text-align:center">码</th>
@@ -872,6 +906,117 @@
             
               
                 
+                <a class="post-title-link" href="/2016/12/06/es6-Set-去重/" itemprop="url">
+                  es6 Set 去重
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-06T11:36:14+08:00" content="2016-12-06">
+              2016-12-06
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/06/es6-Set-去重/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/06/es6-Set-去重/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/06/es6-Set-去重/" class="leancloud_visitors" data-flag-title="es6 Set 去重">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set" target="_blank" rel="external">SET文档</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="external">Array文档</a></p>
+<h2 id="1-Set-用来去重，Array-from-用来转换类数组"><a href="#1-Set-用来去重，Array-from-用来转换类数组" class="headerlink" title="1. Set 用来去重，Array.from 用来转换类数组"></a>1. Set 用来去重，Array.from 用来转换类数组</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">distinct</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(arr))</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(distinct([<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>]));    <span class="comment">//[1,2]</span></div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/06/js 判断对象是否拥有某属性/" itemprop="url">
                   js 判断对象是否拥有某属性
                 </a>
@@ -941,117 +1086,6 @@
 <li>hasOwnProperty方法，只能监测到本身属性，无法监测到原型链的属性</li>
 </ul>
 
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/06/es6-Set-去重/" itemprop="url">
-                  es6 Set 去重
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-06T11:36:14+08:00" content="2016-12-06">
-              2016-12-06
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/06/es6-Set-去重/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/06/es6-Set-去重/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/12/06/es6-Set-去重/" class="leancloud_visitors" data-flag-title="es6 Set 去重">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set" target="_blank" rel="external">SET文档</a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="external">Array文档</a></p>
-<h2 id="1-Set-用来去重，Array-from-用来转换类数组"><a href="#1-Set-用来去重，Array-from-用来转换类数组" class="headerlink" title="1. Set 用来去重，Array.from 用来转换类数组"></a>1. Set 用来去重，Array.from 用来转换类数组</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">distinct</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(arr))</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(distinct([<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>]));    <span class="comment">//[1,2]</span></div></pre></td></tr></table></figure>
           
         
       
@@ -1756,7 +1790,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
