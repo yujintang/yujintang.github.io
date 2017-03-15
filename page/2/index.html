@@ -271,6 +271,167 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/17/docker基本使用/" itemprop="url">
+                  docker基本使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-17T14:15:33+08:00" content="2016-10-17">
+              2016-10-17
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/17/docker基本使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/17/docker基本使用/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/17/docker基本使用/" class="leancloud_visitors" data-flag-title="docker基本使用">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前期安装以及注册"><a href="#前期安装以及注册" class="headerlink" title="前期安装以及注册"></a>前期安装以及注册</h2><h3 id="centos-7-安装"><a href="#centos-7-安装" class="headerlink" title="centos-7 安装"></a>centos-7 安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install docker</div></pre></td></tr></table></figure>
+<h3 id="创建账户"><a href="#创建账户" class="headerlink" title="创建账户"></a>创建账户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://cloud.docker.com/</div></pre></td></tr></table></figure>
+<h3 id="自启动服务"><a href="#自启动服务" class="headerlink" title="自启动服务"></a>自启动服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo service docker start</div><div class="line"></div><div class="line">$ sudo chkconfig docker on</div></pre></td></tr></table></figure>
+<h3 id="登陆"><a href="#登陆" class="headerlink" title="登陆"></a>登陆</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo docker login</div></pre></td></tr></table></figure>
+<h2 id="镜像内容"><a href="#镜像内容" class="headerlink" title="镜像内容"></a>镜像内容</h2><h3 id="查找官方镜像"><a href="#查找官方镜像" class="headerlink" title="查找官方镜像"></a>查找官方镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker search centos</div></pre></td></tr></table></figure>
+<ul>
+<li>NAME(名字)    DESCRIPTION(描述)    STARS(星级)    OFFICIAL(官方创建?)    AUTOMATED(自动创建?)<br><img src="2.png" alt=""><h3 id="获取镜像"><a href="#获取镜像" class="headerlink" title="获取镜像"></a>获取镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker pull centos</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="列出本地已有镜像"><a href="#列出本地已有镜像" class="headerlink" title="列出本地已有镜像"></a>列出本地已有镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker images</div></pre></td></tr></table></figure>
+<ul>
+<li>REPOSITORY(仓库源)    TAG(标记)    IMAGE ID(ID号)    CREATED(创建时间)    SIZE(大小)<br><img src="1.png" alt=""><h3 id="创建镜像"><a href="#创建镜像" class="headerlink" title="创建镜像"></a>创建镜像</h3><h4 id="从已经创建的容器中更新镜像，并且提交这个镜像"><a href="#从已经创建的容器中更新镜像，并且提交这个镜像" class="headerlink" title="从已经创建的容器中更新镜像，并且提交这个镜像"></a>从已经创建的容器中更新镜像，并且提交这个镜像</h4></li>
+<li>缺点：不容易共享开发过程<h5 id="创建一个我们想要更新的容器"><a href="#创建一个我们想要更新的容器" class="headerlink" title="创建一个我们想要更新的容器"></a>创建一个我们想要更新的容器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker run -t -i centos /bin/bash</div><div class="line">[root@c88fb5759ef5 /]#</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="我们安装一个简单的Node-js"><a href="#我们安装一个简单的Node-js" class="headerlink" title="我们安装一个简单的Node.js"></a>我们安装一个简单的Node.js</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ yum install -y epel-release</div><div class="line"></div><div class="line">$ yum install -y npm</div></pre></td></tr></table></figure>
+<ul>
+<li>安装npm的同时会将Node.js 同时安装<h5 id="退出该容器"><a href="#退出该容器" class="headerlink" title="退出该容器"></a>退出该容器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exit</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="提交更新副本"><a href="#提交更新副本" class="headerlink" title="提交更新副本"></a>提交更新副本</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker commit -m &apos;add Node.js&apos; -a &apos;shanquan54@gmail.com&apos; c88fb5759ef5 yjt/nodejs:v2</div><div class="line">sha256:2cff31857faf680209a9e2563a22a8953ba5bcdfef18292fa5c8a614621ba786</div></pre></td></tr></table></figure>
+<h5 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ docker images</div><div class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">yjt/nodejs          v2                  2cff31857faf        15 seconds ago      441.4 MB</div><div class="line">centos              latest              980e0e4c79ec        5 weeks ago         196.8 MB</div></pre></td></tr></table></figure>
+<h4 id="使用Dockerfile指令来创建一个镜像"><a href="#使用Dockerfile指令来创建一个镜像" class="headerlink" title="使用Dockerfile指令来创建一个镜像"></a>使用Dockerfile指令来创建一个镜像</h4><h5 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mkdir docker</div><div class="line"></div><div class="line">cd docker</div><div class="line"></div><div class="line">touch Dockerfile</div></pre></td></tr></table></figure>
+<h5 id="Dockerfile指令"><a href="#Dockerfile指令" class="headerlink" title="Dockerfile指令"></a>Dockerfile指令</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"># This is a comment                                                             </div><div class="line">FROM centos</div><div class="line">MAINTAINER yjt &lt;shanquan54@gmail.com&gt;</div><div class="line">RUN yum -y update</div><div class="line">RUN yum -y install epel-release</div><div class="line">RUN yum -y install npm</div><div class="line"># install express</div><div class="line">RUN npm install express-generator -g</div><div class="line">RUN express myapp</div><div class="line">RUN cd myapp</div><div class="line"># working dir</div><div class="line">WORKDIR /myapp</div><div class="line"># init node_modules</div><div class="line">RUN npm install</div><div class="line"># expose the default port</div><div class="line">EXPOSE 3000</div><div class="line"># env setting</div><div class="line">ENV NODE_ENV development</div></pre></td></tr></table></figure>
+<h5 id="创建镜像-1"><a href="#创建镜像-1" class="headerlink" title="创建镜像"></a>创建镜像</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo docker build -t test/nodejs:v1 ./</div></pre></td></tr></table></figure>
+<h5 id="运行这个镜像的一个容器"><a href="#运行这个镜像的一个容器" class="headerlink" title="运行这个镜像的一个容器"></a>运行这个镜像的一个容器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker run -t -i test/nodejs:v1</div><div class="line">root@300ac9b5e3d4 myapp]#</div></pre></td></tr></table></figure>
+<h3 id="存出与载入镜像"><a href="#存出与载入镜像" class="headerlink" title="存出与载入镜像"></a>存出与载入镜像</h3><h4 id="存出"><a href="#存出" class="headerlink" title="存出"></a>存出</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ docker images</div><div class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">centos              latest              980e0e4c79ec        6 weeks ago         196.8 MB</div><div class="line"></div><div class="line">$ docker save -o centos.tar centos</div><div class="line"></div><div class="line">$ ls</div><div class="line">centos.tar</div></pre></td></tr></table></figure>
+<h4 id="载入"><a href="#载入" class="headerlink" title="载入"></a>载入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo docker load &lt; centos.tar </div><div class="line">Password:</div><div class="line">Loaded image: centos:latest</div></pre></td></tr></table></figure>
+<h3 id="移除镜像"><a href="#移除镜像" class="headerlink" title="移除镜像"></a>移除镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker rmi centos</div></pre></td></tr></table></figure>
+<h3 id="移除所有镜像"><a href="#移除所有镜像" class="headerlink" title="移除所有镜像"></a>移除所有镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker rmi $(docker images -q)</div></pre></td></tr></table></figure>
+<ul>
+<li><p>注意：在删除镜像之前要先用 docker rm 删掉依赖于这个镜像的所有容器。</p>
+<h2 id="容器内容"><a href="#容器内容" class="headerlink" title="容器内容"></a>容器内容</h2><h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker run -t -i centos /bin/bash</div><div class="line">[root@139c5eb306f4 /]#</div></pre></td></tr></table></figure>
+</li>
+<li><p>启动容器的一额高base终端，允许用户交互</p>
+</li>
+<li>-t 选项让Docker分配一个伪终端（pseudo-tty）并绑定到容器的标准输入上</li>
+<li>-i 则让容器的标准输入保持打开。<h3 id="查看容器列表"><a href="#查看容器列表" class="headerlink" title="查看容器列表"></a>查看容器列表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker ps -a</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="重新启动与终止容器"><a href="#重新启动与终止容器" class="headerlink" title="重新启动与终止容器"></a>重新启动与终止容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ docker start </div><div class="line"></div><div class="line">$ docker stop</div></pre></td></tr></table></figure>
+<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ docker run -idt centos</div><div class="line">4e2c56c09e47610675a1d8fe1c915402b332e968c4a65756306ed302abd7fb12</div><div class="line"></div><div class="line">$ docker attach 4e2c56c09e47610675a1d8fe1c915402b332e968c4a65756306ed302abd7fb12</div><div class="line">[root@4e2c56c09e47 /]#</div></pre></td></tr></table></figure>
+<h3 id="导出容器"><a href="#导出容器" class="headerlink" title="导出容器"></a>导出容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">docker ps -a</div><div class="line">CONTAINER ID	IMAGE	COMMAND	CREATED	STATUS	PORTS	NAMES</div><div class="line">48a34bebcb59	centos	&quot;/bin/bash&quot;	7 seconds ago	Up 6 seconds	amazing_blackwell</div><div class="line"></div><div class="line">$ docker export 48a34bebcb59 &gt; centos1.tar</div></pre></td></tr></table></figure>
+<h3 id="导入容器快照"><a href="#导入容器快照" class="headerlink" title="导入容器快照"></a>导入容器快照</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cat centos1.tar | docker import - test/centos   </div><div class="line">sha256:b688b590d7469583d3f5771dde529de0bc094c16e5d968f62364c68e88319b32</div></pre></td></tr></table></figure>
+<ul>
+<li>用户既可以使用 docker load 来导入镜像存储文件到本地镜像库，也可以使用 docker import 来导入一个容器快照到本地镜像库。这两者的区别在于容器快照文件将丢弃所有的历史记录和元数据信息（即仅保存容器当时的快照状态），而镜像存储文件将保存完整记录，体积也要大。此外，从容器快照文件导入时可以重新指定标签等元数据信息。<h3 id="删除容器"><a href="#删除容器" class="headerlink" title="删除容器"></a>删除容器</h3><h4 id="杀死所有正在运行的容器"><a href="#杀死所有正在运行的容器" class="headerlink" title="杀死所有正在运行的容器"></a>杀死所有正在运行的容器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker kill $(docker ps -a -q)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="删除所有已经停止的容器"><a href="#删除所有已经停止的容器" class="headerlink" title="删除所有已经停止的容器"></a>删除所有已经停止的容器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker rm $(docker ps -a -q)</div></pre></td></tr></table></figure>
+<ul>
+<li>如果要删除一个运行中的容器，可以添加 -f 参数。Docker 会发送 SIGKILL 信号给容器。</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/14/apt-get的使用参数/" itemprop="url">
                   apt-get的使用参数
                 </a>
@@ -1919,125 +2080,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/18/Nodemon在webstorm的使用/" itemprop="url">
-                  Nodemon在webstorm的使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-18T14:15:30+08:00" content="2016-08-18">
-              2016-08-18
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/18/Nodemon在webstorm的使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/18/Nodemon在webstorm的使用/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/18/Nodemon在webstorm的使用/" class="leancloud_visitors" data-flag-title="Nodemon在webstorm的使用">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>[TOC]</p>
-<h2 id="nodemon在命令行的使用"><a href="#nodemon在命令行的使用" class="headerlink" title="nodemon在命令行的使用"></a>nodemon在命令行的使用</h2><h3 id="nodemon安装"><a href="#nodemon安装" class="headerlink" title="nodemon安装"></a>nodemon安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g nodemon</div></pre></td></tr></table></figure>
-<h3 id="命令行运行，代替node"><a href="#命令行运行，代替node" class="headerlink" title="命令行运行，代替node"></a>命令行运行，代替node</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodemon app.js</div></pre></td></tr></table></figure>
-<h3 id="可指定端口号，如果应用中没有指定的话"><a href="#可指定端口号，如果应用中没有指定的话" class="headerlink" title="可指定端口号，如果应用中没有指定的话"></a>可指定端口号，如果应用中没有指定的话</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodemon app.js localhost 3001</div></pre></td></tr></table></figure>
-<h3 id="debug-模式"><a href="#debug-模式" class="headerlink" title="debug 模式"></a>debug 模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodemon --debug app.js</div></pre></td></tr></table></figure>
-<h3 id="查看使用文档"><a href="#查看使用文档" class="headerlink" title="查看使用文档"></a>查看使用文档</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodemon -h</div></pre></td></tr></table></figure>
-<h2 id="nodemon-在webstorm中的使用"><a href="#nodemon-在webstorm中的使用" class="headerlink" title="nodemon 在webstorm中的使用"></a>nodemon 在webstorm中的使用</h2><h3 id="非debug模式，Node-parameters：修改：（mac下）"><a href="#非debug模式，Node-parameters：修改：（mac下）" class="headerlink" title="非debug模式，Node parameters：修改：（mac下）"></a>非debug模式，Node parameters：修改：（mac下）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/lib/node_modules/nodemon/bin/nodemon.js</div></pre></td></tr></table></figure>
-<p><img src="2.jpeg" alt=""></p>
-<h3 id="debug模式，Node-parameters：修改：（mac下）"><a href="#debug模式，Node-parameters：修改：（mac下）" class="headerlink" title="debug模式，Node parameters：修改：（mac下）"></a>debug模式，Node parameters：修改：（mac下）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/lib/node_modules/nodemon/bin/nodemon.js --debug</div></pre></td></tr></table></figure>
-<p><img src="1.jpeg" alt=""></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2083,7 +2125,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
