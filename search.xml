@@ -4,6 +4,16 @@
   
     
     <entry>
+      <title><![CDATA[omniplan 许可证]]></title>
+      <url>https://yujintang.github.io/2017/05/08/omniplan-%E8%AE%B8%E5%8F%AF%E8%AF%81/</url>
+      <content type="html"><![CDATA[<p><a href="http://www.jianshu.com/p/28b2d21e33c4" target="_blank" rel="external"> 原地址</a></p>
+<p><strong>密钥所有者都是:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">youliyuan</div></pre></td></tr></table></figure></p>
+<p><strong>OmniPlan 3：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">HOMJ-QOJH-OIBN-TNIH-HWUN-TEEH-WUN</div><div class="line">NKWO-HVKB-JAZE-UIHH-XAVY-BEEX-AVY</div><div class="line">BCRW-MFCE-FVEX-VEBS-LNYD-PEEL-NYD</div></pre></td></tr></table></figure></p>
+<p><strong>OmniPlan 3 Pro：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CQPC-NNAM-MMMG-XYKD-IDPA-BEEI-DPA</div><div class="line">LEUG-ZSCB-WJYR-LXIK-DHXG-VEED-HXG</div><div class="line">MWCD-CCHB-DLNR-RSNF-UVBX-TEEU-VBX</div></pre></td></tr></table></figure></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[413 request entity too large 解决]]></title>
       <url>https://yujintang.github.io/2017/03/15/413-request-entity-too-large-%E8%A7%A3%E5%86%B3/</url>
       <content type="html"><![CDATA[<h2 id="如果是nginx-问题"><a href="#如果是nginx-问题" class="headerlink" title="如果是nginx 问题"></a>如果是nginx 问题</h2><p><strong>在nginx 配置中写入</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">增加如下两行到nginx.conf的http&#123;&#125;段， 增大nginx上传文件大小限制</div><div class="line"></div><div class="line">#设置允许发布内容为8M</div><div class="line">client_max_body_size 8M;</div><div class="line">client_body_buffer_size 128k;</div></pre></td></tr></table></figure></p>
@@ -355,6 +365,11 @@
 <h3 id="2-hasOwnProperty-方法"><a href="#2-hasOwnProperty-方法" class="headerlink" title="2.hasOwnProperty 方法"></a>2.hasOwnProperty 方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;name:<span class="string">'jack'</span>&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(obj.hasOwnProperty(<span class="string">'name'</span>));</div><div class="line"><span class="built_in">console</span>.log(obj.hasOwnProperty(<span class="string">'toString'</span>));</div></pre></td></tr></table></figure>
 <ul>
 <li>hasOwnProperty方法，只能监测到本身属性，无法监测到原型链的属性</li>
+</ul>
+<h3 id="3-for…in-Object-keys-Object-getOwnPropertyNames-遍历对象属性"><a href="#3-for…in-Object-keys-Object-getOwnPropertyNames-遍历对象属性" class="headerlink" title="3.for…in , Object.keys, Object.getOwnPropertyNames 遍历对象属性"></a>3.for…in , Object.keys, Object.getOwnPropertyNames 遍历对象属性</h3><ul>
+<li>for…in 循环包括对象继承自原型对象的属性,只包括可枚举的</li>
+<li>Object.keys 只包括自身的所有属性,只包括可枚举的</li>
+<li>Object.getOwnPropertyNames 包括自身的所有属性<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> o = &#123;a:<span class="number">1</span>, b:<span class="number">2</span>&#125;;</div><div class="line">o.c = <span class="number">3</span>;</div><div class="line"><span class="built_in">Object</span>.defineProperty(o, <span class="string">'d'</span>, &#123;</div><div class="line">    value: <span class="number">4</span>,</div><div class="line">    enumerable: <span class="literal">false</span></div><div class="line">&#125;);</div><div class="line"><span class="keyword">let</span> e = &#123;e:<span class="string">'ww'</span>&#125;</div><div class="line"><span class="built_in">Object</span>.setPrototypeOf(o,e);</div><div class="line"></div><div class="line"><span class="keyword">let</span> forArray = [];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> o)&#123;</div><div class="line">    forArray.push(i)</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(forArray);		<span class="comment">//[ 'a', 'b', 'c', 'e' ]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(o));	<span class="comment">//[ 'a', 'b', 'c' ]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyNames(o))	<span class="comment">//[ 'a', 'b', 'c', 'd' ]</span></div></pre></td></tr></table></figure></li>
 </ul>
 ]]></content>
     </entry>
