@@ -271,6 +271,119 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/26/linux下报-XXX-不在-sudoers-文件中。此事将被报告。/" itemprop="url">
+                  linux下报 XXX 不在 sudoers 文件中。此事将被报告。
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-26T13:45:25+08:00" content="2016-08-26">
+              2016-08-26
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/26/linux下报-XXX-不在-sudoers-文件中。此事将被报告。/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/26/linux下报-XXX-不在-sudoers-文件中。此事将被报告。/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/26/linux下报-XXX-不在-sudoers-文件中。此事将被报告。/" class="leancloud_visitors" data-flag-title="linux下报 XXX 不在 sudoers 文件中。此事将被报告。">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="linux下新建账号，进行sudo-，报错"><a href="#linux下新建账号，进行sudo-，报错" class="headerlink" title="linux下新建账号，进行sudo ，报错"></a>linux下新建账号，进行sudo ，报错</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xxx 不在 sudoers 文件中。此事将被报告。</div></pre></td></tr></table></figure>
+<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><h4 id="切换到root"><a href="#切换到root" class="headerlink" title="切换到root"></a>切换到root</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">su -</div></pre></td></tr></table></figure>
+<h4 id="修改-etc-sudoers"><a href="#修改-etc-sudoers" class="headerlink" title="修改/etc/sudoers"></a>修改/etc/sudoers</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">vi /etc/sudoers</div><div class="line"></div><div class="line">## Allow root to run any commands anywhere</div><div class="line">root    ALL=(ALL)       ALL</div><div class="line">XXX ALL=(ALL)     ALL (新建行，将XXX修改为自己的user)</div></pre></td></tr></table></figure>
+<h4 id="修改sudoers的权限"><a href="#修改sudoers的权限" class="headerlink" title="修改sudoers的权限"></a>修改sudoers的权限</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod 740 /etc/sudoers</div></pre></td></tr></table></figure>
+<h2 id="成功"><a href="#成功" class="headerlink" title="成功"></a>成功</h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/23/mac下postgresql安装/" itemprop="url">
                   mac下postgresql安装
                 </a>
@@ -1304,128 +1417,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/19/sql数据库查询添加idx序列表/" itemprop="url">
-                  PostgreSQL 索引以及时间戳问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-19T10:07:58+08:00" content="2016-07-19">
-              2016-07-19
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/19/sql数据库查询添加idx序列表/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/19/sql数据库查询添加idx序列表/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/19/sql数据库查询添加idx序列表/" class="leancloud_visitors" data-flag-title="PostgreSQL 索引以及时间戳问题">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/05/04/2294643.html" target="_blank" rel="external">链接</a></p>
-<h4 id="查询时候加一个列表索引"><a href="#查询时候加一个列表索引" class="headerlink" title="查询时候加一个列表索引"></a>查询时候加一个列表索引</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> row_number() <span class="keyword">over</span>() idx, t.*</div><div class="line"><span class="keyword">from</span> (</div><div class="line"><span class="keyword">select</span> corp_id, <span class="keyword">count</span>(*) cnt </div><div class="line"><span class="keyword">from</span> tb_mf_order <span class="keyword">group</span> <span class="keyword">by</span> corp_id</div><div class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="number">2</span> <span class="keyword">desc</span>) t;</div></pre></td></tr></table></figure>
-<p>结果如下：<br>| idx  | corp_id  | cnt  |<br>| —- | ——– | —- |<br>| 1    | IT001001 | 150  |<br>| 2    | MN001001 | 51   |<br>| 3    | JZ001001 | 50   |<br>| 4    | GH001001 | 36   |</p>
-<h4 id="unix时间戳变为unix日期时间戳"><a href="#unix时间戳变为unix日期时间戳" class="headerlink" title="unix时间戳变为unix日期时间戳"></a>unix时间戳变为unix日期时间戳</h4><p>我们可以直接／ 然后＋，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var timeStamp = 1468857334;</div><div class="line">timeStamp = timeStamp - (timeStamp + 8*60*60)%(24*60*60);</div></pre></td></tr></table></figure></p>
-<p>结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">1468800000</div></pre></td></tr></table></figure></p>
-<p>也可以使用postgresql的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var timeStamp = 1468857334;</div><div class="line">extract(epoch from (date_trunc(&apos;day&apos;, to_TIMESTAMP(timeStamp))));</div></pre></td></tr></table></figure></p>
-<p>结果：<br>| date_part  |<br>| :——–: |<br>| 1468771200 |</p>
-<h5 id="postgre-函数详解"><a href="#postgre-函数详解" class="headerlink" title="postgre 函数详解"></a>postgre 函数详解</h5><h6 id="to-timeStamp-把UNIX纪元转换成时间戳"><a href="#to-timeStamp-把UNIX纪元转换成时间戳" class="headerlink" title="to_timeStamp //把UNIX纪元转换成时间戳"></a>to_timeStamp //把UNIX纪元转换成时间戳</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select to_timestamp(1468857334)</div></pre></td></tr></table></figure>
-<p>结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2016-07-18 23:55:34+08</div></pre></td></tr></table></figure></p>
-<h6 id="date-trunc-截断成指定精度"><a href="#date-trunc-截断成指定精度" class="headerlink" title="date_trunc //截断成指定精度"></a>date_trunc //截断成指定精度</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select date_trunc(&apos;day&apos;, timestamp &apos;2016-07-18 23:55:34+08&apos;);</div></pre></td></tr></table></figure>
-<p>结果：<br>|     date_trunc      |<br>| :—————–: |<br>| 2016-07-18 00:00:00 |</p>
-<h6 id="extract-获取子域"><a href="#extract-获取子域" class="headerlink" title="extract  //获取子域"></a>extract  //获取子域</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select extract(epoch from timestamp&apos;2016-07-18 00:00:00&apos;);</div></pre></td></tr></table></figure>
-<p>结果：<br>| date_part  |<br>| :——–: |<br>| 1468800000 |</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1471,7 +1462,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-count">42</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1552,7 +1543,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

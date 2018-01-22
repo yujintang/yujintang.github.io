@@ -4,6 +4,40 @@
   
     
     <entry>
+      <title><![CDATA[event_loop详解]]></title>
+      <url>https://yujintang.github.io/2018/01/22/event-loop%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<h2 id="Event-Loop-详解"><a href="#Event-Loop-详解" class="headerlink" title="Event Loop 详解"></a>Event Loop 详解</h2><p><a href="https://juejin.im/post/5a6155126fb9a01cb64edb45" target="_blank" rel="external">掘金原文链接🔗</a></p>
+<h3 id="Event-Loop-基本流程："><a href="#Event-Loop-基本流程：" class="headerlink" title="Event Loop 基本流程："></a>Event Loop 基本流程：</h3><ol>
+<li>queue可以看做一种数据结构，用以存储需要执行的函数</li>
+<li>timer类型的API（setTimeout/setInterval）注册的函数，等到期后进入task队列（这里不详细展开timer的运行机制）</li>
+<li>其余API注册函数直接进入自身对应的task/microtask队列</li>
+<li>Event Loop执行一次，从task队列中拉出一个task执行</li>
+<li>Event Loop继续检查microtask队列是否为空，依次执行直至清空队列<br><img src="https://user-gold-cdn.xitu.io/2018/1/19/1610c344b595114b?" alt=""></li>
+</ol>
+<h3 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h3><ul>
+<li>Node的Event Loop分阶段，阶段有先后，依次是</li>
+</ul>
+<ol>
+<li>expired timers and intervals，即到期的setTimeout/setInterval</li>
+<li>I/O events，包含文件，网络等等</li>
+<li>immediates，通过setImmediate注册的函数</li>
+<li>close handlers，close事件的回调，比如TCP连接断开</li>
+</ol>
+<ul>
+<li>同步任务及每个阶段之后都会清空microtask队列</li>
+</ul>
+<ol>
+<li>优先清空next tick queue，即通过process.nextTick注册的函数</li>
+<li>再清空other queue，常见的如Promise</li>
+</ol>
+<ul>
+<li>而和规范的区别，在于node会清空当前所处阶段的队列，即执行所有task</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2018/1/18/16109e54b46036d1?" alt=""></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[“git版本控制学习”]]></title>
       <url>https://yujintang.github.io/2017/09/14/git%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%AD%A6%E4%B9%A0/</url>
       <content type="html"><![CDATA[<p>#git版本控制学习</p>
@@ -400,14 +434,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[es6 Set 去重]]></title>
-      <url>https://yujintang.github.io/2016/12/06/es6-Set-%E5%8E%BB%E9%87%8D/</url>
-      <content type="html"><![CDATA[<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set" target="_blank" rel="external">SET文档</a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="external">Array文档</a></p>
-<h2 id="1-Set-用来去重，Array-from-用来转换类数组"><a href="#1-Set-用来去重，Array-from-用来转换类数组" class="headerlink" title="1. Set 用来去重，Array.from 用来转换类数组"></a>1. Set 用来去重，Array.from 用来转换类数组</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">distinct</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(arr))</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(distinct([<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>]));    <span class="comment">//[1,2]</span></div></pre></td></tr></table></figure>]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[js 判断对象是否拥有某属性]]></title>
       <url>https://yujintang.github.io/2016/12/06/js%20%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E6%8B%A5%E6%9C%89%E6%9F%90%E5%B1%9E%E6%80%A7/</url>
       <content type="html"><![CDATA[<h3 id="1-in-运算符"><a href="#1-in-运算符" class="headerlink" title="1. in 运算符"></a>1. in 运算符</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;name:<span class="string">'jack'</span>&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'name'</span> <span class="keyword">in</span> obj); 		<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'toString'</span> <span class="keyword">in</span> obj);		<span class="comment">//true</span></div></pre></td></tr></table></figure>
@@ -424,6 +450,14 @@
 <li>Object.getOwnPropertyNames 包括自身的所有属性<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> o = &#123;a:<span class="number">1</span>, b:<span class="number">2</span>&#125;;</div><div class="line">o.c = <span class="number">3</span>;</div><div class="line"><span class="built_in">Object</span>.defineProperty(o, <span class="string">'d'</span>, &#123;</div><div class="line">    value: <span class="number">4</span>,</div><div class="line">    enumerable: <span class="literal">false</span></div><div class="line">&#125;);</div><div class="line"><span class="keyword">let</span> e = &#123;e:<span class="string">'ww'</span>&#125;</div><div class="line"><span class="built_in">Object</span>.setPrototypeOf(o,e);</div><div class="line"></div><div class="line"><span class="keyword">let</span> forArray = [];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> o)&#123;</div><div class="line">    forArray.push(i)</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(forArray);		<span class="comment">//[ 'a', 'b', 'c', 'e' ]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(o));	<span class="comment">//[ 'a', 'b', 'c' ]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyNames(o))	<span class="comment">//[ 'a', 'b', 'c', 'd' ]</span></div></pre></td></tr></table></figure></li>
 </ul>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[es6 Set 去重]]></title>
+      <url>https://yujintang.github.io/2016/12/06/es6-Set-%E5%8E%BB%E9%87%8D/</url>
+      <content type="html"><![CDATA[<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set" target="_blank" rel="external">SET文档</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="external">Array文档</a></p>
+<h2 id="1-Set-用来去重，Array-from-用来转换类数组"><a href="#1-Set-用来去重，Array-from-用来转换类数组" class="headerlink" title="1. Set 用来去重，Array.from 用来转换类数组"></a>1. Set 用来去重，Array.from 用来转换类数组</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">distinct</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(arr))</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(distinct([<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>]));    <span class="comment">//[1,2]</span></div></pre></td></tr></table></figure>]]></content>
     </entry>
     
     <entry>

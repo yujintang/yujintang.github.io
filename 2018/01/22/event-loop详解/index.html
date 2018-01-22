@@ -84,15 +84,34 @@
 
 
 
-<meta name="description" content="靡不有初,鲜克有终">
-<meta property="og:type" content="website">
-<meta property="og:title" content="技术分享">
-<meta property="og:url" content="https://yujintang.github.io/tags/js/index.html">
+<meta name="description" content="Event Loop 详解掘金原文链接🔗
+Event Loop 基本流程：
+queue可以看做一种数据结构，用以存储需要执行的函数
+timer类型的API（setTimeout/setInterval）注册的函数，等到期后进入task队列（这里不详细展开timer的运行机制）
+其余API注册函数直接进入自身对应的task/microtask队列
+Event Loop执行一次，从task队列中拉出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="event_loop详解">
+<meta property="og:url" content="https://yujintang.github.io/2018/01/22/event-loop详解/index.html">
 <meta property="og:site_name" content="技术分享">
-<meta property="og:description" content="靡不有初,鲜克有终">
+<meta property="og:description" content="Event Loop 详解掘金原文链接🔗
+Event Loop 基本流程：
+queue可以看做一种数据结构，用以存储需要执行的函数
+timer类型的API（setTimeout/setInterval）注册的函数，等到期后进入task队列（这里不详细展开timer的运行机制）
+其余API注册函数直接进入自身对应的task/microtask队列
+Event Loop执行一次，从task队列中拉出">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/1/19/1610c344b595114b?">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/1/18/16109e54b46036d1?">
+<meta property="og:updated_time" content="2018-01-22T03:02:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="技术分享">
-<meta name="twitter:description" content="靡不有初,鲜克有终">
+<meta name="twitter:title" content="event_loop详解">
+<meta name="twitter:description" content="Event Loop 详解掘金原文链接🔗
+Event Loop 基本流程：
+queue可以看做一种数据结构，用以存储需要执行的函数
+timer类型的API（setTimeout/setInterval）注册的函数，等到期后进入task队列（这里不详细展开timer的运行机制）
+其余API注册函数直接进入自身对应的task/microtask队列
+Event Loop执行一次，从task队列中拉出">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/1/19/1610c344b595114b?">
 
 
 
@@ -113,9 +132,9 @@
 
 
 
-  <link rel="canonical" href="https://yujintang.github.io/tags/js/"/>
+  <link rel="canonical" href="https://yujintang.github.io/2018/01/22/event-loop详解/"/>
 
-  <title> 标签: js | 技术分享 </title>
+  <title> event_loop详解 | 技术分享 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -146,7 +165,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -247,130 +266,184 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        js
-        <small>标签</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/10/闭包的概念以及理解/" itemprop="url">
-              
-                <span itemprop="name">闭包的概念以及理解</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-10T15:49:06+08:00"
-              content="2016-10-10" >
-          10-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/22/js的prototype与apply讲解/" itemprop="url">
-              
-                <span itemprop="name">js的prototype与apply讲解</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-22T11:29:01+08:00"
-              content="2016-07-22" >
-          07-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/17/js里repeat的使用/" itemprop="url">
-              
-                <span itemprop="name">js里repeat的使用</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-17T23:13:06+08:00"
-              content="2016-07-17" >
-          07-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/12/js-多重循环break/" itemprop="url">
-              
-                <span itemprop="name">js 多重循环break</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-12T16:28:10+08:00"
-              content="2016-07-12" >
-          07-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                event_loop详解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-01-22T10:43:45+08:00" content="2018-01-22">
+              2018-01-22
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/01/22/event-loop详解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/01/22/event-loop详解/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/01/22/event-loop详解/" class="leancloud_visitors" data-flag-title="event_loop详解">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Event-Loop-详解"><a href="#Event-Loop-详解" class="headerlink" title="Event Loop 详解"></a>Event Loop 详解</h2><p><a href="https://juejin.im/post/5a6155126fb9a01cb64edb45" target="_blank" rel="external">掘金原文链接🔗</a></p>
+<h3 id="Event-Loop-基本流程："><a href="#Event-Loop-基本流程：" class="headerlink" title="Event Loop 基本流程："></a>Event Loop 基本流程：</h3><ol>
+<li>queue可以看做一种数据结构，用以存储需要执行的函数</li>
+<li>timer类型的API（setTimeout/setInterval）注册的函数，等到期后进入task队列（这里不详细展开timer的运行机制）</li>
+<li>其余API注册函数直接进入自身对应的task/microtask队列</li>
+<li>Event Loop执行一次，从task队列中拉出一个task执行</li>
+<li>Event Loop继续检查microtask队列是否为空，依次执行直至清空队列<br><img src="https://user-gold-cdn.xitu.io/2018/1/19/1610c344b595114b?" alt=""></li>
+</ol>
+<h3 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h3><ul>
+<li>Node的Event Loop分阶段，阶段有先后，依次是</li>
+</ul>
+<ol>
+<li>expired timers and intervals，即到期的setTimeout/setInterval</li>
+<li>I/O events，包含文件，网络等等</li>
+<li>immediates，通过setImmediate注册的函数</li>
+<li>close handlers，close事件的回调，比如TCP连接断开</li>
+</ol>
+<ul>
+<li>同步任务及每个阶段之后都会清空microtask队列</li>
+</ul>
+<ol>
+<li>优先清空next tick queue，即通过process.nextTick注册的函数</li>
+<li>再清空other queue，常见的如Promise</li>
+</ol>
+<ul>
+<li>而和规范的区别，在于node会清空当前所处阶段的队列，即执行所有task</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2018/1/18/16109e54b46036d1?" alt=""></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block； padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wx_qrcode.png" alt="flynn wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wxPay.png" alt="flynn WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/aliPay.png" alt="flynn Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/14/git版本控制学习/" rel="next" title="“git版本控制学习”">
+                <i class="fa fa-chevron-left"></i> “git版本控制学习”
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -378,6 +451,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2018/01/22/event-loop详解/"
+           data-title="event_loop详解" data-url="https://yujintang.github.io/2018/01/22/event-loop详解/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -397,8 +478,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -475,6 +565,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Event-Loop-详解"><span class="nav-number">1.</span> <span class="nav-text">Event Loop 详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Event-Loop-基本流程："><span class="nav-number">1.1.</span> <span class="nav-text">Event Loop 基本流程：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充："><span class="nav-number">1.2.</span> <span class="nav-text">补充：</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -571,6 +672,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
