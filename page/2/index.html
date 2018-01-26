@@ -271,8 +271,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/06/es6-Set-去重/" itemprop="url">
-                  es6 Set 去重
+                <a class="post-title-link" href="/2016/12/06/js 判断对象是否拥有某属性/" itemprop="url">
+                  js 判断对象是否拥有某属性
                 </a>
               
             
@@ -296,8 +296,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/06/es6-Set-去重/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/06/es6-Set-去重/" itemprop="commentsCount"></span>
+                <a href="/2016/12/06/js 判断对象是否拥有某属性/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/06/js 判断对象是否拥有某属性/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -307,7 +307,7 @@
 
           
           
-             <span id="/2016/12/06/es6-Set-去重/" class="leancloud_visitors" data-flag-title="es6 Set 去重">
+             <span id="/2016/12/06/js 判断对象是否拥有某属性/" class="leancloud_visitors" data-flag-title="js 判断对象是否拥有某属性">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -331,9 +331,20 @@
       
         
           
-            <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set" target="_blank" rel="external">SET文档</a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="external">Array文档</a></p>
-<h2 id="1-Set-用来去重，Array-from-用来转换类数组"><a href="#1-Set-用来去重，Array-from-用来转换类数组" class="headerlink" title="1. Set 用来去重，Array.from 用来转换类数组"></a>1. Set 用来去重，Array.from 用来转换类数组</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">distinct</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(arr))</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(distinct([<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>]));    <span class="comment">//[1,2]</span></div></pre></td></tr></table></figure>
+            <h3 id="1-in-运算符"><a href="#1-in-运算符" class="headerlink" title="1. in 运算符"></a>1. in 运算符</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;name:<span class="string">'jack'</span>&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'name'</span> <span class="keyword">in</span> obj); 		<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'toString'</span> <span class="keyword">in</span> obj);		<span class="comment">//true</span></div></pre></td></tr></table></figure>
+<ul>
+<li>使用 in , 不管是自身的，还是原型链上的属性，都能监测到</li>
+</ul>
+<h3 id="2-hasOwnProperty-方法"><a href="#2-hasOwnProperty-方法" class="headerlink" title="2.hasOwnProperty 方法"></a>2.hasOwnProperty 方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;name:<span class="string">'jack'</span>&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(obj.hasOwnProperty(<span class="string">'name'</span>));</div><div class="line"><span class="built_in">console</span>.log(obj.hasOwnProperty(<span class="string">'toString'</span>));</div></pre></td></tr></table></figure>
+<ul>
+<li>hasOwnProperty方法，只能监测到本身属性，无法监测到原型链的属性</li>
+</ul>
+<h3 id="3-for…in-Object-keys-Object-getOwnPropertyNames-遍历对象属性"><a href="#3-for…in-Object-keys-Object-getOwnPropertyNames-遍历对象属性" class="headerlink" title="3.for…in , Object.keys, Object.getOwnPropertyNames 遍历对象属性"></a>3.for…in , Object.keys, Object.getOwnPropertyNames 遍历对象属性</h3><ul>
+<li>for…in 循环包括对象继承自原型对象的属性,只包括可枚举的</li>
+<li>Object.keys 只包括自身的所有属性,只包括可枚举的</li>
+<li>Object.getOwnPropertyNames 包括自身的所有属性<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> o = &#123;a:<span class="number">1</span>, b:<span class="number">2</span>&#125;;</div><div class="line">o.c = <span class="number">3</span>;</div><div class="line"><span class="built_in">Object</span>.defineProperty(o, <span class="string">'d'</span>, &#123;</div><div class="line">    value: <span class="number">4</span>,</div><div class="line">    enumerable: <span class="literal">false</span></div><div class="line">&#125;);</div><div class="line"><span class="keyword">let</span> e = &#123;e:<span class="string">'ww'</span>&#125;</div><div class="line"><span class="built_in">Object</span>.setPrototypeOf(o,e);</div><div class="line"></div><div class="line"><span class="keyword">let</span> forArray = [];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> o)&#123;</div><div class="line">    forArray.push(i)</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(forArray);		<span class="comment">//[ 'a', 'b', 'c', 'e' ]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(o));	<span class="comment">//[ 'a', 'b', 'c' ]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyNames(o))	<span class="comment">//[ 'a', 'b', 'c', 'd' ]</span></div></pre></td></tr></table></figure></li>
+</ul>
+
           
         
       
