@@ -271,6 +271,713 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/13/PostgreSQL字符串操作/" itemprop="url">
+                  PostgreSQL字符串操作
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-13T14:34:47+08:00" content="2016-09-13">
+              2016-09-13
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/13/PostgreSQL字符串操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/13/PostgreSQL字符串操作/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/13/PostgreSQL字符串操作/" class="leancloud_visitors" data-flag-title="PostgreSQL字符串操作">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="常用的逻辑操作符号"><a href="#常用的逻辑操作符号" class="headerlink" title="常用的逻辑操作符号"></a>常用的逻辑操作符号</h1><ol>
+<li>and ,or,not ,其语意与其它编程语言操作符相同</li>
+</ol>
+<h1 id="比较操作符"><a href="#比较操作符" class="headerlink" title="比较操作符"></a>比较操作符</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">操作符号</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&lt;</td>
+<td style="text-align:center">小于</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;</td>
+<td style="text-align:center">大于</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;=</td>
+<td style="text-align:center">小于或等于</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;=</td>
+<td style="text-align:center">大于或等于</td>
+</tr>
+<tr>
+<td style="text-align:center">=</td>
+<td style="text-align:center">等于</td>
+</tr>
+<tr>
+<td style="text-align:center">!=</td>
+<td style="text-align:center">不等于</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>a BETWEEN x AND y 等效于 a &gt;= x AND a &lt;= y    </li>
+<li>a NOT BETWEEN x AND y 等效于 a &lt; x OR a &gt; y<h1 id="数学函数和操作符"><a href="#数学函数和操作符" class="headerlink" title="数学函数和操作符"></a>数学函数和操作符</h1><h2 id="基本操作符"><a href="#基本操作符" class="headerlink" title="基本操作符"></a>基本操作符</h2></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>描述</th>
+<th>例子</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>加</td>
+<td>2 + 3</td>
+<td>5</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减</td>
+<td>2 - 3</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘</td>
+<td>2 * 3</td>
+<td>6</td>
+</tr>
+<tr>
+<td>/</td>
+<td>除</td>
+<td>4 / 2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>%</td>
+<td>模</td>
+<td>5 % 4</td>
+<td>1</td>
+</tr>
+<tr>
+<td>^</td>
+<td>幂</td>
+<td>2.0 ^ 3.0</td>
+<td>8</td>
+</tr>
+<tr>
+<td>\</td>
+<td>/</td>
+<td>平方根</td>
+<td>\</td>
+<td>/ 25.0</td>
+<td>5</td>
+</tr>
+<tr>
+<td>\</td>
+<td></td>
+<td>/</td>
+<td>立方根</td>
+<td>\</td>
+<td>\</td>
+<td>/ 27.0</td>
+</tr>
+<tr>
+<td>!</td>
+<td>阶乘</td>
+<td>5 !</td>
+<td>120</td>
+</tr>
+<tr>
+<td>!!</td>
+<td>阶乘</td>
+<td>!! 5</td>
+<td>120</td>
+</tr>
+<tr>
+<td>@</td>
+<td>绝对值</td>
+<td>@ -5.0</td>
+<td>5</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>按位AND</td>
+<td>91 &amp; 15</td>
+<td>11</td>
+</tr>
+<tr>
+<td>\</td>
+<td></td>
+<td>按位OR</td>
+<td>32 \</td>
+<td>3</td>
+<td>35</td>
+</tr>
+<tr>
+<td>#</td>
+<td>按位XOR</td>
+<td>17 # 5</td>
+<td>20</td>
+</tr>
+<tr>
+<td>~</td>
+<td>按位NOT</td>
+<td>~1</td>
+<td>-2</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>按位左移</td>
+<td>1 &lt;&lt; 4</td>
+<td>16</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>按位右移</td>
+<td>8 &gt;&gt; 2</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="基本函数表"><a href="#基本函数表" class="headerlink" title="基本函数表"></a>基本函数表</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">返回类型</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">例子</th>
+<th style="text-align:center">结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">abs(x)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">绝对值</td>
+<td style="text-align:center">abs(-17.4)</td>
+<td style="text-align:center">17.4</td>
+</tr>
+<tr>
+<td style="text-align:center">cbrt(double)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">立方根</td>
+<td style="text-align:center">cbrt(27.0)</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">ceil(double/numeric)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">不小于参数的最小的整数</td>
+<td style="text-align:center">ceil(-42.8)</td>
+<td style="text-align:center">-42</td>
+</tr>
+<tr>
+<td style="text-align:center">degrees(double)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">把弧度转为角度</td>
+<td style="text-align:center">degrees(0.5)</td>
+<td style="text-align:center">28.6478897565412</td>
+</tr>
+<tr>
+<td style="text-align:center">exp(double/numeric)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">自然指数</td>
+<td style="text-align:center">exp(1.0)</td>
+<td style="text-align:center">2.71828182845905</td>
+</tr>
+<tr>
+<td style="text-align:center">floor(double/numeric)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">不大于参数的最大整数</td>
+<td style="text-align:center">floor(-42.8)</td>
+<td style="text-align:center">-43</td>
+</tr>
+<tr>
+<td style="text-align:center">ln(double/numeric)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">自然对数</td>
+<td style="text-align:center">ln(2.0)</td>
+<td style="text-align:center">0.693147180559945</td>
+</tr>
+<tr>
+<td style="text-align:center">log(double/numeric)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">10为底的对数</td>
+<td style="text-align:center">log(100.0)</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">log(b numeric,x numeric)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">numeric指定底数的对数</td>
+<td style="text-align:center">log(2.0, 64.0)</td>
+<td style="text-align:center">6.0000000000</td>
+</tr>
+<tr>
+<td style="text-align:center">mod(y, x)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">取余数</td>
+<td style="text-align:center">mod(9,4)</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">pi() double</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">“π”常量</td>
+<td style="text-align:center">pi()</td>
+<td style="text-align:center">3.14159265358979</td>
+</tr>
+<tr>
+<td style="text-align:center">power(a double, b double)</td>
+<td style="text-align:center">double</td>
+<td style="text-align:center">求a的b次幂</td>
+<td style="text-align:center">power(9.0, 3.0)</td>
+<td style="text-align:center">729</td>
+</tr>
+<tr>
+<td style="text-align:center">power(a numeric, b numeric)</td>
+<td style="text-align:center">numeric</td>
+<td style="text-align:center">求a的b次幂</td>
+<td style="text-align:center">power(9.0, 3.0)</td>
+<td style="text-align:center">729</td>
+</tr>
+<tr>
+<td style="text-align:center">radians(double)</td>
+<td style="text-align:center">double</td>
+<td style="text-align:center">把角度转为弧度</td>
+<td style="text-align:center">radians(45.0)</td>
+<td style="text-align:center">0.785398163397448</td>
+</tr>
+<tr>
+<td style="text-align:center">random()</td>
+<td style="text-align:center">double</td>
+<td style="text-align:center">0.0到1.0之间的随机数值</td>
+<td style="text-align:center">random()</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">round(double/numeric)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">圆整为最接近的整数</td>
+<td style="text-align:center">round(42.4)</td>
+<td style="text-align:center">42</td>
+</tr>
+<tr>
+<td style="text-align:center">round(v numeric, s int)</td>
+<td style="text-align:center">numeric</td>
+<td style="text-align:center">圆整为s位小数数字</td>
+<td style="text-align:center">round(42.438,2)</td>
+<td style="text-align:center">42.44</td>
+</tr>
+<tr>
+<td style="text-align:center">sqrt(double/numeric)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">平方根</td>
+<td style="text-align:center">sqrt(2.0)</td>
+<td style="text-align:center">1.4142135623731</td>
+</tr>
+</tbody>
+</table>
+<h2 id="三角函数列表"><a href="#三角函数列表" class="headerlink" title="三角函数列表"></a>三角函数列表</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">acos(x)</td>
+<td style="text-align:center">反余弦</td>
+</tr>
+<tr>
+<td style="text-align:center">asin(x)</td>
+<td style="text-align:center">反正弦</td>
+</tr>
+<tr>
+<td style="text-align:center">atan(x)</td>
+<td style="text-align:center">反正切</td>
+</tr>
+<tr>
+<td style="text-align:center">atan2(x, y)</td>
+<td style="text-align:center">正切 y/x 的反函数</td>
+</tr>
+<tr>
+<td style="text-align:center">cos(x)</td>
+<td style="text-align:center">余弦</td>
+</tr>
+<tr>
+<td style="text-align:center">cot(x)</td>
+<td style="text-align:center">余切</td>
+</tr>
+<tr>
+<td style="text-align:center">sin(x)</td>
+<td style="text-align:center">正弦</td>
+</tr>
+<tr>
+<td style="text-align:center">tan(x)</td>
+<td style="text-align:center">正切</td>
+</tr>
+</tbody>
+</table>
+<h1 id="字符串函数和操作符"><a href="#字符串函数和操作符" class="headerlink" title="字符串函数和操作符"></a>字符串函数和操作符</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">返回类型</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">例子</th>
+<th style="text-align:center">结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">string \</td>
+<td style="text-align:center">\</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">字串连接</td>
+<td>‘Post’ \</td>
+<td>\</td>
+<td>‘greSQL’</td>
+<td>PostgreSQL</td>
+</tr>
+<tr>
+<td style="text-align:center">bit_length(string)</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">字串里二进制位的个数</td>
+<td style="text-align:center">bit_length(‘jose’)</td>
+<td style="text-align:center">32</td>
+</tr>
+<tr>
+<td style="text-align:center">char_length(string)</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">字串中的字符个数</td>
+<td style="text-align:center">char_length(‘jose’)</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">convert(string using conversion_name)</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">使用指定的转换名字改变编码。</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">convert(‘PostgreSQL’ using iso_8859_1_to_utf8)</td>
+</tr>
+<tr>
+<td style="text-align:center">lower(string)</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">把字串转化为小写</td>
+<td style="text-align:center">lower(‘TOM’)</td>
+<td style="text-align:center">tom</td>
+</tr>
+<tr>
+<td style="text-align:center">octet_length(string)</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">字串中的字节数</td>
+<td style="text-align:center">octet_length(‘jose’)</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">octet_length(string)</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">字串中的字节数</td>
+<td style="text-align:center">octet_length(‘jose’)</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">overlay(string placing string from int [for int])</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">替换子字串</td>
+<td style="text-align:center">overlay(‘Txxxxas’ placing ‘hom’ from 2 for 4)</td>
+<td style="text-align:center">Thomas</td>
+</tr>
+<tr>
+<td style="text-align:center">position(substring in string)</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">指定的子字串的位置</td>
+<td style="text-align:center">position(‘om’ in ‘Thomas’)</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">substring(string [from int] [for int])</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">抽取子字串</td>
+<td style="text-align:center">substring(‘Thomas’ from 2 for 3)</td>
+<td style="text-align:center">hom</td>
+</tr>
+<tr>
+<td style="text-align:center">substring(string from pattern)</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">抽取匹配 POSIX 正则表达式的子字串</td>
+<td style="text-align:center">substring(‘Thomas’ from ‘…$’)</td>
+<td style="text-align:center">mas</td>
+</tr>
+<tr>
+<td style="text-align:center">substring(string from pattern for escape)</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">抽取匹配SQL正则表达式的子字串</td>
+<td style="text-align:center">substring(‘Thomas’ from ‘%#”o<em>a#”</em>‘ for ‘#’)</td>
+<td style="text-align:center">oma</td>
+</tr>
+<tr>
+<td style="text-align:center">trim([leading \</td>
+<td style="text-align:center">trailing \</td>
+<td style="text-align:center">both] [characters] from string)</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">从字串string的开头/结尾/两边/ 删除只包含characters(缺省是一个空白)的最长的字串</td>
+<td>trim(both ‘x’ from ‘xTomxx’)</td>
+<td>Tom</td>
+</tr>
+<tr>
+<td style="text-align:center">upper(string)</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">把字串转化为大写。</td>
+<td style="text-align:center">upper(‘tom’)</td>
+<td style="text-align:center">TOM</td>
+</tr>
+<tr>
+<td style="text-align:center">ascii(text)</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">参数第一个字符的ASCII码</td>
+<td style="text-align:center">ascii(‘x’)</td>
+<td style="text-align:center">120</td>
+</tr>
+<tr>
+<td style="text-align:center">btrim(string text [, characters text])</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">从string开头和结尾删除只包含在characters里(缺省是空白)的字符的最长字串</td>
+<td style="text-align:center">btrim(‘xyxtrimyyx’,’xy’)</td>
+<td style="text-align:center">trim</td>
+</tr>
+<tr>
+<td style="text-align:center">chr(int)</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">给出ASCII码的字符</td>
+<td style="text-align:center">chr(65)    A</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">convert(string text, [src_encoding name,] dest_encoding name)</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">把字串转换为dest_encoding</td>
+<td style="text-align:center">convert( ‘text_in_utf8’, ‘UTF8’, ‘LATIN1’)</td>
+<td style="text-align:center">以ISO 8859-1编码表示的text_in_utf8</td>
+</tr>
+<tr>
+<td style="text-align:center">initcap(text)</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">把每个单词的第一个子母转为大写，其它的保留小写。单词是一系列字母数字组成的字符，用非字母数字分隔。</td>
+<td style="text-align:center">initcap(‘hi thomas’)</td>
+<td style="text-align:center">Hi Thomas</td>
+</tr>
+<tr>
+<td style="text-align:center">length(string text)</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">string中字符的数目</td>
+<td style="text-align:center">length(‘jose’)</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">lpad(string text, length int [, fill text])</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">通过填充字符fill(缺省时为空白)，把string填充为长度length。 如果string已经比length长则将其截断(在右边)。</td>
+<td style="text-align:center">lpad(‘hi’, 5, ‘xy’)</td>
+<td style="text-align:center">xyxhi</td>
+</tr>
+<tr>
+<td style="text-align:center">ltrim(string text [, characters text])</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">从字串string的开头删除只包含characters(缺省是一个空白)的最长的字串。</td>
+<td style="text-align:center">ltrim(‘zzzytrim’,’xyz’)</td>
+<td style="text-align:center">trim</td>
+</tr>
+<tr>
+<td style="text-align:center">md5(string text)</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">计算给出string的MD5散列，以十六进制返回结果。</td>
+<td style="text-align:center">md5(‘abc’)</td>
+<td style="text-align:center">900150983cd24fb0d6963f7d28e17f72</td>
+</tr>
+<tr>
+<td style="text-align:center">repeat(string text, number int)</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">重复string number次。</td>
+<td style="text-align:center">repeat(‘Pg’, 4)</td>
+<td style="text-align:center">PgPgPgPg</td>
+</tr>
+<tr>
+<td style="text-align:center">replace(string text, from text, to text)</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">把字串string里出现地所有子字串from替换成子字串to。</td>
+<td style="text-align:center">replace(‘abcdefabcdef’, ‘cd’, ‘XX’)</td>
+<td style="text-align:center">abXXefabXXef</td>
+</tr>
+<tr>
+<td style="text-align:center">rpad(string text, length int [, fill text])</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">通过填充字符fill(缺省时为空白)，把string填充为长度length。如果string已经比length长则将其截断。</td>
+<td style="text-align:center">rpad(‘hi’, 5, ‘xy’)</td>
+<td style="text-align:center">hixyx</td>
+</tr>
+<tr>
+<td style="text-align:center">rtrim(string text [, character text])</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">从字串string的结尾删除只包含character(缺省是个空白)的最长的字</td>
+<td style="text-align:center">rtrim(‘trimxxxx’,’x’)</td>
+<td style="text-align:center">trim</td>
+</tr>
+<tr>
+<td style="text-align:center">split_part(string text, delimiter text, field int)</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">根据delimiter分隔string返回生成的第field个子字串(1 Base)。</td>
+<td style="text-align:center">split_part(‘abc~@~def~@~ghi’, ‘~@~’, 2)</td>
+<td style="text-align:center">def</td>
+</tr>
+<tr>
+<td style="text-align:center">strpos(string, substring)</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">声明的子字串的位置。</td>
+<td style="text-align:center">strpos(‘high’,’ig’)</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">substr(string, from [, count])</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">抽取子字串。</td>
+<td style="text-align:center">substr(‘alphabet’, 3, 2)</td>
+<td style="text-align:center">ph</td>
+</tr>
+<tr>
+<td style="text-align:center">to_ascii(text [, encoding])</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">把text从其它编码转换为ASCII。</td>
+<td style="text-align:center">to_ascii(‘Karel’)</td>
+<td style="text-align:center">Karel</td>
+</tr>
+<tr>
+<td style="text-align:center">to_hex(number int/bigint)</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">把number转换成其对应地十六进制表现形式 。</td>
+<td style="text-align:center">to_hex(9223372036854775807)</td>
+<td style="text-align:center">7fffffffffffffff</td>
+</tr>
+<tr>
+<td style="text-align:center">translate(string text, from text, to text)</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">把在string中包含的任何匹配from中的字符的字符转化为对应的在to中的字符。</td>
+<td style="text-align:center">translate(‘12345’, ‘14’, ‘ax’)</td>
+<td style="text-align:center">a23x5</td>
+</tr>
+</tbody>
+</table>
+<h1 id="位串函数和操作符"><a href="#位串函数和操作符" class="headerlink" title="位串函数和操作符"></a>位串函数和操作符</h1><ol>
+<li>对于类型bit和bit varying，除了常用的比较操作符之外，还可以使用以下列表中由PostgreSQL提供的位串函数和操作符，其中&amp;、|和#的位串操作数必须等长。在移位的时候，保留原始的位串的的长度。<br>| 操作符  |  描述   |          例子          |    结果    |<br>| :–: | :—: | :——————: | :——: |<br>| || |  连接   | B’10001’ || B’011’ | 10001011 |<br>|  &amp;   | 按位AND | B’10001’ &amp; B’01101’  |  00001   |<br>|  |  | 按位OR  | B’10001’ | B’01101’ |  11101   |<br>|  #  | 按位XOR | B’10001’ # B’01101’ |  11100   |<br>|  ~   | 按位NOT |      ~ B’10001’      |  01110   |<br>|  &lt;&lt;  | 按位左移  |    B’10001’ &lt;&lt; 3     |  01000   |<br>|  &gt;&gt;  | 按位右移  |    B’10001’ &gt;&gt; 2     |  00100   |</li>
+</ol>
+<hr>
+<p>位串还可以使用字符串函数：length， bit_length， octet_length， position， substring。此外，我们还可以在整数和bit之间来回转换，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">MyTest=# SELECT 44::bit(10);</div><div class="line">        bit</div><div class="line">    ------------</div><div class="line">     0000101100</div><div class="line">    (1 row)</div><div class="line">    MyTest=# SELECT 44::bit(3);</div><div class="line">     bit</div><div class="line">    -----</div><div class="line">     100</div><div class="line">    (1 row)</div><div class="line">    MyTest=# SELECT cast(-44 as bit(12));</div><div class="line">         bit</div><div class="line">    --------------</div><div class="line">     111111010100</div><div class="line">    (1 row)</div><div class="line">    MyTest=# SELECT &apos;1110&apos;::bit(4)::integer;</div><div class="line">     int4</div><div class="line">    ------</div><div class="line">       14</div><div class="line">    (1 row)</div><div class="line">    注意：如果只是转换为&quot;bit&quot;，意思是转换成bit(1)，因此只会转换成整数的最低位。</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/09/js中URL编码与解码/" itemprop="url">
                   js中URL编码与解码
                 </a>
@@ -1319,126 +2026,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/02/linux下git安装/" itemprop="url">
-                  linux下git安装
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-02T11:07:11+08:00" content="2016-08-02">
-              2016-08-02
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/02/linux下git安装/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/02/linux下git安装/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/02/linux下git安装/" class="leancloud_visitors" data-flag-title="linux下git安装">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>centos 7系统</p>
-</blockquote>
-<h4 id="1-更新系统"><a href="#1-更新系统" class="headerlink" title="1.更新系统"></a>1.更新系统</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum update</div></pre></td></tr></table></figure>
-<h4 id="2-安装依赖包"><a href="#2-安装依赖包" class="headerlink" title="2.安装依赖包"></a>2.安装依赖包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker</div></pre></td></tr></table></figure>
-<h4 id="3-下载git源码"><a href="#3-下载git源码" class="headerlink" title="3.下载git源码"></a>3.下载git源码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ wget https://github.com/git/git/archive/v2.3.0.zip</div><div class="line">$ unzip v2.3.0.zip</div><div class="line">$ cd git-2.3.0</div></pre></td></tr></table></figure>
-<h4 id="4-编译安装"><a href="#4-编译安装" class="headerlink" title="4.编译安装"></a>4.编译安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ make prefix=/usr/local/git all</div><div class="line">$ sudo make prefix=/usr/local/git install</div></pre></td></tr></table></figure>
-<h4 id="5-查看git所在路径："><a href="#5-查看git所在路径：" class="headerlink" title="5.查看git所在路径："></a>5.查看git所在路径：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ whereis git</div><div class="line">git: /usr/bin/git /usr/local/git /usr/share/man/man1/git.1.gz</div></pre></td></tr></table></figure>
-<h4 id="6-git添加到环境变量"><a href="#6-git添加到环境变量" class="headerlink" title="6.git添加到环境变量"></a>6.git添加到环境变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ sudo vim /etc/profile</div><div class="line">／／最后一行添加</div><div class="line">export PATH=/usr/local/git/bin:$PATH</div><div class="line">／／应用</div><div class="line">$ source /etc/profile</div></pre></td></tr></table></figure>
-<h4 id="7-设置git"><a href="#7-设置git" class="headerlink" title="7.设置git"></a>7.设置git</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;Your Name&quot;</div><div class="line">git config --global user.email &quot;youremail@domain.com&quot;</div></pre></td></tr></table></figure>
-<h4 id="8-创建ssh－keys"><a href="#8-创建ssh－keys" class="headerlink" title="8.创建ssh－keys"></a>8.创建ssh－keys</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//检查是否存在 </div><div class="line">$ ls -al ~/.ssh</div><div class="line"></div><div class="line">//生成ssh－keygen </div><div class="line">$ ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</div><div class="line"></div><div class="line">//Adding your SSH key to the ssh-agent</div><div class="line">//Ensure ssh-agent is enabled:</div><div class="line">$ eval &quot;$(ssh-agent -s)&quot;</div><div class="line"></div><div class="line">//Add your SSH key to the ssh-agent</div><div class="line">$ ssh-add ~/.ssh/id_rsa</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1484,7 +2071,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">45</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1494,7 +2081,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

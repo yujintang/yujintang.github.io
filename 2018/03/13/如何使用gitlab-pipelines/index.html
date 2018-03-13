@@ -1,0 +1,984 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="gitlab," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content=".gitlab-ci.yml1.什么是yaml语言?yaml 是一门专门来写配置文件的语言yaml语言教程
+1.1.语法规则
+大小写敏感
+使用缩进表示层级关系
+缩进时不允许使用Tab键，只允许使用空格。
+缩进的空格数目不重要，只要相同层级的元素左侧对齐即可1.2 数据结构
+对象：键值对的集合，又称为映射（mapping）/ 哈希（hashes） / 字典（dictionary）
+12animal:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用gitlab pipelines">
+<meta property="og:url" content="https://yujintang.github.io/2018/03/13/如何使用gitlab-pipelines/index.html">
+<meta property="og:site_name" content="技术分享">
+<meta property="og:description" content=".gitlab-ci.yml1.什么是yaml语言?yaml 是一门专门来写配置文件的语言yaml语言教程
+1.1.语法规则
+大小写敏感
+使用缩进表示层级关系
+缩进时不允许使用Tab键，只允许使用空格。
+缩进的空格数目不重要，只要相同层级的元素左侧对齐即可1.2 数据结构
+对象：键值对的集合，又称为映射（mapping）/ 哈希（hashes） / 字典（dictionary）
+12animal:">
+<meta property="og:image" content="https://yujintang.github.io/1.jpg">
+<meta property="og:updated_time" content="2018-03-13T13:25:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何使用gitlab pipelines">
+<meta name="twitter:description" content=".gitlab-ci.yml1.什么是yaml语言?yaml 是一门专门来写配置文件的语言yaml语言教程
+1.1.语法规则
+大小写敏感
+使用缩进表示层级关系
+缩进时不允许使用Tab键，只允许使用空格。
+缩进的空格数目不重要，只要相同层级的元素左侧对齐即可1.2 数据结构
+对象：键值对的集合，又称为映射（mapping）/ 哈希（hashes） / 字典（dictionary）
+12animal:">
+<meta name="twitter:image" content="https://yujintang.github.io/1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://yujintang.github.io/2018/03/13/如何使用gitlab-pipelines/"/>
+
+  <title> 如何使用gitlab pipelines | 技术分享 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?09c5d4daddb9b6250ba93075257e58a2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">技术分享</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                如何使用gitlab pipelines
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-03-13T10:09:16+08:00" content="2018-03-13">
+              2018-03-13
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/03/13/如何使用gitlab-pipelines/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/03/13/如何使用gitlab-pipelines/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/03/13/如何使用gitlab-pipelines/" class="leancloud_visitors" data-flag-title="如何使用gitlab pipelines">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="gitlab-ci-yml"><a href="#gitlab-ci-yml" class="headerlink" title=".gitlab-ci.yml"></a>.gitlab-ci.yml</h3><h4 id="1-什么是yaml语言"><a href="#1-什么是yaml语言" class="headerlink" title="1.什么是yaml语言?"></a>1.什么是yaml语言?</h4><p><strong>yaml 是一门专门来写配置文件的语言</strong><br><a href="http://www.ruanyifeng.com/blog/2016/07/yaml.html" target="_blank" rel="external">yaml语言教程</a></p>
+<h5 id="1-1-语法规则"><a href="#1-1-语法规则" class="headerlink" title="1.1.语法规则"></a>1.1.语法规则</h5><ol>
+<li>大小写敏感</li>
+<li>使用缩进表示层级关系</li>
+<li>缩进时不允许使用Tab键，只允许使用空格。</li>
+<li>缩进的空格数目不重要，只要相同层级的元素左侧对齐即可<h5 id="1-2-数据结构"><a href="#1-2-数据结构" class="headerlink" title="1.2 数据结构"></a>1.2 数据结构</h5></li>
+<li><p>对象：键值对的集合，又称为映射（mapping）/ 哈希（hashes） / 字典（dictionary）</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">animal:</span> pets</div><div class="line"><span class="comment"># &#123;animal: 'pets'&#125;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>数组：一组按次序排列的值，又称为序列（sequence） / 列表（list）</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">-</span> Cat</div><div class="line"><span class="bullet">-</span> Dog</div><div class="line"><span class="bullet">-</span> Goldfish</div><div class="line"><span class="comment"># ['Cat', 'Dog', 'Goldfish']</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>复合结构</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attr">languages:</span></div><div class="line"><span class="bullet"> -</span> Ruby </div><div class="line"><span class="attr">websites:</span></div><div class="line"><span class="attr"> YAML:</span> yaml.org </div><div class="line"><span class="comment"># &#123; languages: [ 'Ruby'],websites: &#123; YAML: 'yaml.org'&#125; &#125;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>纯量（scalars）：单个的、不可再分的值</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="attr">number:</span> <span class="number">12.30</span></div><div class="line"><span class="comment"># 数字 &#123; number: 12.30 &#125;</span></div><div class="line"><span class="attr">isSet:</span> <span class="literal">true</span></div><div class="line"><span class="comment"># 布尔值 &#123; isSet: true &#125;</span></div><div class="line"><span class="attr">parent:</span> ~ </div><div class="line"><span class="comment"># null值 &#123; parent: null &#125;</span></div><div class="line"><span class="attr">iso8601:</span> <span class="number">2001</span><span class="bullet">-12</span><span class="bullet">-14</span>t21:<span class="number">59</span>:<span class="number">43.10</span><span class="bullet">-05</span>:<span class="number">00</span> </div><div class="line"><span class="comment"># 时间，采用ISO8601格式，&#123; iso8601: new Date('2001-12-14t21:59:43.10-05:00') &#125;</span></div><div class="line"><span class="attr">date:</span> <span class="number">1976</span><span class="bullet">-07</span><span class="bullet">-31</span></div><div class="line"><span class="comment"># 日期采用复合 iso8601 格式的年、月、日表示 &#123; date: new Date('1976-07-31') &#125;</span></div><div class="line"><span class="attr">e:</span> <span class="type">!!str</span> <span class="number">123</span></div><div class="line"><span class="attr">f:</span> <span class="type">!!str</span> <span class="literal">true</span></div><div class="line"><span class="comment"># YAML 允许使用两个感叹号，强制转换数据类型。&#123; e: '123', f: 'true' &#125;</span></div><div class="line"><span class="attr">str:</span> 这是一行字符串</div><div class="line"><span class="comment"># 字符串默认不使用引号表示。&#123; str: '这是一行字符串' &#125;</span></div><div class="line"><span class="attr">str:</span> <span class="string">'内容： 字符串'</span></div><div class="line"><span class="comment"># 如果字符串之中包含空格或特殊字符，需要放在引号之中。&#123; str: '内容: 字符串' &#125;</span></div><div class="line"><span class="attr">s1:</span> <span class="string">'内容\n字符串'</span></div><div class="line"><span class="attr">s2:</span> <span class="string">"内容\n字符串"</span></div><div class="line"><span class="comment"># 单引号和双引号都可以使用，双引号不会对特殊字符转义。&#123; s1: '内容\\n字符串', s2: '内容\n字符串' &#125;</span></div><div class="line"><span class="attr">str:</span> <span class="string">'labor'</span><span class="string">'s day'</span> </div><div class="line"><span class="comment"># 单引号之中如果还有单引号，必须连续使用两个单引号转义。&#123; str: 'labor\'s day' &#125;</span></div><div class="line"><span class="attr">str:</span> 这是一段</div><div class="line">  多行</div><div class="line">  字符串</div><div class="line"><span class="comment"># 字符串可以写成多行，从第二行开始，必须有一个单空格缩进。换行符会被转为空格。&#123; str: '这是一段 多行 字符串' &#125;</span></div><div class="line"><span class="attr">this:</span> <span class="string">|</span></div><div class="line">  Foo</div><div class="line">  Bar</div><div class="line"><span class="attr">that:</span> <span class="string">&gt;</span></div><div class="line">  Foo</div><div class="line">  Bar</div><div class="line"># 多行字符串可以使用|保留换行符，也可以使用&gt;折叠换行。&#123; this: 'Foo\nBar\n', that: 'Foo Bar\n' &#125;</div><div class="line"><span class="attr">s1:</span> <span class="string">|</span></div><div class="line">  Foo</div><div class="line"></div><div class="line"><span class="attr">s2:</span> |+</div><div class="line">  Foo</div><div class="line"></div><div class="line"></div><div class="line"><span class="attr">s3:</span> |-</div><div class="line">  Foo</div><div class="line"><span class="comment"># +表示保留文字块末尾的换行，-表示删除字符串末尾的换行。&#123; s1: 'Foo\n', s2: 'Foo\n\n\n', s3: 'Foo' &#125;</span></div><div class="line"><span class="attr">message:</span> <span class="string">|</span></div><div class="line"></div><div class="line">  &lt;p style="color: red"&gt;</div><div class="line">    段落</div><div class="line">  &lt;/p&gt;</div><div class="line"># 字符串之中可以插入 HTML 标记。&#123; message: '\n&lt;p style="color: red"&gt;\n  段落\n&lt;/p&gt;\n' &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>引用<br><strong>锚点&amp;和别名<em>，可以用来引用。&amp;用来建立锚点（defaults），&lt;&lt;表示合并到当前数据，\</em>用来引用锚点。</strong> </p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="attr">defaults:</span> <span class="meta">&amp;defaults</span></div><div class="line"><span class="attr">  adapter:</span>  postgres</div><div class="line"><span class="attr">  host:</span>     localhost</div><div class="line"></div><div class="line"><span class="attr">development:</span></div><div class="line"><span class="attr">  database:</span> myapp_development</div><div class="line">  &lt;&lt;: <span class="meta">*defaults</span></div><div class="line"></div><div class="line"><span class="attr">test:</span></div><div class="line"><span class="attr">  database:</span> myapp_test</div><div class="line">  &lt;&lt;: <span class="meta">*defaults</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="attr">defaults:</span></div><div class="line"><span class="attr">  adapter:</span>  postgres</div><div class="line"><span class="attr">  host:</span>     localhost</div><div class="line"></div><div class="line"><span class="attr">development:</span></div><div class="line"><span class="attr">  database:</span> myapp_development</div><div class="line"><span class="attr">  adapter:</span>  postgres</div><div class="line"><span class="attr">  host:</span>     localhost</div><div class="line"></div><div class="line"><span class="attr">test:</span></div><div class="line"><span class="attr">  database:</span> myapp_test</div><div class="line"><span class="attr">  adapter:</span>  postgres</div><div class="line"><span class="attr">  host:</span>     localhost</div></pre></td></tr></table></figure>
+<h4 id="2-gitlab-ci-yml-具体配置"><a href="#2-gitlab-ci-yml-具体配置" class="headerlink" title="2.  .gitlab-ci.yml 具体配置"></a>2.  .gitlab-ci.yml 具体配置</h4><p><a href="https://docs.gitlab.com/ee/ci/yaml/" target="_blank" rel="external">gitlab .gitlab-ci doc</a></p>
+<h5 id="2-1-Jobs"><a href="#2-1-Jobs" class="headerlink" title="2.1. Jobs"></a>2.1. Jobs</h5><p><strong>定义任务，可以有多个任务</strong><br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attr">job1:</span></div><div class="line"><span class="attr">  script:</span> <span class="string">"execute-script-for-job1"</span></div><div class="line"></div><div class="line"><span class="attr">job2:</span></div><div class="line"><span class="attr">  script:</span> <span class="string">"execute-script-for-job2"</span></div></pre></td></tr></table></figure></p>
+<p>⚠️：<strong>不能使用以下关键字：image, services, stages, types, before_script, after_script, variables, cache</strong></p>
+<h5 id="2-2-before-script-and-after-script"><a href="#2-2-before-script-and-after-script" class="headerlink" title="2.2. before_script and after_script"></a>2.2. before_script and after_script</h5><p><strong>所有job执行前与执行后执行的脚本</strong><br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="attr">before_script:</span></div><div class="line"><span class="bullet">-</span> global before script</div><div class="line"></div><div class="line"><span class="attr">job:</span></div><div class="line"><span class="attr">  before_script:</span></div><div class="line"><span class="bullet">  -</span> execute this instead of global before script</div><div class="line"><span class="attr">  script:</span></div><div class="line"><span class="bullet">  -</span> my command</div><div class="line"><span class="attr">  after_script:</span></div><div class="line"><span class="bullet">  -</span> execute this after my script</div></pre></td></tr></table></figure></p>
+<p>⚠️：<strong>可以在job里覆盖before_script and after_script</strong></p>
+<h5 id="2-3-stage"><a href="#2-3-stage" class="headerlink" title="2.3 stage"></a>2.3 stage</h5><p><strong>pipelines 执行阶段,原字段为types(弃用)</strong><br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="attr">stages:</span></div><div class="line"><span class="bullet">  -</span> build</div><div class="line"><span class="bullet">  -</span> test</div><div class="line"><span class="bullet">  -</span> deploy</div><div class="line"></div><div class="line">job <span class="number">1</span>:</div><div class="line"><span class="attr">  stage:</span> build</div><div class="line"><span class="attr">  script:</span> make build dependencies</div><div class="line"></div><div class="line">job <span class="number">2</span>:</div><div class="line"><span class="attr">  stage:</span> build</div><div class="line"><span class="attr">  script:</span> make build artifacts</div><div class="line"></div><div class="line">job <span class="number">3</span>:</div><div class="line"><span class="attr">  stage:</span> test</div><div class="line"><span class="attr">  script:</span> make test</div><div class="line"></div><div class="line">job <span class="number">4</span>:</div><div class="line"><span class="attr">  stage:</span> deploy</div><div class="line"><span class="attr">  script:</span> make deploy</div></pre></td></tr></table></figure></p>
+<h5 id="2-4-script"><a href="#2-4-script" class="headerlink" title="2.4 script"></a>2.4 script</h5><p><strong>Job 执行的脚本</strong><br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attr">job:</span></div><div class="line"><span class="attr">  script:</span></div><div class="line"><span class="bullet">    -</span> uname -a</div><div class="line"><span class="bullet">    -</span> bundle exec rspec</div></pre></td></tr></table></figure></p>
+<h5 id="2-5-only-and-except"><a href="#2-5-only-and-except" class="headerlink" title="2.5 only and except"></a>2.5 only and except</h5><p><strong>Job在什么时候创建或除了什么创建，使用以下关键词：branches、tags、api、等</strong><br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="attr">job:</span></div><div class="line">  <span class="comment"># use regexp</span></div><div class="line"><span class="attr">  only:</span></div><div class="line"><span class="bullet">    -</span> /^issue-.*$/</div><div class="line">  <span class="comment"># use special keyword</span></div><div class="line"><span class="attr">  except:</span></div><div class="line"><span class="bullet">    -</span> branches</div></pre></td></tr></table></figure></p>
+<h5 id="2-6-tags"><a href="#2-6-tags" class="headerlink" title="2.6 tags"></a>2.6 tags</h5><p><strong>tags用于指定Job运行具体的gitlab-runner</strong><br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attr">job:</span></div><div class="line"><span class="attr">  tags:</span></div><div class="line"><span class="bullet">    -</span> ruby</div><div class="line"><span class="bullet">    -</span> postgres</div></pre></td></tr></table></figure></p>
+<h5 id="2-7-when"><a href="#2-7-when" class="headerlink" title="2.7 when"></a>2.7 when</h5><p><strong>Job的运行方式 on_success、on_failure、always、manual</strong><br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="attr">stages:</span></div><div class="line"><span class="bullet">-</span> build</div><div class="line"><span class="bullet">-</span> cleanup_build</div><div class="line"><span class="bullet">-</span> test</div><div class="line"><span class="bullet">-</span> deploy</div><div class="line"><span class="bullet">-</span> cleanup</div><div class="line"></div><div class="line"><span class="attr">build_job:</span></div><div class="line"><span class="attr">  stage:</span> build</div><div class="line"><span class="attr">  script:</span></div><div class="line"><span class="bullet">  -</span> make build</div><div class="line"></div><div class="line"><span class="attr">cleanup_build_job:</span></div><div class="line"><span class="attr">  stage:</span> cleanup_build</div><div class="line"><span class="attr">  script:</span></div><div class="line"><span class="bullet">  -</span> cleanup build when failed</div><div class="line"><span class="attr">  when:</span> on_failure</div><div class="line"></div><div class="line"><span class="attr">test_job:</span></div><div class="line"><span class="attr">  stage:</span> test</div><div class="line"><span class="attr">  script:</span></div><div class="line"><span class="bullet">  -</span> make test</div><div class="line"></div><div class="line"><span class="attr">deploy_job:</span></div><div class="line"><span class="attr">  stage:</span> deploy</div><div class="line"><span class="attr">  script:</span></div><div class="line"><span class="bullet">  -</span> make deploy</div><div class="line"><span class="attr">  when:</span> manual</div><div class="line"></div><div class="line"><span class="attr">cleanup_job:</span></div><div class="line"><span class="attr">  stage:</span> cleanup</div><div class="line"><span class="attr">  script:</span></div><div class="line"><span class="bullet">  -</span> cleanup after jobs</div><div class="line"><span class="attr">  when:</span> always</div></pre></td></tr></table></figure></p>
+<h5 id="2-8-cache"><a href="#2-8-cache" class="headerlink" title="2.8 cache"></a>2.8 cache</h5><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 根据CI_JOB_NAME进行缓存，缓存git未跟踪文件,文件位置在 logs／</span></div><div class="line"><span class="attr">cache:</span></div><div class="line"><span class="attr">  key:</span> <span class="string">"$CI_JOB_NAME"</span></div><div class="line"><span class="attr">  untracked:</span> <span class="literal">true</span></div><div class="line"><span class="attr">  paths:</span></div><div class="line"><span class="bullet">   -</span> logs/</div></pre></td></tr></table></figure>
+<h5 id="3-example"><a href="#3-example" class="headerlink" title="3 example"></a>3 example</h5><p><a href="https://docs.gitlab.com/ee/ci/examples/README.html" target="_blank" rel="external">例子</a></p>
+<h3 id="gitlab-runner"><a href="#gitlab-runner" class="headerlink" title="gitlab-runner"></a>gitlab-runner</h3><p><a href="https://docs.gitlab.com/runner/" target="_blank" rel="external">Runner</a></p>
+<h4 id="1-mac-环境"><a href="#1-mac-环境" class="headerlink" title="1.mac 环境"></a>1.mac 环境</h4><h5 id="1-1-下载"><a href="#1-1-下载" class="headerlink" title="1.1 下载"></a>1.1 下载</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo curl --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-darwin-amd64</div></pre></td></tr></table></figure>
+<h5 id="1-2-赋权"><a href="#1-2-赋权" class="headerlink" title="1.2 赋权"></a>1.2 赋权</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chmod +x /usr/local/bin/gitlab-runner</div></pre></td></tr></table></figure>
+<h5 id="1-3-启动一个Runner"><a href="#1-3-启动一个Runner" class="headerlink" title="1.3 启动一个Runner"></a>1.3 启动一个Runner</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd ~</div><div class="line">gitlab-runner install</div><div class="line">gitlab-runner start</div></pre></td></tr></table></figure>
+<h5 id="1-4-注册"><a href="#1-4-注册" class="headerlink" title="1.4 注册"></a>1.4 注册</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gitlab-runner register</div></pre></td></tr></table></figure>
+<h5 id="1-5-输入gitlab-URL"><a href="#1-5-输入gitlab-URL" class="headerlink" title="1.5 输入gitlab URL"></a>1.5 输入gitlab URL</h5><h5 id="1-6-输入token"><a href="#1-6-输入token" class="headerlink" title="1.6 输入token"></a>1.6 输入token</h5><h5 id="1-7-输入描述"><a href="#1-7-输入描述" class="headerlink" title="1.7 输入描述"></a>1.7 输入描述</h5><h5 id="1-8-输入标签"><a href="#1-8-输入标签" class="headerlink" title="1.8 输入标签"></a>1.8 输入标签</h5><h5 id="1-9-输入Runner执行的语言"><a href="#1-9-输入Runner执行的语言" class="headerlink" title="1.9 输入Runner执行的语言"></a>1.9 输入Runner执行的语言</h5><p><img src="1.jpg" alt=""></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block； padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wx_qrcode.png" alt="flynn wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wxPay.png" alt="flynn WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/aliPay.png" alt="flynn Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/gitlab/" rel="tag">#gitlab</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/26/javaScript传值调用还是传引用调用/" rel="next" title="javaScript传值调用还是传引用调用">
+                <i class="fa fa-chevron-left"></i> javaScript传值调用还是传引用调用
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2018/03/13/如何使用gitlab-pipelines/"
+           data-title="如何使用gitlab pipelines" data-url="https://yujintang.github.io/2018/03/13/如何使用gitlab-pipelines/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="flynn" />
+          <p class="site-author-name" itemprop="name">flynn</p>
+          <p class="site-description motion-element" itemprop="description">靡不有初,鲜克有终</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">45</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/yujintang" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/13foryou" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://baidu.com/" title="百度" target="_blank">百度</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#gitlab-ci-yml"><span class="nav-number">1.</span> <span class="nav-text">.gitlab-ci.yml</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-什么是yaml语言"><span class="nav-number">1.1.</span> <span class="nav-text">1.什么是yaml语言?</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-语法规则"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.语法规则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-数据结构"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 数据结构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-gitlab-ci-yml-具体配置"><span class="nav-number">1.2.</span> <span class="nav-text">2.  .gitlab-ci.yml 具体配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-Jobs"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1. Jobs</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-before-script-and-after-script"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2. before_script and after_script</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-stage"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 stage</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4-script"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.4 script</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-only-and-except"><span class="nav-number">1.2.5.</span> <span class="nav-text">2.5 only and except</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-6-tags"><span class="nav-number">1.2.6.</span> <span class="nav-text">2.6 tags</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-7-when"><span class="nav-number">1.2.7.</span> <span class="nav-text">2.7 when</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-8-cache"><span class="nav-number">1.2.8.</span> <span class="nav-text">2.8 cache</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-example"><span class="nav-number">1.2.9.</span> <span class="nav-text">3 example</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gitlab-runner"><span class="nav-number">2.</span> <span class="nav-text">gitlab-runner</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-mac-环境"><span class="nav-number">2.1.</span> <span class="nav-text">1.mac 环境</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-下载"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.1 下载</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-赋权"><span class="nav-number">2.1.2.</span> <span class="nav-text">1.2 赋权</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-启动一个Runner"><span class="nav-number">2.1.3.</span> <span class="nav-text">1.3 启动一个Runner</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-4-注册"><span class="nav-number">2.1.4.</span> <span class="nav-text">1.4 注册</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-5-输入gitlab-URL"><span class="nav-number">2.1.5.</span> <span class="nav-text">1.5 输入gitlab URL</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-6-输入token"><span class="nav-number">2.1.6.</span> <span class="nav-text">1.6 输入token</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-7-输入描述"><span class="nav-number">2.1.7.</span> <span class="nav-text">1.7 输入描述</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-8-输入标签"><span class="nav-number">2.1.8.</span> <span class="nav-text">1.8 输入标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-9-输入Runner执行的语言"><span class="nav-number">2.1.9.</span> <span class="nav-text">1.9 输入Runner执行的语言</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">flynn</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"yujintang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("3vcCb1NkQBRLUvnzW1WFN8ok-gzGzoHsz", "PQkJCrrDQSDhu2modCKgt3XP");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
